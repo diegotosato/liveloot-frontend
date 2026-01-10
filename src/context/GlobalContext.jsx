@@ -5,11 +5,18 @@ const GlobalContext = createContext();
 
 function GlobalProvider({ children }) {
 
+    const [techs, setTechs] = useState([])
     const [loading, setLoading] = useState(false);
     const values = {
         loading,
-        setLoading
+        setLoading,
+        techs,
+        setTechs
     };
+
+
+
+
 
     return (
         <GlobalContext.Provider value={values}>

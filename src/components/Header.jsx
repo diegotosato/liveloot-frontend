@@ -3,20 +3,22 @@ import { Keyboard, GridNine, MouseSimple, Monitor, VideoCamera, OfficeChair, Hea
 
 export default function Header() {
 
+    const icone = {
+        'tastiera': <Keyboard size={32} />,
+        'stream-deck': <GridNine size={32} />,
+        'mouse': <MouseSimple size={32} />,
+        'monitor': <Monitor size={32} />,
+        'webcam': <VideoCamera size={32} />,
+        'sedie-gaming': <OfficeChair size={32} />,
+        'cuffie': <Headphones size={32} />,
+        'tappetini-da-gaming': <DeviceTablet size={32} style={{ transform: "rotate(90deg)" }} />,
+        'computer-fisso-gaming': <DesktopTower size={32} />,
+        'computer-portatile-gaming': <Laptop size={32} />
+    }
 
     return (
         <>
 
-            <Keyboard size={32} />
-            <GridNine size={32} />
-            <MouseSimple size={32} />
-            <Monitor size={32} />
-            <VideoCamera size={32} />
-            <OfficeChair size={32} />
-            <Headphones size={32} />
-            <DeviceTablet size={32} style={{ transform: "rotate(90deg)" }} />
-            <DesktopTower size={32} />
-            <Laptop size={32} />
 
             <nav className="navbar navbar-expand-sm navbar-light bg-light">
                 <div className="container">

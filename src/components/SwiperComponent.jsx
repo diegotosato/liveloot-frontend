@@ -13,9 +13,7 @@ import 'swiper/css/navigation';
 import { useGlobalContext } from '../context/GlobalContext';
 
 export default function SwiperComponent() {
-    const { setLoading } = useGlobalContext()
-
-    const [techs, setTechs] = useState([])
+    const { setLoading, techs, setTechs } = useGlobalContext()
 
     useEffect(() => {
         setLoading(true);
@@ -28,6 +26,7 @@ export default function SwiperComponent() {
                 setLoading(false);
             })
     }, [])
+
 
 
 
