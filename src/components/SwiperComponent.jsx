@@ -46,8 +46,8 @@ export default function SwiperComponent() {
                     }}
                     mousewheel={{ enabled: true, sensitivity: 1 }}
                     coverflowEffect={{
-                        rotate: 0,
-                        stretch: 0,
+                        rotate: -50,
+                        stretch: 50,
                         depth: 50,
                         modifier: 1,
                         slideShadows: true,
