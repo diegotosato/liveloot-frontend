@@ -1,16 +1,36 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState, useEffect } from "react"
 import {
     EffectCoverflow,
     Navigation,
     Mousewheel,
     Autoplay
 } from 'swiper/modules';
-
+import axios from 'axios';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
+import { useGlobalContext } from '../context/GlobalContext';
 
 export default function SwiperComponent() {
+    const { setLoading } = useGlobalContext()
+
+    const [techs, setTechs] = useState([])
+
+    useEffect(() => {
+        setLoading(true);
+        axios.get('http://localhost:3000/techs/all')
+            .then(res => {
+                setTechs(res.data)
+            }).catch(err => {
+                console.log(err)
+            }).finally(() => {
+                setLoading(false);
+            })
+    }, [])
+
+
+
     return (
         <>
             <div className="swiper-wrapper-container">
@@ -35,32 +55,20 @@ export default function SwiperComponent() {
                     }}
                     className="mySwiper continuous"
                 >
-                    <SwiperSlide>
-                        <a href="#">
-                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </a>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                    </SwiperSlide>
+                    {techs.map(tech => (
+
+
+
+
+                        <SwiperSlide>
+                            <a href="#">
+                                <img src={`http://localhost:3000/${tech.image}`} />
+                            </a>
+                        </SwiperSlide>
+
+
+
+                    ))}
                 </Swiper>
 
                 {/* Frecce custom */}
