@@ -1,0 +1,99 @@
+@import url('bootstrap-icons');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* #region Swiper */
+
+/* swiper generico */
+.swiper-wrapper-container {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.swiper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 0;
+
+  overflow: hidden;
+
+  /* cursor: pointer; */
+}
+
+/* dimensione e caratteristiche della singola slide */
+.swiper-slide {
+  width: 500px !important;
+  height: 500px !important;
+
+  background-position: center;
+  background-size: cover;
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+/* dimensione e caratteristiche della slide ATTIVA */
+.swiper-slide-active {
+  opacity: 1;
+}
+
+/* regola di default per dimensione immagine che riempia tutto */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mySwiper.continuous .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* aspetto delle frecce sinistra/destra */
+.custom-prev,
+.custom-next {
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  background-color: red;
+  border-radius: 500px;
+  transition: all 0.3s ease;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  background-color: black;
+}
+
+.custom-prev {
+  left: 10px;
+}
+
+.custom-next {
+  right: 10px;
+}
+
+/* #endregion Swiper */
