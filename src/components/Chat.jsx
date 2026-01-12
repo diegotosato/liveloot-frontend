@@ -19,8 +19,8 @@ export default function Chat() {
         e.preventDefault();
         // Logic to handle chat submission goes here
         console.log("Chat submitted:", chatInput);
-        setChatInput("");
         getAIResponse(chatInput);
+        setChatInput("");
     }
 
 
