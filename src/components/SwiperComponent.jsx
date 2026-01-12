@@ -12,6 +12,10 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import { useGlobalContext } from '../context/GlobalContext';
 
+import {
+    CaretDown
+} from "@phosphor-icons/react";
+
 export default function SwiperComponent() {
     const { setLoading, techs, setTechs } = useGlobalContext()
 
@@ -33,6 +37,7 @@ export default function SwiperComponent() {
     return (
         <>
             <div className="swiper-wrapper-container">
+
                 <Swiper
                     modules={[EffectCoverflow, Navigation, Mousewheel, Autoplay]}
                     effect={'coverflow'}
@@ -52,31 +57,25 @@ export default function SwiperComponent() {
                         slideShadows: true,
                         scale: 0.8
                     }}
-                    className="mySwiper continuous"
-                >
+                    className="mySwiper continuous">
                     {techs.map(tech => (
-
-
-
-
                         <SwiperSlide>
                             <a href="#">
                                 <img src={`http://localhost:3000/${tech.image}`} />
                             </a>
                         </SwiperSlide>
-
-
-
                     ))}
+
                 </Swiper>
 
                 {/* Frecce custom */}
                 <div className="custom-prev">
-                    <i className="bi bi-caret-left-fill"></i>
+                    <CaretDown style={{ rotate: '90deg' }} />
                 </div>
                 <div className="custom-next">
-                    <i className="bi bi-caret-right-fill"></i>
+                    <CaretDown style={{ rotate: '-90deg' }} />
                 </div>
+
             </div>
         </>
     )

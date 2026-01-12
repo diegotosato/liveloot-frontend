@@ -31,10 +31,7 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 80px 0;
-
   overflow: hidden;
-
-  /* cursor: pointer; */
 }
 
 /* dimensione e caratteristiche della singola slide */
@@ -67,6 +64,7 @@
   height: 100%;
   object-fit: contain;
   background-color: white;
+  padding: 2rem;
 }
 
 .mySwiper.continuous .swiper-wrapper {
@@ -89,14 +87,15 @@
   color: white;
   cursor: pointer;
   user-select: none;
-  background-color: var(--color-fuchsia);
   border-radius: 500px;
-  transition: all 0.3s ease;
+  font-size: 40px;
+  transition: all 0.3s linear;
 }
 
 .custom-prev:hover,
 .custom-next:hover {
-  background-color: var(--color-light-purple);
+  color: var(--color-fuchsia);
+  font-size: 50px;
 }
 
 .custom-prev {
@@ -234,6 +233,7 @@ form {
 /* #region main*/
 
 .back-gradient {
+  padding-bottom: 7rem;
   background-image: linear-gradient(to bottom, var(--color-purple), var(--color-fuchsia));
 }
 
@@ -385,6 +385,63 @@ form {
 
 /* #endregion */
 
+/* #region ultimi arrivi */
+.shower {
+  position: relative;
+  height: 470px;
+  width: 100%;
+}
+
+.new-prod-bigger {
+  width: 35%;
+  transform: translate(-50%, -0%);
+  left: 50%;
+}
+
+.new-prod-smaller-sx {
+  width: 30%;
+  transform: translate(0%, -0%);
+  left: 5%;
+}
+
+.new-prod-smaller-dx {
+  width: 30%;
+  transform: translate(-0%, -0%);
+  right: 5%;
+}
+
+.new-prod-bigger,
+.new-prod-smaller-sx,
+.new-prod-smaller-dx {
+  transition: all 0.3s linear;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  box-shadow: 0 0 10px var(--color-fuchsia);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px 20px 0 0;
+
+  img {
+    width: 100%;
+    z-index: 5555;
+  }
+}
+
+.new-prod-bigger:hover {
+  width: 37%;
+}
+
+.new-prod-smaller-sx:hover,
+.new-prod-smaller-dx:hover {
+  width: 32%;
+  z-index: 9999;
+}
+
+/* #endregion */
+
 /* #endregion */
 
 /* #region Chat bubbles */
@@ -509,6 +566,8 @@ a {
   text-align: center;
   padding-bottom: 100px;
 }
+
+
 
 /* smaller avatar-less phone feel */
 @media (max-width: 576px) {

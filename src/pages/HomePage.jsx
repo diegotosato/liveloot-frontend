@@ -2,7 +2,31 @@ import SwiperComponent from "../components/SwiperComponent"
 import video from "../assets/img/video-stanza.gif"
 import scritta from "../assets/img/scritta-logo.png"
 
+import axios from 'axios';
+import { useGlobalContext } from '../context/GlobalContext';
+import { useState, useEffect } from "react"
+
+
+
 export default function HomePage() {
+
+
+    const [arrivals, setArrivals] = useState([])
+    useEffect(() => {
+        axios.get('http://localhost:3000/techs/all')
+            .then(res => {
+                const product = []
+                for (let i = 0; i < 3; i++) {
+                    product.push(res.data[i])
+                }
+                setArrivals(product)
+            }).catch(err => {
+                console.log(err)
+            })
+    }, [])
+    console.log(arrivals);
+
+
     return (
         <>
             {/* hero-space */}
@@ -25,7 +49,7 @@ export default function HomePage() {
 
                     <div className="container">
 
-                        <div className="card">
+                        <div className="card border-0">
 
                             {/* onda */}
                             <div className="wave">
@@ -62,7 +86,7 @@ export default function HomePage() {
 
                     <div className="container">
 
-                        <div className="card">
+                        <div className="card pb-0 border-0">
 
                             {/* onda */}
                             <div className="wave">
@@ -77,8 +101,26 @@ export default function HomePage() {
                                 </h2>
                             </div>
 
-                            {/* carosello */}
-                            <div className="card-body">
+                            <div className="shower">
+                                {/* immagine SX */}
+                                <div className="new-prod-smaller-sx">
+                                    {
+                                        <img src={`http://localhost:3000/${arrivals[1]?.image}`} />
+                                    }
+                                </div>
+                                {/* immagine DX */}
+                                <div className="new-prod-smaller-dx">
+                                    {
+                                        <img src={`http://localhost:3000/${arrivals[2]?.image}`} />
+                                    }
+                                </div>
+                                {/* immagine centrale */}
+                                <div className="new-prod-bigger">
+                                    {
+                                        <img src={`http://localhost:3000/${arrivals[0]?.image}`} />
+                                    }
+                                </div>
+
                             </div>
 
                         </div>
