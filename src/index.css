@@ -458,8 +458,54 @@ h2 {
   font-size: 35px !important;
 }
 
-.list_footer {
-  text-decoration: none;
+.color_footer {
+  background-color: var(--color-purple);
+}
+
+.footer_logo {
+  width: 180px;
+  text-align: center !important;
+  margin: 0 auto;
+  display: block;
+  padding: 30px 10px 10px 10px !important;
+}
+
+.padding-footer {
+  padding: 100px 100px 30px 100px;
+}
+
+li {
+  list-style: none;
+  color: var(--color-fuchsia) !important;
+
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.titoli-footer {
+  color: var(--color-lightblue) !important;
+}
+
+ul {
+  border-bottom: 2px solid var(--color-fuchsia) !important;
+}
+
+.social {
+  text-align: center;
+  padding: 30px;
+
+  &>*+* {
+    margin-left: 70px;
+  }
+}
+
+.copy {
+  color: var(--color-fuchsia);
+  font-size: 15px;
+  text-align: center;
+  padding-bottom: 100px;
 }
 
 /* smaller avatar-less phone feel */

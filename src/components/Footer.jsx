@@ -1,4 +1,7 @@
 import { NavLink } from 'react-router-dom'
+import Logo from '../assets/img/logo.svg'
+import { FacebookLogo, InstagramLogo, MessengerLogo, TiktokLogo } from "@phosphor-icons/react";
+
 
 
 export default function Footer() {
@@ -67,20 +70,32 @@ export default function Footer() {
     ]
     return (
         <>
-            <div className="list_footer">
-                <div className="all">
-                    <div className="container">
-                        <div className="up d-flex row">
-                            {list.map((items) => (
-                                <ul key={items.id} className='col-4'>
-                                    <h3><strong>{items.title}</strong></h3>
-                                    {items.links.map((link) => (
-                                        <NavLink key={link.id}><li>{link.text}</li></NavLink>
-                                    ))}
-                                </ul>
-                            ))}
+            <div className="color_footer">
+                <div className="container">
+                    <ul className='row padding-footer'>
+                        <div className='col'>
+                            <img className='footer_logo' src={Logo}></img>
                         </div>
-                    </div>
+                        {list.map((items) => (
+                            <div key={items.id} className='col'>
+                                <h3 className='titoli-footer'><strong>{items.title}</strong></h3>
+                                {
+                                    items.links.map((link) => (
+                                        <NavLink key={link.id}><li>{link.text}</li></NavLink>
+                                    ))
+                                }
+                            </div>
+                        ))}
+                    </ul>
+                </div>
+                <div className='social'>
+                    <FacebookLogo size={32} color="#fd13e5" />
+                    <InstagramLogo size={32} color="#fd13e5" />
+                    <MessengerLogo size={32} color="#fd13e5" />
+                    <TiktokLogo size={32} color="#fd13e5" />
+                </div>
+                <div className='copy'>
+                    &copy; Copyright. All rights reserved.
                 </div>
             </div>
         </>
