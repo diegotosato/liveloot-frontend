@@ -110,26 +110,61 @@
 
 /* #endregion Swiper */
 
-/* navbar */
-
+/* #region navbar */
 .navbar {
   background-color: var(--color-purple) !important;
 }
 
 .nav-link {
   color: white !important;
+  text-shadow: 0 0 10px var(--color-fuchsia);
+  transition: all 0.3s linear;
+}
+
+.nav-link:hover {
+  color: var(--color-fuchsia) !important;
 }
 
 .navbar-brand {
   width: 100px;
 }
 
-.cart {
-  color: var(--color-fuchsia) !important;
-  /* border-color: var(--color-fuchsia) !important; */
+.down-arrow {
+  margin-left: 0.25rem;
+}
+
+#search-bar {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 1rem;
   border: 2px solid var(--color-fuchsia);
-  border-radius: 50% !important;
-  width: 50px !important;
+  transition: all 0.3s linear;
+}
+
+#search-bar::placeholder {
+  color: var(--color-fuchsia);
+  transition: all 0.3s linear;
+}
+
+#search-bar:focus {
+  background-color: rgba(184, 11, 167, 1);
+  color: white;
+}
+
+#search-bar:focus::placeholder {
+  color: white;
+}
+
+#search-bar:focus-visible {
+  outline: none;
+}
+
+.cart {
+  width: 40px;
+  aspect-ratio: 1/1;
+  color: var(--color-fuchsia);
+  border: 2px solid var(--color-fuchsia);
+  border-radius: 50%;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -137,8 +172,6 @@
   transition: all 0.3s linear;
 
   .cart-icon {
-    /* width: 70% !important;
-    aspect-ratio: 1/1; */
     font-size: 20px;
   }
 }
@@ -149,18 +182,20 @@
   border-radius: 50%;
 }
 
-.nav-link:hover {
-  color: rgba(184, 11, 167, 1) !important;
-}
+/* #endregion */
+
+
+
+
+
+
+
+
+
 
 .form-select {
   color: var(--color-fuchsia) !important;
   border-color: var(--color-fuchsia) !important;
-}
-
-option:hover {
-  background-color: rgba(184, 11, 167, 1) !important;
-  color: white !important;
 }
 
 .form-control {
@@ -168,21 +203,6 @@ option:hover {
   border-color: var(--color-fuchsia) !important;
 }
 
-input::placeholder {
-  color: var(--color-fuchsia) !important;
-}
-
-input:focus {
-  /* background-color: rgba(255, 255, 255, 0.8) !important; */
-  background-color: rgba(184, 11, 167, 1) !important;
-  border-color: var(--color-fuchsia) !important;
-  box-shadow: none !important;
-  color: white !important;
-
-  &::placeholder {
-    color: white !important;
-  }
-}
 
 
 form {
@@ -486,10 +506,6 @@ a {
 
 .titoli-footer {
   color: var(--color-lightblue) !important;
-}
-
-ul {
-  border-bottom: 2px solid var(--color-fuchsia) !important;
 }
 
 .social {

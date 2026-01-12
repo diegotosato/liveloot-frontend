@@ -1,5 +1,18 @@
 import { NavLink } from "react-router-dom";
-import { Keyboard, GridNine, MouseSimple, Monitor, VideoCamera, OfficeChair, Headphones, DeviceTablet, DesktopTower, Laptop, ShoppingCart } from "@phosphor-icons/react";
+import {
+    Keyboard,
+    GridNine,
+    MouseSimple,
+    Monitor,
+    VideoCamera,
+    OfficeChair,
+    Headphones,
+    DeviceTablet,
+    DesktopTower,
+    Laptop,
+    ShoppingCart,
+    CaretDown
+} from "@phosphor-icons/react";
 import Logo from '../assets/img/logo.svg'
 
 export default function Header() {
@@ -20,29 +33,51 @@ export default function Header() {
     return (
         <>
 
+            {/* Navbar */}
+            <nav className="navbar navbar-expand-sm navbar-light bg-light py-3">
 
-            <nav className="navbar navbar-expand-sm navbar-light bg-light">
                 <div className="container">
+
+                    {/* Logo */}
                     <NavLink className="navbar-brand" to="/">
                         <img src={Logo} alt="logo" />
                     </NavLink>
+
+                    {/* Links */}
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
+
                         <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/" aria-current="page">Home</NavLink>
+                                <NavLink className="nav-link fs-5" to="/" aria-current="page">
+                                    Home
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/" aria-current="page">Categorie</NavLink>
+                                <NavLink className="nav-link fs-5" to="/" aria-current="page">
+                                    Categorie<CaretDown className="down-arrow" />
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/" aria-current="page">Chi Siamo</NavLink>
+                                <NavLink className="nav-link fs-5" to="/" aria-current="page">
+                                    Chi Siamo
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
-                    <form className="form-inline w-25">
-                        <input className="form-control rounded-pill" type="search" placeholder="Search" aria-label="Search"></input>
-                        <button className="cart ms-3" type="submit"><ShoppingCart className="cart-icon" /></button>
-                    </form>
+
+                    {/* SearchBar */}
+                    <input
+                        id="search-bar"
+                        name="search-bar"
+                        className="rounded-pill"
+                        type="search"
+                        placeholder="Cerca..."
+                        aria-label="Search" />
+
+                    {/* Carrello */}
+                    <button className="cart ms-2" type="submit">
+                        <ShoppingCart className="cart-icon" />
+                    </button>
                 </div>
             </nav>
 
