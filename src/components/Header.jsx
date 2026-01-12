@@ -32,10 +32,10 @@ export default function Header() {
                                 <NavLink className="nav-link" to="/" aria-current="page">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/" aria-current="page">Contacts</NavLink>
+                                <NavLink className="nav-link" to="/" aria-current="page">Categorie</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/" aria-current="page">Admin</NavLink>
+                                <NavLink className="nav-link" to="/" aria-current="page">Chi Siamo</NavLink>
                             </li>
                         </ul>
                     </div>
