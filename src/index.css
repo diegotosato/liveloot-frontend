@@ -177,3 +177,26 @@ input:focus {
 form {
   display: flex;
 }
+
+.card {
+  background-color: var(--color-purple) !important;
+  border-radius: 20px !important;
+  box-shadow: inset 10px var(--color-fuchsia) !important;
+  box-shadow: 0 0 10px 5px rgba(184, 11, 167, 1) !important;
+}
+
+.card h2 {
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+
+  span {
+    color: var(--color-lightblue) !important;
+  }
+}
+
+h2 {
+  text-shadow: -1px 1px 11px rgba(87, 217, 236, 0.81);
+
+}
