@@ -211,6 +211,50 @@ h2 {
 
 }
 
+/*PARTE COL VIDEO DELLA STANZA IN LOOP*/
+.jumbotron {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  .video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+    
+  }
+
+  .bottino {
+  z-index: 100;
+  position: absolute;
+  color: white;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.scritta {
+  color: var(--color-fuchsia);
+}
+
+.bocchino {
+  color: var(--color-lightblue);
+  font-size: 2.5rem;
+}
+
+.stream {
+  color: var(--color-purple);
+  text-shadow: 0 0 10px white;
+  font-size: 4rem;
+}
+
+}
+
+
+
 /* Chat bubbles */
 .chat-bubble {
   display: inline-block;
