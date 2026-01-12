@@ -152,6 +152,16 @@
   color: rgba(184, 11, 167, 1) !important;
 }
 
+.form-select {
+  color: var(--color-fuchsia) !important;
+  border-color: var(--color-fuchsia) !important;
+}
+
+option:hover {
+  background-color: rgba(184, 11, 167, 1) !important;
+  color: white !important;
+}
+
 .form-control {
   color: var(--color-fuchsia) !important;
   border-color: var(--color-fuchsia) !important;
@@ -199,4 +209,85 @@ form {
 h2 {
   text-shadow: -1px 1px 11px rgba(87, 217, 236, 0.81);
 
+}
+
+/* Chat bubbles */
+.chat-bubble {
+  display: inline-block;
+  margin: 6px 0;
+  padding: 10px 14px;
+  border-radius: 18px;
+  max-width: 78%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.chat-bubble.user {
+  background: linear-gradient(135deg, var(--color-fuchsia), var(--color-light-purple));
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-bubble.ai {
+  background: linear-gradient(135deg, rgba(48, 229, 173, 0.95), var(--color-lightblue));
+  color: var(--color-blue);
+  align-self: flex-start;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-text {
+  font-size: 0.95rem;
+}
+
+/* container tweaks for mobile-like appearance */
+#chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Author and timestamp styles */
+.chat-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.chat-author {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.chat-author.user {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.chat-author.ai {
+  color: var(--color-blue);
+}
+
+.chat-timestamp {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Slightly different timestamp color for AI bubble on light bg */
+.chat-bubble.ai .chat-timestamp {
+  color: rgba(15, 20, 52, 0.6);
+}
+
+/* smaller avatar-less phone feel */
+@media (max-width: 576px) {
+  #chat-window {
+    width: 92% !important;
+    right: 4% !important;
+    bottom: 16px !important;
+    min-height: 60vh !important;
+  }
 }

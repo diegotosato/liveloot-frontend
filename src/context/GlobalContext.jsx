@@ -8,6 +8,8 @@ const GlobalContext = createContext();
 
 function GlobalProvider({ children }) {
 
+    const [chatRealInput, setChatRealInput] = useState("");
+    const [chatResponseReal, setChatResponseReal] = useState([]);
     const [chatInput, setChatInput] = useState("");
     const [chatResponse, setChatResponse] = useState("");
     const [techs, setTechs] = useState([])
@@ -20,7 +22,12 @@ function GlobalProvider({ children }) {
         getAIResponse,
         setChatResponse,
         chatInput,
-        setChatInput
+        setChatInput,
+        chatRealInput,
+        setChatRealInput,
+        chatResponseReal,
+        setChatResponseReal,
+        chatResponse
     }
 
     async function translateText(prompt) {
@@ -75,17 +82,9 @@ function GlobalProvider({ children }) {
         const prompt = `User: ${userInput}\nAI:`;
         const aiResponse = await generateText(prompt);
         const translateTextResponse = await translateText(aiResponse.answer);
-        console.log(translateTextResponse);
-
-
 
         return translateTextResponse;
-    }
-
-    ;
-
-
-
+    };
 
 
     return (

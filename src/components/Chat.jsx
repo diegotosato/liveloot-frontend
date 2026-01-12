@@ -1,7 +1,19 @@
 import { useGlobalContext } from "../context/GlobalContext";
+import { useState, useEffect, useRef } from "react";
 export default function Chat() {
 
-    const { getAIResponse, setChatResponse, chatInput, setChatInput } = useGlobalContext();
+    const { getAIResponse, setChatResponse, chatInput, setChatInput, chatRealInput, setChatRealInput, chatResponseReal, setChatResponseReal } = useGlobalContext();
+
+    const messagesRef = useRef(null);
+    const messagesEndRef = useRef(null);
+
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        } else if (messagesRef.current) {
+            messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+        }
+    }, [chatResponseReal]);
 
 
 
@@ -14,46 +26,60 @@ export default function Chat() {
         }
     }
 
-    function handleChatSubmit(e) {
+    async function handleChatSubmit(e) {
         e.preventDefault();
-        // Logic to handle chat submission goes here
+        if (!chatInput || !chatInput.trim()) return;
         console.log("Chat submitted:", chatInput);
-        getAIResponse(chatInput);
+        const response = await getAIResponse(chatInput);
+        setChatRealInput(chatInput);
+        const now = new Date();
+        const userTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const aiTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        setChatResponseReal((prev) => [...prev, { author: 'user', text: chatInput, time: userTime }, { author: 'ai', text: response, time: aiTime }]);
         setChatInput("");
     }
 
 
     return (
         <>
-            <div className="card d-none" id="chat-window" style={{ width: '18rem', position: 'fixed', bottom: '80px', right: '20px', zIndex: 1000 }}>
+            <div className="card d-none mt-4" id="chat-window" style={{ width: '18rem', position: 'fixed', bottom: '80px', right: '20px', zIndex: 1000, minHeight: '500px' }}>
                 <div className="card-header">
                     Chat Window
                 </div>
-                <div className="card-body">
-                    <select className="form-select" aria-label="Default select example" onChange={(e) => setChatResponse(e.target.value)}>
-                        <option>Seleziona una categoria</option>
-                        <option value="Tastiera">Tastiera</option>
-                        <option value="Mouse">Mouse</option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Webcam">Webcam</option>
-                        <option value="Cuffie">Cuffie</option>
-                        <option value="Sedie da gaming">Sedie da gaming</option>
-                        <option value="Tappetini da gaming">Tappetini da gaming</option>
-                        <option value="Computer fisso da gaming">Computer fisso da gaming</option>
-                        <option value="Computer portatile da gaming">Computer portatile da gaming</option>
-                        <option value="Stream deck">Stream deck</option>
+                <div className="card-body d-flex flex-column justify-content-between">
+                    <select className="form-select mb-3 rounded-pill" aria-label="Default select example" onChange={(e) => setChatResponse(e.target.value)}>
+                        <option className="catChat">Seleziona una categoria</option>
+                        <option className="catChat" value="Tastiera">Tastiera</option>
+                        <option className="catChat" value="Mouse">Mouse</option>
+                        <option className="catChat" value="Monitor">Monitor</option>
+                        <option className="catChat" value="Webcam">Webcam</option>
+                        <option className="catChat" value="Cuffie">Cuffie</option>
+                        <option className="catChat" value="Sedie da gaming">Sedie da gaming</option>
+                        <option className="catChat" value="Tappetini da gaming">Tappetini da gaming</option>
+                        <option className="catChat" value="Computer fisso da gaming">Computer fisso da gaming</option>
+                        <option className="catChat" value="Computer portatile da gaming">Computer portatile da gaming</option>
+                        <option className="catChat" value="Stream deck">Stream deck</option>
                     </select>
-                    <form type="submit" className="d-flex" onSubmit={handleChatSubmit}>
-                        <input type="text" placeholder="Chat" value={chatInput} onChange={(e) => { setChatInput(e.target.value) }} />
-                    </form>
-
-
-
-
-                    <button className="btn btn-dark" onClick={() => handleChatOpen()}>Close Chat</button>
-
+                    <div id="chat-messages" ref={messagesRef} style={{ height: '300px', overflowY: 'auto', border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
+                        {(chatResponseReal || []).map((msg, idx) => (
+                            <div key={idx} className={`chat-bubble ${msg.author === 'user' ? 'user' : 'ai'}`}>
+                                <div className="chat-meta">
+                                    <span className={`chat-author ${msg.author === 'user' ? 'user' : 'ai'}`}>{msg.author === 'user' ? 'Tu' : 'AMBROGIO'}</span>
+                                    <span className="chat-timestamp">{msg.time}</span>
+                                </div>
+                                <div className="chat-text">{msg.text}</div>
+                            </div>
+                        ))}
+                        <div ref={messagesEndRef} />
+                    </div>
+                    <div>
+                        <form type="submit" className="d-flex" onSubmit={handleChatSubmit}>
+                            <input className="form-control rounded-pill" type="text" placeholder="Chat" value={chatInput} onChange={(e) => { setChatInput(e.target.value) }} />
+                        </form>
+                        <button className="btn btn-dark mt-3" onClick={() => handleChatOpen()}>Close Chat</button>
+                    </div>
                 </div>
-            </div>
+            </div >
             <button type="button" className="btn btn-dark rounded-circle" onClick={() => handleChatOpen()}><i className="bi bi-robot"></i></button>
         </>)
 }
