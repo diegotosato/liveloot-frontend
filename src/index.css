@@ -7,6 +7,15 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-red: #fc2037;
+  --color-fuchsia: #fd13e5;
+  --color-purple: #320545;
+  --color-lightblue: #57d9ec;
+  --color-aqqa: #30e5ad;
+  --color-light-purple: #4740bb;
+  --color-blue: #0f1434;
+}
 
 /* #region Swiper */
 
@@ -99,3 +108,72 @@
 
 
 /* #endregion Swiper */
+
+/* navbar */
+
+.navbar {
+  background-color: var(--color-purple) !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.navbar-brand {
+  width: 100px;
+}
+
+.cart {
+  color: var(--color-fuchsia) !important;
+  /* border-color: var(--color-fuchsia) !important; */
+  border: 2px solid var(--color-fuchsia);
+  border-radius: 50% !important;
+  width: 50px !important;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s linear;
+
+  .cart-icon {
+    /* width: 70% !important;
+    aspect-ratio: 1/1; */
+    font-size: 20px;
+  }
+}
+
+.cart:hover {
+  background-color: rgba(184, 11, 167, 1) !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.nav-link:hover {
+  color: rgba(184, 11, 167, 1) !important;
+}
+
+.form-control {
+  color: var(--color-fuchsia) !important;
+  border-color: var(--color-fuchsia) !important;
+}
+
+input::placeholder {
+  color: var(--color-fuchsia) !important;
+}
+
+input:focus {
+  /* background-color: rgba(255, 255, 255, 0.8) !important; */
+  background-color: rgba(184, 11, 167, 1) !important;
+  border-color: var(--color-fuchsia) !important;
+  box-shadow: none !important;
+  color: white !important;
+
+  &::placeholder {
+    color: white !important;
+  }
+}
+
+
+form {
+  display: flex;
+}
