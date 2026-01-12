@@ -75,6 +75,8 @@ function GlobalProvider({ children }) {
         const prompt = `User: ${userInput}\nAI:`;
         const aiResponse = await generateText(prompt);
         const translateTextResponse = await translateText(aiResponse.answer);
+        console.log(translateTextResponse);
+
 
 
         return translateTextResponse;

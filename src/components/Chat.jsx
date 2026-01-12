@@ -44,7 +44,7 @@ export default function Chat() {
                         <option value="Stream deck">Stream deck</option>
                     </select>
                     <form type="submit" className="d-flex" onSubmit={handleChatSubmit}>
-                        <input type="text" placeholder="Chat" value={chatInput} onChange={(e) => { setChatInput(e.target.value), console.log(chatInput) }} />
+                        <input type="text" placeholder="Chat" value={chatInput} onChange={(e) => { setChatInput(e.target.value) }} />
                     </form>
 
 
