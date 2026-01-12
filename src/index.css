@@ -236,43 +236,40 @@ h2 {
 
 }
 
-/*PARTE COL VIDEO DELLA STANZA IN LOOP*/
-.jumbotron {
+/* #region hero-space*/
+.hero-space {
   overflow: hidden;
   position: relative;
   width: 100%;
   height: 100vh;
-
-  .video {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    object-fit: cover;
-    z-index: 0;
-
-  }
-
-  .bottino {
-    z-index: 100;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 30%;
-    left: 50%;
-
-    img {
-      max-width: 80%;
-      margin: 0 auto;
-      display: block;
-    }
-  }
 }
+
+.video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  object-position: top center;
+  background-position: 0;
+}
+
+.visual {
+  max-width: 850px;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  transform: translate(-50%, 0%);
+  top: 10%;
+  left: 50%;
+}
+
+/* #endregion */
 
 /*SONDO CON ANCHE LE PALLE*/
 
 .sfondo {
   padding-top: 2rem;
   background-image: linear-gradient(to bottom, var(--color-purple), var(--color-fuchsia));
-
 }
 
 .best-seller {

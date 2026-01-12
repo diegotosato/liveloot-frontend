@@ -5,13 +5,14 @@ import scritta from "../assets/img/scritta-logo.png"
 export default function HomePage() {
     return (
         <>
-            <div className="jumbotron">
-                <img src={video} className="video"></img>
-                <div className="bottino">
-                    <img src={scritta}></img>
-                </div>
+            {/* hero-space */}
+            <div className="hero-space">
+                <img src={video} className="video" />
+                <img src={scritta} className="visual" />
             </div>
+
             <div className="sfondo">
+
                 <section className="best-seller">
 
                     <div className="palla viola palla-grande "></div>
