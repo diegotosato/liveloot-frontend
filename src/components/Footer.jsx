@@ -6,60 +6,76 @@ export default function Footer() {
     const list = [
         {
             id: 1,
-            title: 'CONTACTS',
+            title: 'SUPPORTO',
             links: [
                 {
                     id: 2,
-                    text: 'Terms Of Use'
+                    text: 'FAQ'
                 },
                 {
                     id: 3,
-                    text: 'Privacy policy (New)'
+                    text: 'Spedizioni & Resi'
                 },
                 {
                     id: 4,
-                    text: 'Ad Choices'
+                    text: 'Contattaci'
                 },
                 {
                     id: 5,
-                    text: 'Contact Us'
+                    text: 'Assistenza'
                 }
             ]
         },
         {
             id: 6,
-            title: 'MOVIES',
+            title: 'LEGALE',
             links: [
                 {
                     id: 7,
-                    text: 'HOME',
-                    to: '/'
+                    text: 'Privacy Policy'
                 },
                 {
                     id: 8,
-                    text: 'MOVIES',
-                    to: '/'
+                    text: 'Termini e Condizioni'
                 },
                 {
                     id: 9,
-                    text: 'CONTACTS',
-                    to: '/contacts'
+                    text: 'Cookie Policy'
+                }
+            ]
+        },
+        {
+            id: 10,
+            title: 'LIVELOOT',
+            links: [
+                {
+                    id: 11,
+                    text: 'Via di Ambrogio, 42, 20124 Milano(MI)-Italia '
+                },
+                {
+                    id: 12,
+                    text: '+39 02 1234 5678'
+                },
+                {
+                    id: 13,
+                    text: 'info@liveloot.it'
                 }
             ]
         }
 
+
     ]
     return (
         <>
-            <div className="content">
+            <div className="list_footer">
                 <div className="all">
                     <div className="container">
-                        <div className="up">
+                        <div className="up d-flex row">
                             {list.map((items) => (
-                                <ul key={items.id}>
+                                <ul key={items.id} className='col-4'>
                                     <h3><strong>{items.title}</strong></h3>
                                     {items.links.map((link) => (
-                                        <NavLink to={link.to} key={link.id}><li>{link.text}</li></NavLink>
+                                        <NavLink key={link.id}><li>{link.text}</li></NavLink>
                                     ))}
                                 </ul>
                             ))}

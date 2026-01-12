@@ -229,21 +229,22 @@ h2 {
     position: absolute;
     object-fit: cover;
     z-index: 0;
-    
+
   }
 
   .bottino {
-  z-index: 100;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 30%;
-  left: 50%;
-   img {
-    max-width: 80%;
-    margin: 0 auto;
-    display: block;
-   }
-}
+    z-index: 100;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 50%;
+
+    img {
+      max-width: 80%;
+      margin: 0 auto;
+      display: block;
+    }
+  }
 }
 
 /*SONDO CON ANCHE LE PALLE*/
@@ -251,7 +252,7 @@ h2 {
 .sfondo {
   padding-top: 2rem;
   background-image: linear-gradient(to bottom, var(--color-purple), var(--color-fuchsia));
-  
+
 }
 
 .best-seller {
@@ -276,9 +277,9 @@ h2 {
 }
 
 .palla:nth-child(4) {
- top: 10%;
-left: 80%;
-z-index: 10000;
+  top: 10%;
+  left: 80%;
+  z-index: 10000;
 }
 
 .palla {
@@ -286,38 +287,38 @@ z-index: 10000;
   position: absolute;
 }
 
-  .azzurro {
-    background-image: linear-gradient(to bottom, var(--color-lightblue), var(--color-aqqa));
-    
-  }
+.azzurro {
+  background-image: linear-gradient(to bottom, var(--color-lightblue), var(--color-aqqa));
 
-  .viola {
-    background-image: linear-gradient(to bottom right, var(--color-fuchsia), var(--color-light-purple));
-  }
+}
 
-  .rosso {
-    background-image: linear-gradient(to right, var(--color-red), var(--color-light-purple));
-  }
+.viola {
+  background-image: linear-gradient(to bottom right, var(--color-fuchsia), var(--color-light-purple));
+}
 
-  .palla-grande {
-    height: 200px;
-    width: 200px;
-    
+.rosso {
+  background-image: linear-gradient(to right, var(--color-red), var(--color-light-purple));
+}
+
+.palla-grande {
+  height: 200px;
+  width: 200px;
+
 }
 
 .palla-media {
-   height: 170px;
-    width: 170px;
-    
+  height: 170px;
+  width: 170px;
+
 }
 
 .palla-piccola {
-   height: 110px;
-    width: 110px;
-  
+  height: 110px;
+  width: 110px;
+
 }
 
- .wave {
+.wave {
   position: absolute;
   left: 0;
   width: 100%;
@@ -328,7 +329,7 @@ z-index: 10000;
   z-index: 1;
 }
 
- .wave span {
+.wave span {
   content: "";
   position: absolute;
   width: 1000px;
@@ -455,6 +456,10 @@ h2 {
 
 .bi-robot::before {
   font-size: 35px !important;
+}
+
+.list_footer {
+  text-decoration: none;
 }
 
 /* smaller avatar-less phone feel */
