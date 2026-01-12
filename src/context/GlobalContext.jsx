@@ -25,7 +25,7 @@ function GlobalProvider({ children }) {
 
     async function translateText(prompt) {
         const translator = await pipeline('translation', 'Xenova/opus-mt-en-it', {
-            dtype: 'int8'
+            dtype: 'fp32'
         });
         const output = await translator(prompt);
         return output[0].translation_text;
@@ -33,46 +33,38 @@ function GlobalProvider({ children }) {
 
     async function translateDescription(prompt) {
         const translator = await pipeline('translation', 'Xenova/opus-mt-it-en', {
-            dtype: 'int8'
+            dtype: 'fp32'
         });
         const output = await translator(prompt);
         return output[0].translation_text;
     }
 
-    let categories = [];
+    const [categories, setCategories] = useState([]);
+
     useEffect(() => {
-
-        console.log(chatResponse);
-
         axios.get(`http://localhost:3000/techs/${chatResponse}`)
             .then(res => {
-                categories = res.data.tag
-                console.log(res.data);
+                setCategories(res.data.tag)
 
             }).catch(err => {
                 console.log(err)
-            }).finally(() => {
-                console.log(categories);
-
             })
     }, [chatResponse]);
 
 
-    async function generateText() {
+    async function generateText(userInput) {
 
 
 
 
         const pipe = await pipeline('question-answering', 'Xenova/distilbert-base-cased-distilled-squad', {
-            dtype: 'int8'
+            dtype: 'fp32'
         });
         console.log(chatInput);
 
-        const question = await translateDescription(chatInput);
-        const context = categories.map(tech => tech.title).join(", ");
-        console.log(context);
+        const question = await translateDescription(userInput);
+        const context = (categories || []).map(tech => tech.title).join(", ");
         const translatedContext = await translateDescription(context);
-        console.log(translatedContext);
         const output = await pipe(question, translatedContext);
         return output;
     }
@@ -83,8 +75,6 @@ function GlobalProvider({ children }) {
         const prompt = `User: ${userInput}\nAI:`;
         const aiResponse = await generateText(prompt);
         const translateTextResponse = await translateText(aiResponse.answer);
-        console.log(translateTextResponse);
-
 
 
         return translateTextResponse;

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 export default function Chat() {
 
@@ -32,6 +31,7 @@ export default function Chat() {
                 </div>
                 <div className="card-body">
                     <select className="form-select" aria-label="Default select example" onChange={(e) => setChatResponse(e.target.value)}>
+                        <option>Seleziona una categoria</option>
                         <option value="Tastiera">Tastiera</option>
                         <option value="Mouse">Mouse</option>
                         <option value="Monitor">Monitor</option>
