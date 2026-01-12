@@ -193,6 +193,7 @@ form {
   border-radius: 20px !important;
   box-shadow: inset 10px var(--color-fuchsia) !important;
   box-shadow: 0 0 10px 5px rgba(184, 11, 167, 1) !important;
+  position: relative !important;
 }
 
 .card h2 {
@@ -251,6 +252,76 @@ h2 {
   font-size: 4rem;
 }
 
+}
+
+/*SONDO CON ANCHE LE PALLE*/
+
+.sfondo {
+  padding-top: 2rem;
+  background-image: linear-gradient(to bottom, var(--color-purple), var(--color-fuchsia));
+  
+}
+
+.best-seller {
+  width: 100%;
+  padding: 8rem 0;
+  position: relative;
+}
+
+.palla:nth-child(1) {
+  top: 7%;
+  left: 9%;
+}
+
+.palla:nth-child(2) {
+  bottom: 3%;
+  left: 25%;
+}
+
+.palla:nth-child(3) {
+  bottom: 7%;
+  right: 13%;
+}
+
+.card .palla:nth-child(1) {
+ top: -10%;
+left: 80%;
+}
+
+.palla {
+  border-radius: 50%;
+  position: absolute;
+}
+
+  .azzurro {
+    background-image: linear-gradient(to bottom, var(--color-lightblue), var(--color-aqqa));
+    
+  }
+
+  .viola {
+    background-image: linear-gradient(to bottom right, var(--color-fuchsia), var(--color-light-purple));
+  }
+
+  .rosso {
+    background-image: linear-gradient(to right, var(--color-red), var(--color-light-purple));
+  }
+
+  .palla-grande {
+    height: 200px;
+    width: 200px;
+    
+}
+
+.palla-media {
+   height: 170px;
+    width: 170px;
+    
+}
+
+.palla-piccola {
+   height: 110px;
+    width: 110px;
+  
 }
 
 
