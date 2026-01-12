@@ -22,7 +22,7 @@
 /* swiper generico */
 .swiper-wrapper-container {
   position: relative;
-  width: 50%;
+
   margin: 0 auto;
 }
 
@@ -66,6 +66,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  background-color: white;
 }
 
 .mySwiper.continuous .swiper-wrapper {
@@ -83,19 +84,19 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 1;
   font-size: 2rem;
   color: white;
   cursor: pointer;
   user-select: none;
-  background-color: red;
+  background-color: var(--color-fuchsia);
   border-radius: 500px;
   transition: all 0.3s ease;
 }
 
 .custom-prev:hover,
 .custom-next:hover {
-  background-color: black;
+  background-color: var(--color-light-purple);
 }
 
 .custom-prev {
@@ -194,6 +195,8 @@ form {
   box-shadow: inset 10px var(--color-fuchsia) !important;
   box-shadow: 0 0 10px 5px rgba(184, 11, 167, 1) !important;
   position: relative !important;
+  overflow: hidden !important;
+  padding-bottom: 5rem;
 }
 
 .card h2 {
@@ -201,6 +204,7 @@ form {
   text-align: center;
   color: white;
   font-size: 50px;
+  padding: 4rem 0;
 
   span {
     color: var(--color-lightblue) !important;
@@ -231,27 +235,15 @@ h2 {
   .bottino {
   z-index: 100;
   position: absolute;
-  color: white;
   transform: translate(-50%, -50%);
-  top: 50%;
+  top: 30%;
   left: 50%;
+   img {
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
+   }
 }
-
-.scritta {
-  color: var(--color-fuchsia);
-}
-
-.bocchino {
-  color: var(--color-lightblue);
-  font-size: 2.5rem;
-}
-
-.stream {
-  color: var(--color-purple);
-  text-shadow: 0 0 10px white;
-  font-size: 4rem;
-}
-
 }
 
 /*SONDO CON ANCHE LE PALLE*/
@@ -283,9 +275,10 @@ h2 {
   right: 13%;
 }
 
-.card .palla:nth-child(1) {
- top: -10%;
+.palla:nth-child(4) {
+ top: 10%;
 left: 80%;
+z-index: 10000;
 }
 
 .palla {
@@ -324,6 +317,69 @@ left: 80%;
   
 }
 
+ .wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #320545;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+ .wave span {
+  content: "";
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  top: 0%;
+  left: 50%;
+  background: #000;
+  opacity: 0.7;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  font-size: 4em;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+h2 {
+  overflow: hidden;
+  text-align: center;
+  text-shadow: 0 0 10px #57d9ec;
+}
+
+.wave span:nth-child(1) {
+  border-radius: 45%;
+  background: rgba(20, 20, 20, 1);
+  animation: animate 5s linear infinite;
+}
+
+.wave span:nth-child(2) {
+  border-radius: 40%;
+  background: rgba(20, 20, 20, 0.5);
+  animation: animate 10s linear infinite;
+}
+
+.wave span:nth-child(3) {
+  border-radius: 42.5%;
+  background: rgba(20, 20, 20, 0.5);
+  animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
 
 
 /* Chat bubbles */
@@ -395,6 +451,10 @@ left: 80%;
 /* Slightly different timestamp color for AI bubble on light bg */
 .chat-bubble.ai .chat-timestamp {
   color: rgba(15, 20, 52, 0.6);
+}
+
+.bi-robot::before {
+  font-size: 35px !important;
 }
 
 /* smaller avatar-less phone feel */
