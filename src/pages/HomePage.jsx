@@ -11,36 +11,80 @@ export default function HomePage() {
                 <img src={scritta} className="visual" />
             </div>
 
-            <div className="sfondo">
+            {/* sfondo colorato */}
+            <div className="back-gradient">
 
-                <section className="best-seller">
+                {/* più venduti */}
+                <section className="product-section best-seller">
 
-                    <div className="palla viola palla-grande "></div>
-                    <div className="palla rosso palla-media "></div>
-                    <div className="palla azzurro palla-piccola "></div>
-                    <div className="palla rosso palla-piccola "></div>
+                    {/* sfere sul fondo */}
+                    <div className="sphere sphere-purple sphere-bigger"></div>
+                    <div className="sphere sphere-red sphere-medium"></div>
+                    <div className="sphere sphere-blue sphere-smaller"></div>
+                    <div className="sphere sphere-red sphere-smaller "></div>
 
                     <div className="container">
 
-                        <div className="card mt-3" >
+                        <div className="card">
 
+                            {/* onda */}
                             <div className="wave">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </div>
-
+                            {/* titolo sezione */}
                             <div className="content">
-                                <h2 className="mt-2">
+                                <h2>
                                     <span>i più</span> venduti
                                 </h2>
                             </div>
 
+                            {/* carosello */}
                             <div className="card-body">
                                 <SwiperComponent />
                             </div>
+
                         </div>
+
                     </div>
+
+                </section>
+
+                {/* ultimi arrivi */}
+                <section className="product-section new-arrivals">
+
+                    {/* sfere sul fondo */}
+                    <div className="sphere sphere-purple sphere-bigger"></div>
+                    <div className="sphere sphere-red sphere-medium"></div>
+                    <div className="sphere sphere-blue sphere-smaller"></div>
+                    <div className="sphere sphere-red sphere-smaller "></div>
+
+                    <div className="container">
+
+                        <div className="card">
+
+                            {/* onda */}
+                            <div className="wave">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            {/* titolo sezione */}
+                            <div className="content">
+                                <h2>
+                                    <span>ultimi</span> arrivi
+                                </h2>
+                            </div>
+
+                            {/* carosello */}
+                            <div className="card-body">
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </section>
 
             </div>
