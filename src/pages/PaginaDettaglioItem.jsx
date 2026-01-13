@@ -28,7 +28,7 @@ export default function PaginaDettaglioItem() {
 
     return (
         <>
-            <div className="container">
+            <div >
                 <SingleItemCard />
 
 

@@ -594,6 +594,64 @@ a {
   }
 }
 
+/*DETTAGLIO PAGINA SINGOLO PRODOTTO*/
+
+.card-left {
+
+  img {
+    max-width: 90%;
+  }
+}
+
+p {
+  color: white;
+   text-shadow: 0 0 10px var(--color-fuchsia);
+}
+
+.number-quantity {
+  border: 1px solid var(--color-fuchsia);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+   box-shadow: 0 0 10px var(--color-fuchsia);
+}
+
+.aggiunta-rimozione {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background: none;
+  border: none;
+  color: white;
+  text-shadow: 0 0 10px var(--color-fuchsia);
+  cursor: pointer;
+}
+
+.btn-avanti-indietro {
+   color: var(--color-fuchsia) !important;
+   text-shadow: 0 0 5px var(--color-fuchsia) !important;
+   border-color: var(--color-fuchsia) ;
+   box-shadow: 0 0 10px var(--color-fuchsia);
+}
+
+.btn-add-to-cart {
+     color: white !important;
+   text-shadow: 0 0 9px white !important;
+   background-color: var(--color-fuchsia);
+   border-color: var(--color-fuchsia) ;
+   box-shadow: 0 0 10px var(--color-fuchsia);
+}
+
+.btn-back {
+     color: var(--color-lightblue) !important;
+   text-shadow: 0 0 9px var(--color-lightblue) !important;
+   background-color: var(--color-blue);
+   border-color: var(--color-lightblue) ;
+   box-shadow: 0 0 10px var(--color-lightblue);
+}
 
 
 /* smaller avatar-less phone feel */
