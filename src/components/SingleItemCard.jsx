@@ -1,9 +1,51 @@
+import { useEffect, useState } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
+import { useNavigate } from "react-router-dom"
 
 export default function SingleItemCard() {
 
     const { singleProduct } = useGlobalContext()
+    const navigate = useNavigate()
+    const [quantity, setQuantity] = useState(1)
 
+    useEffect(() => {
+        if (quantity > 5) {
+            setQuantity(5)
+        }
+    }, [quantity])
+
+    function handleSub() {
+        if (quantity <= 1) {
+            setQuantity(1)
+        } else {
+            setQuantity(quantity - 1)
+        }
+    }
+
+    function handleAdd() {
+        if (quantity >= 5) {
+            setQuantity(5)
+        } else {
+            setQuantity(quantity + 1)
+        }
+    }
+
+    function updatePrice(price) {
+        const decimalNumber = Number(price).toFixed(2)
+        const result = Number(decimalNumber).toFixed(2) * Number(quantity).toFixed(2)
+        return Number(result).toFixed(2)
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        if (quantity >= 5) {
+            setQuantity(5)
+        }
+    }
+
+    function prevPage() {
+        navigate(-1)
+    }
 
 
     return (
@@ -26,23 +68,26 @@ export default function SingleItemCard() {
                                     <h2>{singleProduct.title}</h2>
                                     <p>Marca: {singleProduct.brand}</p>
                                     <p>{singleProduct.description}</p>
-                                    <p>Prezzo: € {singleProduct.price}</p>
+                                    <p>Prezzo: € {updatePrice(singleProduct.price)}</p>
                                     <section className="d-flex align-items-center gap-2">
                                         <p className="mb-0">Quantità:</p>
 
-                                        <button className="aggiunta-rimozione">−</button>
+                                        <button className="aggiunta-rimozione" onClick={handleSub}>−</button>
+                                        <form onSubmit={(e) => handleSubmit(e)}>
+                                            <input
+                                                type="number"
+                                                className="number-quantity"
+                                                value={quantity}
+                                                onChange={(e) => setQuantity(e.target.value)}
+                                            />
+                                        </form>
 
-                                        <input
-                                            className="number-quantity"
 
-                                            value="1"
-                                        />
-
-                                        <button className="aggiunta-rimozione">+</button>
+                                        <button className="aggiunta-rimozione" onClick={handleAdd}>+</button>
                                     </section>
                                     <section className="d-flex">
                                         <div className="row">
-                                            <button className="btn btn-back rounded-pill  col-5 m-2">TORNA INDIETRO</button>
+                                            <button className="btn btn-back rounded-pill  col-5 m-2" onClick={() => prevPage()}>TORNA INDIETRO</button>
                                             <button className="btn btn-add-to-cart rounded-pill  col-5 m-2">AGGIUNGI AL CARRELLO</button>
                                             <button className="btn btn-avanti-indietro rounded-pill bg-light  col-5 m-2">PRODOTTO PRECEDENTE</button>
                                             <button className="btn bg-light rounded-pill  btn-avanti-indietro  col-5 m-2">PRODOTTO SUCCESSIVO</button>
