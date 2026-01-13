@@ -623,8 +623,25 @@ form {
   font-size: 35px !important;
 }
 
+.chat-container {
+  margin: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.chat-card-spacing {
+  margin: 3rem;
+}
+
+.chat-button-spacing {
+  margin: 3rem;
+}
+
+
+
 /* #endregion */
 
+/* #region Footer */
 .color_footer {
   background-color: var(--color-purple);
 }
@@ -695,6 +712,8 @@ a {
   padding-bottom: 100px;
 }
 
+/* #endregion */
+
 .card .category {
 
   background-color: rgba(255, 255, 255, 0.644);
@@ -724,7 +743,77 @@ a {
 
 
 
-/* smaller avatar-less phone feel */
+
+
+
+
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+/* #############  MEDIA QUERY  ################# */
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+
+@media screen and (max-width: 1200px) {
+  .shower {
+    height: 410px;
+  }
+}
+
+
+@media screen and (max-width: 1081px) {
+  .swiper-slide {
+    width: 380px !important;
+    height: 380px !important;
+  }
+
+  .shower {
+    height: 350px;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .chat-container {
+    margin: 1.5rem 1rem;
+  }
+
+  .chat-card-spacing {
+    margin: 1rem;
+  }
+
+  .chat-button-spacing {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .visual {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .chat-container {
+    margin: 1rem 0.5rem;
+  }
+
+  .chat-card-spacing {
+    margin: 0.5rem;
+  }
+
+  .chat-button-spacing {
+    margin: 0.5rem;
+  }
+}
+
+
+
+/* 
+smaller avatar-less phone feel
 @media (max-width: 576px) {
   #chat-window {
     width: 92% !important;
@@ -732,4 +821,4 @@ a {
     bottom: 16px !important;
     min-height: 60vh !important;
   }
-}
+} */

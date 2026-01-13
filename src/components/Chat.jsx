@@ -42,8 +42,8 @@ export default function Chat() {
 
     return (
         <>
-            <div className="fixed-bottom m-5 z-3">
-                <div className="card m-5 z-3 d-none mt-4" id="chat-window" style={{ width: '18rem', minHeight: '500px' }}>
+            <div className="fixed-bottom chat-container z-3">
+                <div className="card chat-card-spacing z-3 d-none mt-4" id="chat-window" style={{ width: '18rem', minHeight: '500px' }}>
                     <div className="card-header">
                         Chat Window
                     </div>
@@ -81,7 +81,7 @@ export default function Chat() {
                         </div>
                     </div>
                 </div >
-                <div className="fixed-bottom m-5 z-3">
+                <div className="fixed-bottom chat-button-spacing z-3">
                     <button type="button" style={{ width: '80px', height: '80px' }} className="btn btn-dark rounded-circle" onClick={() => handleChatOpen()}>
                         <i className="bi bi-robot"></i></button>
                 </div >
