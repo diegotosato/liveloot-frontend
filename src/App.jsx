@@ -19,8 +19,8 @@ function App() {
             <Route element={<DefaultLayout />} >
               <Route path="/" element={<HomePage />} />
               <Route path="/categories" element={<Categorie />} />
-              <Route path="/tech/categories/:slug" element={<CategorieProdotti />} />
-              <Route path="/:slug/:id" element={<PaginaDettaglioItem />} />
+              <Route path="/categories/:slug" element={<CategorieProdotti />} />
+              <Route path="/categories/:slug/:id" element={<PaginaDettaglioItem />} />
             </Route>
           </Routes>
         </BrowserRouter>

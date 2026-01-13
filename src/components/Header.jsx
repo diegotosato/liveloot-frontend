@@ -78,7 +78,7 @@ export default function Header() {
                                         {
                                             categoriesProd?.map(cat => (
                                                 <li key={cat.slug}>
-                                                    <Link className="category-recap" to={`/tech/categories/${cat.slug}`}>
+                                                    <Link className="category-recap" to={`/categories/${cat.slug}`}>
                                                         <div className="category-visual me-3">
                                                             <div className="category-icon">
                                                                 {icone[cat.slug]}

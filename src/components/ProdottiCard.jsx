@@ -10,7 +10,7 @@ export default function ProdottiCard() {
     return (
         <div className="row justify-content-center">
             {prodotto.map(item => (
-                <Link className="card category col-12 col-md-6 col-lg-3 text-center m-3" to={`/${slug}/${item.id}`} key={item.id}>
+                <Link className="card category col-12 col-md-6 col-lg-3 text-center m-3" to={`/categories/${slug}/${item.id}`} key={item.id}>
                     <div className="img-container col m-2">
                         <img src={`http://localhost:3000/${item.image}`} alt="" />
                     </div>

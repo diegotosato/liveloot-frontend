@@ -88,10 +88,10 @@ export default function SingleItemCard() {
                                 </section>
 
                                 <section className="prod-buttons">
-                                    <button className="btn-back rounded-pill" onClick={() => navigate(-1)}>TORNA INDIETRO</button>
+                                    <button className="btn-back rounded-pill" onClick={() => navigate(`/categories/${slug}`)}>TORNA INDIETRO</button>
                                     <button className="btn-add-to-cart rounded-pill">AGGIUNGI AL CARRELLO</button>
-                                    <button className="btn-avanti-indietro rounded-pill" onClick={() => navigate(`/${slug}/${parseInt(id) - 1}`)}>PRODOTTO PRECEDENTE</button>
-                                    <button className="btn-avanti-indietro rounded-pill" onClick={() => navigate(`/${slug}/${parseInt(id) + 1}`)}>PRODOTTO SUCCESSIVO</button>
+                                    <button className="btn-avanti-indietro rounded-pill" onClick={() => navigate(`/categories/${slug}/${parseInt(id) - 1}`)}>PRODOTTO PRECEDENTE</button>
+                                    <button className="btn-avanti-indietro rounded-pill" onClick={() => navigate(`/categories/${slug}/${parseInt(id) + 1}`)}>PRODOTTO SUCCESSIVO</button>
                                 </section>
 
                             </div>
