@@ -53,7 +53,7 @@ export default function Header() {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link fs-5" to="/" aria-current="page">
+                                <NavLink className="nav-link fs-5" to="/categories" aria-current="page">
                                     Categorie<CaretDown className="down-arrow" />
                                 </NavLink>
                             </li>

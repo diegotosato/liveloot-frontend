@@ -13,6 +13,8 @@ function GlobalProvider({ children }) {
     const [chatInput, setChatInput] = useState("");
     const [chatResponse, setChatResponse] = useState("");
     const [techs, setTechs] = useState([])
+    const [prodotto, setProdotto] = useState([]);
+    const [categoriesProd, setCategoriesProd] = useState([]);
     const [loading, setLoading] = useState(false);
     const values = {
         loading,
@@ -27,7 +29,11 @@ function GlobalProvider({ children }) {
         setChatRealInput,
         chatResponseReal,
         setChatResponseReal,
-        chatResponse
+        chatResponse,
+        prodotto,
+        setProdotto,
+        categoriesProd,
+        setCategoriesProd
     }
 
     async function translateText(prompt) {
