@@ -24,7 +24,8 @@ export default function Categorie() {
                         key={categorie.id}
                         name={categorie.name}
                         image={`http://localhost:3000/${categorie.image}`}
-                        description={categorie.description} slug={categorie.slug} />
+                        description={categorie.description}
+                        slug={categorie.slug} />
                 ))}
             </div>
         </div>
