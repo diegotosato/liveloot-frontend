@@ -96,10 +96,10 @@ export default function SingleItemCard() {
 
                     <div className="container">
 
-                        <div className="prod-card border-0">
+                        <div className="prod-card">
 
 
-                            <div className="prod-image col py-3">
+                            <div className="prod-image col">
                                 <img src={`http://localhost:3000/${singleProduct.image}`} alt="" />
                             </div>
 
