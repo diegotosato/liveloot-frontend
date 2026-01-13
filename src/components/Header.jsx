@@ -32,7 +32,6 @@ export default function Header() {
                 console.log(err)
             })
     }, []);
-    console.log(categoriesProd);
 
 
     const icone = {
@@ -71,7 +70,7 @@ export default function Header() {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link fs-5" to={'/categories'} aria-current="page">
+                                <NavLink className="nav-link fs-5" aria-current="page">
                                     Categorie<CaretDown className="down-arrow" />
                                 </NavLink>
                                 <div className="categories-dropdown">
@@ -82,7 +81,7 @@ export default function Header() {
                                                     <Link className="category-recap" to={`/tech/categories/${cat.slug}`}>
                                                         <div className="category-visual me-3">
                                                             <div className="category-icon">
-                                                                {icone[cat.slug] || <Keyboard size={32} />}
+                                                                {icone[cat.slug]}
                                                             </div>
                                                         </div>
                                                         <div className="category-details">
