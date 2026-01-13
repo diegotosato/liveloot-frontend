@@ -17,10 +17,10 @@ export default function Categorie() {
     }, []);
     return (
         <div>
-            <h1>Categories Page</h1>
+            <h1 className="title text-center">Categories Page</h1>
             <div className="row justify-content-center">
                 {categoriesProd.map(categorie => (
-                    <CategorieCard key={categorie.id} name={categorie.name} image={`http://localhost:3000/uploads/${categorie.image}`} description={categorie.description} slug={categorie.slug} />
+                    <CategorieCard key={categorie.id} name={categorie.name} image={`http://localhost:3000/${categorie.image}`} description={categorie.description} slug={categorie.slug} />
                 ))}
             </div>
         </div>

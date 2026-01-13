@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { useContext, useState, useEffect } from "react";
 import { pipeline } from '@huggingface/transformers';
+import { useMemo } from "react";
 import axios from "axios";
 
 
@@ -16,7 +17,8 @@ function GlobalProvider({ children }) {
     const [prodotto, setProdotto] = useState([]);
     const [categoriesProd, setCategoriesProd] = useState([]);
     const [loading, setLoading] = useState(false);
-    const values = {
+    const [singleProduct, setSingleProduct] = useState({})
+    const values = useMemo(() => ({
         loading,
         setLoading,
         techs,
@@ -33,8 +35,20 @@ function GlobalProvider({ children }) {
         prodotto,
         setProdotto,
         categoriesProd,
-        setCategoriesProd
-    }
+        setCategoriesProd,
+        singleProduct,
+        setSingleProduct
+    }), [
+        loading,
+        techs,
+        chatInput,
+        chatRealInput,
+        chatResponseReal,
+        chatResponse,
+        prodotto,
+        categoriesProd,
+        singleProduct
+    ]);
 
     async function translateText(prompt) {
         const translator = await pipeline('translation', 'Xenova/opus-mt-en-it', {

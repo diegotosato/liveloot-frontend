@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage"
 import Categorie from "./pages/Categorie"
 import DefaultLayout from "./Layout/DefaultLayout"
 import CategorieProdotti from "./pages/CategorieProdotti"
+import PaginaDettaglioItem from "./pages/PaginaDettaglioItem"
 import { GlobalProvider } from "./context/GlobalContext"
 
 
@@ -19,6 +20,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/categories" element={<Categorie />} />
               <Route path="/tech/categories/:slug" element={<CategorieProdotti />} />
+              <Route path="/:slug/:id" element={<PaginaDettaglioItem />} />
             </Route>
           </Routes>
         </BrowserRouter>
