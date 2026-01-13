@@ -30,8 +30,8 @@ export default function PaginaDettaglioItem() {
         <>
             <div className="container">
                 <SingleItemCard />
-                <p>{singleProduct.title}</p>
-                <p>ciao</p>
+
+
             </div>
 
         </>
