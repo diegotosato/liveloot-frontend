@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/GlobalContext";
+import { useParams } from "react-router-dom";
 
 export default function ProdottiCard() {
 
     const { prodotto } = useGlobalContext();
+    const { slug } = useParams();
 
     return (
         <div className="single py-4 row">
             {prodotto.map(item => (
-                <Link to={`/${item.id}`}>
-                    <div className="col-4">
+                <Link to={`/${slug}/${item.id}`}>
+                    <div className="col-4" key={item.id}>
                         <img src={`http://localhost:3000/${item.image}`} alt="" />
                         <div className="col m-4">
                             <h2>{item.title}</h2>
