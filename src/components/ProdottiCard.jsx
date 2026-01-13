@@ -10,8 +10,8 @@ export default function ProdottiCard() {
     return (
         <div className="single py-4 row">
             {prodotto.map(item => (
-                <Link to={`/${slug}/${item.id}`}>
-                    <div className="col-4" key={item.id}>
+                <Link to={`/${slug}/${item.id}`} key={item.id}>
+                    <div className="col-4" >
                         <img src={`http://localhost:3000/${item.image}`} alt="" />
                         <div className="col m-4">
                             <h2>{item.title}</h2>
