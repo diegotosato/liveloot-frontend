@@ -3,14 +3,32 @@ import { useGlobalContext } from "../context/GlobalContext"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 
-export default function SingleItemCard() {
+export default function FocusProdotto() {
 
     let { slug, id } = useParams()
-
-    const { singleProduct } = useGlobalContext()
-
     const navigate = useNavigate()
-    const [quantity, setQuantity] = useState(1)
+
+
+
+    const { singleProduct, setSingleProduct } = useGlobalContext()
+    useEffect(() => {
+        if (!slug || !id) return;
+
+        const fetchSingle = async () => {
+            try {
+                const res = await axios.get(
+                    `http://localhost:3000/techs/${slug}/${id}`
+                );
+                setSingleProduct(res.data);
+            } catch (err) {
+                console.error("Errore API:", err.response?.data || err.message);
+            }
+        };
+
+        fetchSingle();
+    }, [slug, id]);
+
+
 
 
     const [prodID, setProdID] = useState([])
@@ -45,6 +63,7 @@ export default function SingleItemCard() {
 
 
 
+    const [quantity, setQuantity] = useState(1)
 
     useEffect(() => {
         if (quantity > 5) {
