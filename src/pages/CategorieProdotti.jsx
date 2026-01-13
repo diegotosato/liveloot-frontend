@@ -18,7 +18,7 @@ export default function CategorieProdotti() {
 
     return (
         <>
-            <div className="container">
+            <div className="container d-flex">
                 <ProdottiCard />
             </div>
 

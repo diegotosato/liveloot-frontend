@@ -567,18 +567,24 @@ a {
   padding-bottom: 100px;
 }
 
-.card .category {
 
-  background-color: rgba(255, 255, 255, 0.644);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.514);
-  border: none;
+.category {
 
-  &:hover {
-    background-color: rgba(128, 128, 128, 0.966);
-    border: solid 1px black;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.192);
+  .img-container {
+    img {
+      width: 100% !important;
+      object-fit: contain !important;
+    }
   }
 }
+
+.title {
+  color: white;
+  text-shadow: 0 0 10px var(--color-fuchsia);
+  margin: 4rem 0 2rem 0;
+}
+
+
 
 .single {
   color: black;
@@ -594,6 +600,8 @@ a {
   }
 }
 
+
+
 /*DETTAGLIO PAGINA SINGOLO PRODOTTO*/
 
 .card-left {
@@ -605,7 +613,7 @@ a {
 
 p {
   color: white;
-   text-shadow: 0 0 10px var(--color-fuchsia);
+  text-shadow: 0 0 10px var(--color-fuchsia);
 }
 
 .number-quantity {
@@ -614,7 +622,7 @@ p {
   width: 40px;
   border-radius: 50%;
   text-align: center;
-   box-shadow: 0 0 10px var(--color-fuchsia);
+  box-shadow: 0 0 10px var(--color-fuchsia);
 }
 
 .aggiunta-rimozione {
@@ -631,26 +639,26 @@ p {
 }
 
 .btn-avanti-indietro {
-   color: var(--color-fuchsia) !important;
-   text-shadow: 0 0 5px var(--color-fuchsia) !important;
-   border-color: var(--color-fuchsia) ;
-   box-shadow: 0 0 10px var(--color-fuchsia);
+  color: var(--color-fuchsia) !important;
+  text-shadow: 0 0 5px var(--color-fuchsia) !important;
+  border-color: var(--color-fuchsia);
+  box-shadow: 0 0 10px var(--color-fuchsia);
 }
 
 .btn-add-to-cart {
-     color: white !important;
-   text-shadow: 0 0 9px white !important;
-   background-color: var(--color-fuchsia);
-   border-color: var(--color-fuchsia) ;
-   box-shadow: 0 0 10px var(--color-fuchsia);
+  color: white !important;
+  text-shadow: 0 0 9px white !important;
+  background-color: var(--color-fuchsia);
+  border-color: var(--color-fuchsia);
+  box-shadow: 0 0 10px var(--color-fuchsia);
 }
 
 .btn-back {
-     color: var(--color-lightblue) !important;
-   text-shadow: 0 0 9px var(--color-lightblue) !important;
-   background-color: var(--color-blue);
-   border-color: var(--color-lightblue) ;
-   box-shadow: 0 0 10px var(--color-lightblue);
+  color: var(--color-lightblue) !important;
+  text-shadow: 0 0 9px var(--color-lightblue) !important;
+  background-color: var(--color-blue);
+  border-color: var(--color-lightblue);
+  box-shadow: 0 0 10px var(--color-lightblue);
 }
 
 
