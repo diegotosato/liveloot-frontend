@@ -145,7 +145,7 @@ export default function FocusProdotto() {
                                 <section className="prod-buttons">
                                     <button
                                         className="btn-back rounded-pill"
-                                        onClick={() => navigate(`/categories/${slug}`)}>
+                                        onClick={() => navigate(-1)}>
                                         TORNA INDIETRO
                                     </button>
                                     <button

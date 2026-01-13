@@ -5,7 +5,7 @@ import DefaultLayout from "./Layout/DefaultLayout"
 import CategorieProdotti from "./pages/CategorieProdotti"
 import FocusProdotto from "./pages/FocusProdotto"
 import { GlobalProvider } from "./context/GlobalContext"
-
+import ScrollToTop from "./components/ScrollToTop"
 
 
 
@@ -15,6 +15,7 @@ function App() {
     <>
       <GlobalProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route element={<DefaultLayout />} >
               <Route path="/" element={<HomePage />} />

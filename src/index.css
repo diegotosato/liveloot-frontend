@@ -57,6 +57,7 @@ input[type=number]::-webkit-inner-spin-button {
 
   opacity: 0.4;
   transition: opacity 0.3s ease;
+  background-color: white;
 }
 
 /* dimensione e caratteristiche della slide ATTIVA */
@@ -67,14 +68,36 @@ input[type=number]::-webkit-inner-spin-button {
 /* regola di default per dimensione immagine che riempia tutto */
 .swiper-slide img {
   width: 100%;
-  height: 100%;
+  height: 80%;
+  margin: 0 auto !important;
   object-fit: contain;
-  background-color: white;
   padding: 2rem;
 }
 
 .mySwiper.continuous .swiper-wrapper {
   transition-timing-function: linear !important;
+}
+
+button.btn-view-product {
+  width: 50%;
+  padding: 0.8rem 1rem;
+  font-size: 0.8rem;
+  margin: 1rem auto 0;
+  display: block;
+}
+
+.btn-view-product {
+  color: var(--color-lightblue);
+  background-color: var(--color-blue);
+  border: 1px solid var(--color-lightblue);
+  box-shadow: 0 0 10px var(--color-lightblue);
+  transition: all 0.3s linear;
+}
+
+.btn-view-product:hover {
+  color: var(--color-blue);
+  background-color: var(--color-lightblue);
+  border: 1px solid var(--color-blue);
 }
 
 /* aspetto delle frecce sinistra/destra */
@@ -512,6 +535,12 @@ form {
   width: 35%;
   transform: translate(-50%, -0%);
   left: 50%;
+
+  .new-prod-adapter {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
 }
 
 .new-prod-smaller-sx {
@@ -526,6 +555,15 @@ form {
   right: 5%;
 }
 
+.new-prod-adapter {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .new-prod-bigger,
 .new-prod-smaller-sx,
 .new-prod-smaller-dx {
@@ -537,7 +575,7 @@ form {
   z-index: 2;
   box-shadow: 0 0 10px var(--color-fuchsia);
   background-color: white;
-  padding: 2rem;
+  padding: 2rem 2rem 0;
   border-radius: 20px 20px 0 0;
 
   img {
@@ -914,6 +952,26 @@ a {
 /* ############################################# */
 /* ############################################# */
 /* ############################################# */
+@media screen and (max-width: 1270px) {
+  .new-prod-bigger {
+
+    .new-prod-adapter {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .new-prod-adapter {
+    width: 250px;
+    height: 250px;
+  }
+
+  .new-prod-bigger,
+  .new-prod-smaller-sx,
+  .new-prod-smaller-dx {
+    padding: 2rem 2rem;
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .footer-logo-visual {
@@ -922,6 +980,25 @@ a {
 
   .shower {
     height: 410px;
+  }
+
+  .new-prod-bigger {
+
+    .new-prod-adapter {
+      width: 270px;
+      height: 270px;
+    }
+  }
+
+  .new-prod-adapter {
+    width: 220px;
+    height: 220px;
+  }
+
+  .new-prod-bigger,
+  .new-prod-smaller-sx,
+  .new-prod-smaller-dx {
+    padding: 2rem 2rem 1rem;
   }
 }
 
@@ -933,8 +1010,37 @@ a {
     height: 380px !important;
   }
 
+  .swiper-slide img {
+    width: 100%;
+    height: 70%;
+    padding: 2rem;
+  }
+
   .shower {
     height: 350px;
+  }
+
+  .new-prod-bigger {
+
+    .new-prod-adapter {
+      width: 240px;
+      height: 240px;
+    }
+  }
+
+  .new-prod-adapter {
+    width: 200px;
+    height: 200px;
+  }
+
+  .new-prod-bigger,
+  .new-prod-smaller-sx,
+  .new-prod-smaller-dx {
+    padding: 2rem 2rem 1rem;
+  }
+
+  button.btn-view-product {
+    width: 80%;
   }
 
 }
@@ -955,6 +1061,29 @@ a {
 
   .chat-button-spacing {
     margin: 1rem;
+  }
+
+  .new-prod-bigger {
+
+    .new-prod-adapter {
+      width: 210px;
+      height: 210px;
+    }
+  }
+
+  .new-prod-adapter {
+    width: 170px;
+    height: 170px;
+  }
+
+  .new-prod-bigger,
+  .new-prod-smaller-sx,
+  .new-prod-smaller-dx {
+    padding: 2rem 2rem 1rem;
+  }
+
+  button.btn-view-product {
+    width: 80%;
   }
 }
 
@@ -988,12 +1117,33 @@ a {
     height: 290px !important;
   }
 
+  .swiper-slide img {
+    width: 100%;
+    height: 65%;
+    padding: 1rem;
+  }
+
   .visual {
     width: 600px;
   }
 
   .shower {
-    height: 260px;
+    height: 350px;
+
+    h5 {
+      font-size: 0.8rem;
+    }
+  }
+
+  .new-prod-bigger,
+  .new-prod-smaller-sx,
+  .new-prod-smaller-dx {
+    padding: 2rem 0;
+  }
+
+  button.btn-view-product {
+    width: 70%;
+    font-size: 0.6rem;
   }
 }
 
@@ -1027,7 +1177,36 @@ a {
   }
 
   .shower {
-    height: 190px;
+    height: 250px;
+
+    h5 {
+      font-size: 0.8rem;
+    }
+  }
+
+  .new-prod-bigger {
+
+    .new-prod-adapter {
+      width: 130px;
+      height: 130px;
+    }
+  }
+
+  .new-prod-adapter {
+    width: 100px;
+    height: 100px;
+  }
+
+  .new-prod-bigger,
+  .new-prod-smaller-sx,
+  .new-prod-smaller-dx {
+    padding: 1rem 0;
+  }
+
+  button.btn-view-product {
+    width: 70%;
+    font-size: 0.6rem;
+    padding: 0.5rem 0.85rem;
   }
 
 

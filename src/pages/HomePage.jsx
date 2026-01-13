@@ -4,6 +4,10 @@ import scritta from "../assets/img/scritta-logo.png"
 
 import axios from 'axios';
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom";
+import {
+    CaretDown
+} from "@phosphor-icons/react";
 
 
 
@@ -103,19 +107,49 @@ export default function HomePage() {
                                 {/* immagine SX */}
                                 <div className="new-prod-smaller-sx">
                                     {
-                                        <img src={`http://localhost:3000/${arrivals[1]?.image}`} />
+                                        <>
+                                            <div className="new-prod-adapter">
+                                                <img src={`http://localhost:3000/${arrivals[1]?.image}`} />
+                                            </div>
+                                            <h5 className='text-center'>{arrivals[1]?.title}</h5>
+                                            <Link to={`/categories/${arrivals[1]?.slug}/${arrivals[1]?.id}`}>
+                                                <button className='btn-view-product rounded-pill'>
+                                                    Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
+                                                </button>
+                                            </Link>
+                                        </>
                                     }
                                 </div>
                                 {/* immagine DX */}
                                 <div className="new-prod-smaller-dx">
                                     {
-                                        <img src={`http://localhost:3000/${arrivals[2]?.image}`} />
+                                        <>
+                                            <div className="new-prod-adapter">
+                                                <img src={`http://localhost:3000/${arrivals[2]?.image}`} />
+                                            </div>
+                                            <h5 className='text-center'>{arrivals[2]?.title}</h5>
+                                            <Link to={`/categories/${arrivals[2]?.slug}/${arrivals[2]?.id}`}>
+                                                <button className='btn-view-product rounded-pill'>
+                                                    Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
+                                                </button>
+                                            </Link>
+                                        </>
                                     }
                                 </div>
                                 {/* immagine centrale */}
                                 <div className="new-prod-bigger">
                                     {
-                                        <img src={`http://localhost:3000/${arrivals[0]?.image}`} />
+                                        <>
+                                            <div className="new-prod-adapter">
+                                                <img src={`http://localhost:3000/${arrivals[0]?.image}`} />
+                                            </div>
+                                            <h5 className='text-center'>{arrivals[0]?.title}</h5>
+                                            <Link to={`/categories/${arrivals[0]?.slug}/${arrivals[0]?.id}`}>
+                                                <button className='btn-view-product rounded-pill'>
+                                                    Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
+                                                </button>
+                                            </Link>
+                                        </>
                                     }
                                 </div>
 
