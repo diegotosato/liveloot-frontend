@@ -21,7 +21,6 @@ export default function CategorieProdotti() {
             <div className="container d-flex">
                 <ProdottiCard />
             </div>
-
         </>
     )
 }

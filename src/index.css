@@ -655,7 +655,8 @@ form {
 }
 
 .padding-footer {
-  padding: 100px 100px 30px 100px;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 li {
@@ -749,77 +750,6 @@ a {
   }
 }
 
-
-
-
-/* ############################################# */
-/* ############################################# */
-/* ############################################# */
-/* ############################################# */
-/* #############  MEDIA QUERY  ################# */
-/* ############################################# */
-/* ############################################# */
-/* ############################################# */
-/* ############################################# */
-
-@media screen and (max-width: 1200px) {
-  .shower {
-    height: 410px;
-  }
-}
-
-
-@media screen and (max-width: 1081px) {
-  .swiper-slide {
-    width: 380px !important;
-    height: 380px !important;
-  }
-
-  .shower {
-    height: 350px;
-  }
-
-}
-
-@media screen and (max-width: 992px) {
-  .chat-container {
-    margin: 1.5rem 1rem;
-  }
-
-  .chat-card-spacing {
-    margin: 1rem;
-  }
-
-  .chat-button-spacing {
-    margin: 1rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .visual {
-    width: 600px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .chat-container {
-    margin: 1rem 0.5rem;
-  }
-
-  .chat-card-spacing {
-    margin: 0.5rem;
-  }
-
-  .chat-button-spacing {
-    margin: 0.5rem;
-  }
-}
-
-
-
-/* 
-smaller avatar-less phone feel
-=======
 /*DETTAGLIO PAGINA SINGOLO PRODOTTO*/
 
 .card-left {
@@ -878,6 +808,134 @@ p {
   border-color: var(--color-lightblue);
   box-shadow: 0 0 10px var(--color-lightblue);
 }
+
+
+
+
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+/* #############  MEDIA QUERY  ################# */
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+
+@media screen and (max-width: 1200px) {
+  .footer-logo-visual {
+    margin-bottom: 3rem !important;
+  }
+
+  .shower {
+    height: 410px;
+  }
+}
+
+
+@media screen and (max-width: 1081px) {
+
+
+  .swiper-slide {
+    width: 380px !important;
+    height: 380px !important;
+  }
+
+  .shower {
+    height: 350px;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+
+
+  .chat-container {
+    margin: 1.5rem 1rem;
+  }
+
+  .chat-card-spacing {
+    margin: 1rem;
+  }
+
+  .chat-button-spacing {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-link {
+    font-size: 17px !important;
+  }
+
+  .about-us {
+    display: none !important;
+  }
+
+  .categories-dropdown {
+    left: -115%;
+  }
+
+  #search-bar {
+    width: 150px;
+  }
+
+  .back-gradient {
+    padding-bottom: 3rem;
+  }
+
+  .product-section {
+    padding: 5rem 0;
+  }
+
+  .swiper-slide {
+    width: 290px !important;
+    height: 290px !important;
+  }
+
+  .visual {
+    width: 600px;
+  }
+
+  .shower {
+    height: 260px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .categories-dropdown {
+    display: none !important;
+  }
+
+  .down-arrow {
+    rotate: -90deg;
+  }
+
+
+
+
+
+  .chat-container {
+    margin: 1rem 0.5rem;
+  }
+
+  .chat-card-spacing {
+    margin: 0.5rem;
+  }
+
+  .chat-button-spacing {
+    margin: 0.5rem;
+  }
+
+  .shower {
+    height: 190px;
+  }
+}
+
+
+
+
+
 
 
 /* smaller avatar-less phone feel */

@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useParams } from "react-router-dom";
 import {
     Keyboard,
     GridNine,
@@ -20,6 +20,7 @@ import { useEffect, useState } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 
 export default function Header() {
+    const { slug } = useParams()
 
     const { categoriesProd, setCategoriesProd } = useGlobalContext();
 
@@ -70,7 +71,7 @@ export default function Header() {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link fs-5" aria-current="page">
+                                <NavLink className="nav-link fs-5" to={'/categories'} aria-current="page">
                                     Categorie<CaretDown className="down-arrow" />
                                 </NavLink>
                                 <div className="categories-dropdown">
@@ -78,7 +79,7 @@ export default function Header() {
                                         {
                                             categoriesProd?.map(cat => (
                                                 <li key={cat.slug}>
-                                                    <Link className="category-recap">
+                                                    <Link className="category-recap" to={`/tech/categories/${cat.slug}`}>
                                                         <div className="category-visual me-3">
                                                             <div className="category-icon">
                                                                 {icone[cat.slug] || <Keyboard size={32} />}
@@ -104,7 +105,7 @@ export default function Header() {
                                     </ul>
                                 </div>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item about-us">
                                 <NavLink className="nav-link fs-5" to="/" aria-current="page">
                                     Chi Siamo
                                 </NavLink>

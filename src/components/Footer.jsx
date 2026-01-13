@@ -72,14 +72,14 @@ export default function Footer() {
         <>
             <div className="color_footer">
                 <div className="container">
-                    <ul className='row padding-footer'>
-                        <div className='col'>
-                            <a href="#">
+                    <ul className='row padding-footer justify-content-around m-0 px-5'>
+                        <div className='footer-logo-visual col-sm-12 col-xl-3'>
+                            <a href="#" className=''>
                                 <img className='footer_logo' src={Logo}></img>
                             </a>
                         </div>
                         {list.map((items) => (
-                            <div key={items.id} className='col'>
+                            <div key={items.id} className='col-sm-3'>
                                 <h3 className='titoli-footer'><strong>{items.title}</strong></h3>
                                 {
                                     items.links.map((link) => (
