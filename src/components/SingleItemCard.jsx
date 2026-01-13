@@ -1,14 +1,50 @@
 import { useEffect, useState } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import { useNavigate, useParams } from "react-router-dom"
+import axios from "axios"
 
 export default function SingleItemCard() {
 
     let { slug, id } = useParams()
 
     const { singleProduct } = useGlobalContext()
+
     const navigate = useNavigate()
     const [quantity, setQuantity] = useState(1)
+
+
+    const [prodID, setProdID] = useState([])
+    useEffect(() => {
+        axios.get(`http://localhost:3000/techs/${slug}`)
+            .then(res => {
+                res.data.tag.map(item => setProdID(prev => [...prev, item.id]))
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
+
+    function handlePrev(slug, id) {
+        if (!prodID.includes(Number(id) - 1)) {
+            return
+        } else {
+            navigate(`/categories/${slug}/${parseInt(id) - 1}`)
+        }
+    }
+
+    function handleNext(slug, id) {
+        if (!prodID.includes(Number(id) + 1)) {
+            return
+        } else {
+            navigate(`/categories/${slug}/${parseInt(id) + 1}`)
+        }
+    }
+
+
+
+
+
+
 
     useEffect(() => {
         if (quantity > 5) {
@@ -88,10 +124,25 @@ export default function SingleItemCard() {
                                 </section>
 
                                 <section className="prod-buttons">
-                                    <button className="btn-back rounded-pill" onClick={() => navigate(`/categories/${slug}`)}>TORNA INDIETRO</button>
-                                    <button className="btn-add-to-cart rounded-pill">AGGIUNGI AL CARRELLO</button>
-                                    <button className="btn-avanti-indietro rounded-pill" onClick={() => navigate(`/categories/${slug}/${parseInt(id) - 1}`)}>PRODOTTO PRECEDENTE</button>
-                                    <button className="btn-avanti-indietro rounded-pill" onClick={() => navigate(`/categories/${slug}/${parseInt(id) + 1}`)}>PRODOTTO SUCCESSIVO</button>
+                                    <button
+                                        className="btn-back rounded-pill"
+                                        onClick={() => navigate(`/categories/${slug}`)}>
+                                        TORNA INDIETRO
+                                    </button>
+                                    <button
+                                        className="btn-add-to-cart rounded-pill">
+                                        AGGIUNGI AL CARRELLO
+                                    </button>
+                                    <button
+                                        className="btn-avanti-indietro rounded-pill"
+                                        onClick={() => handlePrev(slug, id)}>
+                                        PRODOTTO PRECEDENTE
+                                    </button>
+                                    <button
+                                        className="btn-avanti-indietro rounded-pill"
+                                        onClick={() => handleNext(slug, id)}>
+                                        PRODOTTO SUCCESSIVO
+                                    </button>
                                 </section>
 
                             </div>
