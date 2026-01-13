@@ -644,15 +644,27 @@ form {
 li {
   list-style: none;
   color: var(--color-fuchsia) !important;
+  transition: all 0.3s linear;
+}
 
+li:hover {
+  color: white !important;
 }
 
 a {
   text-decoration: none !important;
+  transition: all 0.3s linear;
 }
 
 .titoli-footer {
   color: var(--color-lightblue) !important;
+}
+
+.footer-divider {
+  height: 2px;
+  background-color: var(--color-fuchsia);
+  margin: 0 auto;
+  width: 90%;
 }
 
 .social {
@@ -662,6 +674,18 @@ a {
   &>*+* {
     margin-left: 70px;
   }
+}
+
+.social svg {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  color: var(--color-fuchsia);
+}
+
+.social svg:hover {
+  color: white;
 }
 
 .copy {
