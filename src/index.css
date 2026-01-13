@@ -132,6 +132,110 @@
   margin-left: 0.25rem;
 }
 
+.nav-item {
+  position: relative;
+}
+
+.categories-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 600px;
+  background-color: var(--color-purple);
+  box-shadow: 0 0 10px var(--color-fuchsia);
+  margin-top: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-item:hover .categories-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.categories-dropdown li {
+  width: 50%;
+  display: inline-block;
+}
+
+.category-recap {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+
+  * {
+    transition: all 0.3s linear;
+  }
+}
+
+.category-visual {
+  width: 25%;
+  display: inline-block;
+}
+
+.category-icon {
+  color: var(--color-fuchsia);
+  width: 60px;
+  height: 60px;
+  padding: 0.75rem;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-fuchsia);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.category-details {
+  color: white;
+  display: inline-block;
+  text-shadow: 0 0 10px var(--color-fuchsia);
+}
+
+.category-name {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.category-desc {
+  font-size: 12px;
+}
+
+.category-recap:hover {
+  .category-icon {
+    color: white;
+    background-color: var(--color-fuchsia);
+  }
+
+  .category-name,
+  .category-desc {
+    color: var(--color-fuchsia);
+  }
+}
+
+.categories-view-all {
+  display: block;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  color: var(--color-fuchsia);
+  text-shadow: 0 0 10px var(--color-fuchsia);
+  transition: all 0.3s linear;
+}
+
+.categories-view-all:hover {
+  color: white;
+}
+
 #search-bar {
   height: 40px;
   line-height: 40px;
@@ -519,8 +623,25 @@ form {
   font-size: 35px !important;
 }
 
+.chat-container {
+  margin: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.chat-card-spacing {
+  margin: 3rem;
+}
+
+.chat-button-spacing {
+  margin: 3rem;
+}
+
+
+
 /* #endregion */
 
+/* #region Footer */
 .color_footer {
   background-color: var(--color-purple);
 }
@@ -540,15 +661,27 @@ form {
 li {
   list-style: none;
   color: var(--color-fuchsia) !important;
+  transition: all 0.3s linear;
+}
 
+li:hover {
+  color: white !important;
 }
 
 a {
   text-decoration: none !important;
+  transition: all 0.3s linear;
 }
 
 .titoli-footer {
   color: var(--color-lightblue) !important;
+}
+
+.footer-divider {
+  height: 2px;
+  background-color: var(--color-fuchsia);
+  margin: 0 auto;
+  width: 90%;
 }
 
 .social {
@@ -560,12 +693,26 @@ a {
   }
 }
 
+.social svg {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  color: var(--color-fuchsia);
+}
+
+.social svg:hover {
+  color: white;
+}
+
 .copy {
   color: var(--color-fuchsia);
   font-size: 15px;
   text-align: center;
   padding-bottom: 100px;
 }
+
+/* #endregion */
 
 .card .category {
 
@@ -596,7 +743,77 @@ a {
 
 
 
-/* smaller avatar-less phone feel */
+
+
+
+
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+/* #############  MEDIA QUERY  ################# */
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+/* ############################################# */
+
+@media screen and (max-width: 1200px) {
+  .shower {
+    height: 410px;
+  }
+}
+
+
+@media screen and (max-width: 1081px) {
+  .swiper-slide {
+    width: 380px !important;
+    height: 380px !important;
+  }
+
+  .shower {
+    height: 350px;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .chat-container {
+    margin: 1.5rem 1rem;
+  }
+
+  .chat-card-spacing {
+    margin: 1rem;
+  }
+
+  .chat-button-spacing {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .visual {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .chat-container {
+    margin: 1rem 0.5rem;
+  }
+
+  .chat-card-spacing {
+    margin: 0.5rem;
+  }
+
+  .chat-button-spacing {
+    margin: 0.5rem;
+  }
+}
+
+
+
+/* 
+smaller avatar-less phone feel
 @media (max-width: 576px) {
   #chat-window {
     width: 92% !important;
@@ -604,4 +821,4 @@ a {
     bottom: 16px !important;
     min-height: 60vh !important;
   }
-}
+} */

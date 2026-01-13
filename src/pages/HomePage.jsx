@@ -23,7 +23,6 @@ export default function HomePage() {
                 console.log(err)
             })
     }, [])
-    console.log(arrivals);
 
 
     return (

@@ -74,7 +74,9 @@ export default function Footer() {
                 <div className="container">
                     <ul className='row padding-footer'>
                         <div className='col'>
-                            <img className='footer_logo' src={Logo}></img>
+                            <a href="#">
+                                <img className='footer_logo' src={Logo}></img>
+                            </a>
                         </div>
                         {list.map((items) => (
                             <div key={items.id} className='col'>
@@ -88,11 +90,15 @@ export default function Footer() {
                         ))}
                     </ul>
                 </div>
+                <div className="container">
+
+                    <div className="footer-divider"></div>
+                </div>
                 <div className='social'>
-                    <FacebookLogo size={32} color="#fd13e5" />
-                    <InstagramLogo size={32} color="#fd13e5" />
-                    <MessengerLogo size={32} color="#fd13e5" />
-                    <TiktokLogo size={32} color="#fd13e5" />
+                    <FacebookLogo />
+                    <InstagramLogo />
+                    <MessengerLogo />
+                    <TiktokLogo />
                 </div>
                 <div className='copy'>
                     &copy; Copyright. All rights reserved.

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
     Keyboard,
     GridNine,
@@ -15,19 +15,36 @@ import {
 } from "@phosphor-icons/react";
 import Logo from '../assets/img/logo.svg'
 
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useGlobalContext } from "../context/GlobalContext";
+
 export default function Header() {
 
+    const { categoriesProd, setCategoriesProd } = useGlobalContext();
+
+    useEffect(() => {
+        axios.get(`http://localhost:3000/techs/`)
+            .then(res => {
+                setCategoriesProd(res.data)
+            }).catch(err => {
+                console.log(err)
+            })
+    }, []);
+    console.log(categoriesProd);
+
+
     const icone = {
-        'tastiera': <Keyboard size={32} />,
-        'stream-deck': <GridNine size={32} />,
-        'mouse': <MouseSimple size={32} />,
-        'monitor': <Monitor size={32} />,
-        'webcam': <VideoCamera size={32} />,
-        'sedie-gaming': <OfficeChair size={32} />,
-        'cuffie': <Headphones size={32} />,
-        'tappetini-da-gaming': <DeviceTablet size={32} style={{ transform: "rotate(90deg)" }} />,
-        'computer-fisso-gaming': <DesktopTower size={32} />,
-        'computer-portatile-gaming': <Laptop size={32} />
+        'tastiera': <Keyboard />,
+        'stream-deck': <GridNine />,
+        'mouse': <MouseSimple />,
+        'monitor': <Monitor />,
+        'webcam': <VideoCamera />,
+        'sedie-gaming': <OfficeChair />,
+        'cuffie': <Headphones />,
+        'tappetini-da-gaming': <DeviceTablet style={{ transform: "rotate(90deg)" }} />,
+        'computer-fisso-gaming': <DesktopTower />,
+        'computer-portatile-gaming': <Laptop />
     }
 
     return (
@@ -53,9 +70,39 @@ export default function Header() {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link fs-5" to="/categories" aria-current="page">
+                                <NavLink className="nav-link fs-5" aria-current="page">
                                     Categorie<CaretDown className="down-arrow" />
                                 </NavLink>
+                                <div className="categories-dropdown">
+                                    <ul className="m-0 p-0 pb-3">
+                                        {
+                                            categoriesProd?.map(cat => (
+                                                <li key={cat.slug}>
+                                                    <Link className="category-recap">
+                                                        <div className="category-visual me-3">
+                                                            <div className="category-icon">
+                                                                {icone[cat.slug] || <Keyboard size={32} />}
+                                                            </div>
+                                                        </div>
+                                                        <div className="category-details">
+                                                            <h6 className="category-name m-0 p-0 mb-1">
+                                                                {cat.name}
+                                                            </h6>
+                                                            <p className="category-desc m-0 p-0">
+                                                                {cat.description}
+                                                            </p>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                            ))
+                                        }
+                                        <li>
+                                            <h5>
+                                                <Link to={'/categories'} className="categories-view-all">Vedi tutte<CaretDown className="down-arrow" style={{ rotate: '-90deg' }} /></Link>
+                                            </h5>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link fs-5" to="/" aria-current="page">
@@ -64,6 +111,8 @@ export default function Header() {
                             </li>
                         </ul>
                     </div>
+
+
 
                     {/* SearchBar */}
                     <input
