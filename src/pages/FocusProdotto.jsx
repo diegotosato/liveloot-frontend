@@ -5,19 +5,19 @@ import axios from "axios"
 
 export default function FocusProdotto() {
 
-    let { slug, id } = useParams()
+    let { slug, slug_product } = useParams()
     const navigate = useNavigate()
 
 
 
     const { singleProduct, setSingleProduct } = useGlobalContext()
     useEffect(() => {
-        if (!slug || !id) return;
+        if (!slug || !slug_product) return;
 
         const fetchSingle = async () => {
             try {
                 const res = await axios.get(
-                    `http://localhost:3000/techs/${slug}/${id}`
+                    `http://localhost:3000/techs/${slug}/${slug_product}`
                 );
                 setSingleProduct(res.data);
             } catch (err) {
@@ -26,7 +26,7 @@ export default function FocusProdotto() {
         };
 
         fetchSingle();
-    }, [slug, id]);
+    }, [slug, slug_product]);
 
 
 
@@ -35,26 +35,29 @@ export default function FocusProdotto() {
     useEffect(() => {
         axios.get(`http://localhost:3000/techs/${slug}`)
             .then(res => {
-                res.data.tag.map(item => setProdID(prev => [...prev, item.id]))
+                res.data.tag.map((item) => setProdID(prev => [...prev, item.slug]))
             })
             .catch(err => {
                 console.log(err);
             })
     }, [])
 
-    function handlePrev(slug, id) {
-        if (!prodID.includes(Number(id) - 1)) {
+
+    function handlePrev(slug, slug_product) {
+        if (!prodID.includes(slug_product) || slug_product === prodID[0]) {
             return
         } else {
-            navigate(`/categories/${slug}/${parseInt(id) - 1}`)
+            const position = prodID.indexOf(slug_product) - 1;
+            navigate(`/categories/${slug}/${prodID[position]}`)
         }
     }
 
-    function handleNext(slug, id) {
-        if (!prodID.includes(Number(id) + 1)) {
+    function handleNext(slug, slug_product) {
+        if (!prodID.includes(slug_product) || slug_product === prodID[prodID.length - 1]) {
             return
         } else {
-            navigate(`/categories/${slug}/${parseInt(id) + 1}`)
+            const position = prodID.indexOf(slug_product) + 1;
+            navigate(`/categories/${slug}/${prodID[position]}`)
         }
     }
 
@@ -154,12 +157,12 @@ export default function FocusProdotto() {
                                     </button>
                                     <button
                                         className="btn-avanti-indietro rounded-pill"
-                                        onClick={() => handlePrev(slug, id)}>
+                                        onClick={() => handlePrev(slug, slug_product)}>
                                         PRODOTTO PRECEDENTE
                                     </button>
                                     <button
                                         className="btn-avanti-indietro rounded-pill"
-                                        onClick={() => handleNext(slug, id)}>
+                                        onClick={() => handleNext(slug, slug_product)}>
                                         PRODOTTO SUCCESSIVO
                                     </button>
                                 </section>
