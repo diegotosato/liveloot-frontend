@@ -271,30 +271,23 @@ nav {
   color: white;
 }
 
-#search-bar {
+.product-button {
   height: 40px;
-  line-height: 40px;
-  padding: 0 1rem;
-  border: 2px solid var(--color-fuchsia);
-  transition: all 0.3s linear;
-}
-
-#search-bar::placeholder {
   color: var(--color-fuchsia);
+  border: 2px solid var(--color-fuchsia);
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all 0.3s linear;
+  padding: 0 1rem;
 }
 
-#search-bar:focus {
-  background-color: rgba(184, 11, 167, 1);
-  color: white;
-}
-
-#search-bar:focus::placeholder {
-  color: white;
-}
-
-#search-bar:focus-visible {
-  outline: none;
+.product-button:hover {
+  background-color: rgba(184, 11, 167, 1) !important;
+  color: white !important;
+  border-radius: 50%;
 }
 
 .cart {
@@ -322,6 +315,91 @@ nav {
 
 /* #endregion */
 
+/* #region filters */
+.product-title {
+  margin: 0;
+  padding: 3rem 0;
+  color: var(--color-fuchsia);
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 3rem;
+}
+
+#search-bar {
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 1rem;
+  border: 2px solid var(--color-fuchsia);
+  transition: all 0.3s linear;
+  display: inline-block;
+}
+
+#search-bar::placeholder {
+  color: var(--color-fuchsia);
+  transition: all 0.3s linear;
+}
+
+#search-bar:focus {
+  background-color: rgba(184, 11, 167, 1);
+  color: white;
+}
+
+#search-bar:focus::placeholder {
+  color: white;
+}
+
+#search-bar:focus-visible {
+  outline: none;
+}
+
+.sort-select {
+  width: 30%;
+  display: inline-block;
+  border: 2px solid var(--color-fuchsia);
+}
+
+.sort-select:focus {
+  box-shadow: none;
+}
+
+.order-button {
+  height: 40px;
+  padding: 0 1rem;
+  border: 2px solid var(--color-fuchsia);
+  transition: all 0.3s linear;
+  display: inline-block;
+  background-color: white;
+  color: var(--color-fuchsia);
+}
+
+.order-button:hover {
+  background-color: rgba(184, 11, 167, 1) !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.card h2 {
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  text-shadow: 0px 0px 11px rgba(87, 217, 236, 0.81);
+  margin-bottom: 2rem;
+
+  span {
+    color: var(--color-lightblue) !important;
+  }
+}
+
+/* #endregion */
+
+
+
 .form-select {
   color: var(--color-fuchsia) !important;
   border-color: var(--color-fuchsia) !important;
@@ -331,8 +409,6 @@ nav {
   color: var(--color-fuchsia) !important;
   border-color: var(--color-fuchsia) !important;
 }
-
-
 
 form {
   display: flex;
