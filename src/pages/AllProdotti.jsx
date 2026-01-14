@@ -4,11 +4,21 @@ import { useGlobalContext } from "../context/GlobalContext"
 import { Link } from "react-router-dom"
 import axios from "axios";
 
+import { CaretDown, SortAscending, SortDescending } from "@phosphor-icons/react";
+
 export default function AllProdotti() {
     const [all, setAll,] = useState([]);
-    const { search, sortBy, sort, setSearch, setSortBy, setSort } = useGlobalContext();
-    console.log(search);
+    const { search, sortBy, setSearch, setSortBy } = useGlobalContext();
 
+    const [sort, setSort] = useState('asc')
+
+    function handleClick(e) {
+        if (sort === 'asc') {
+            setSort('desc')
+        } else {
+            setSort('asc')
+        }
+    }
 
     useEffect(() => {
         axios.get(`http://localhost:3000/techs/products?q=${search || ''}&sortBy=${sortBy || ''}&sort=${sort || ''}`)
@@ -22,10 +32,23 @@ export default function AllProdotti() {
     return (
         <>
             <div className="back-gradient">
+
+                {/* sfere sul fondo */}
+                <div className="all-prod all-prod-fixed sphere sphere-purple sphere-bigger"></div>
+                <div className="all-prod all-prod-fixed sphere sphere-red sphere-medium"></div>
+                <div className="all-prod all-prod-fixed sphere sphere-blue sphere-smaller"></div>
+                <div className="all-prod all-prod-fixed sphere sphere-red sphere-smaller "></div>
+
+                <div className="wave" style={{ zIndex: '0' }}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <div className="container">
 
-                    <h2>
-                        <span>i più</span> venduti
+
+                    <h2 className="products-title">
+                        <span>i nostri</span> prodotti
                     </h2>
 
                     <div className="filters">
@@ -47,26 +70,48 @@ export default function AllProdotti() {
                             <option className="catChat" value="created_at">Più recenti</option>
                         </select>
 
-                        <button className="order-button rounded-pill" value='desc' onClick={(e) => setSort(e.target.value)}>CAMBIA ORDINE</button>
+
+
+                        <button className="order-button rounded-pill" value={sort} onClick={e => handleClick(e)}>
+                            {sort === 'desc' ? <SortDescending size={32} /> : <SortAscending size={32} />}
+                        </button>
+
 
                     </div>
 
                 </div>
 
-                <div className="row justify-content-center">
-                    {all.map(item => (
-                        <Link className="card category col-12 col-md-6 col-lg-2 text-center m-3" to={`/categories/${item.slug}/${item.slug_product}`} key={item.id}>
-                            <div className="img-container col m-2">
-                                <img src={`http://localhost:3000/${item.image}`} alt="" />
-                            </div>
-                            <div className="col m-2">
-                                <h2>{item.title}</h2>
-                                <p>{item.brand}</p>
-                                <p>Prezzo: € {item.price}</p>
-                            </div>
-                        </Link>
-                    ))}
+                <div className="container">
+
+                    <div className="all-prod-section">
+                        {
+                            all.map(item => (
+                                <div className="all-prod-card" to={`/categories/${item.slug}/${item.slug_product}`} key={item.id}>
+
+                                    <div className="all-image">
+                                        <img src={`http://localhost:3000/${item.image}`} alt="" />
+                                    </div>
+
+                                    <div className="all-details">
+                                        <h4 className="all-title">{item.title}</h4>
+                                        <p className="mb-0">Marca: <span className="all-brand">{item.brand}</span></p>
+                                        <p>Prezzo: <strong className="all-price">€ {item.price}</strong></p>
+                                    </div>
+
+                                    <Link to={`/categories/${item.slug}/${item.slug_product}`}>
+                                        <button className='btn-view-product rounded-pill'>
+                                            Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
+                                        </button>
+                                    </Link>
+
+                                </div>
+
+                            ))
+                        }
+                    </div>
+
                 </div>
+
             </div>
         </>
     )

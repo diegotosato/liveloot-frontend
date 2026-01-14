@@ -20,7 +20,6 @@ function GlobalProvider({ children }) {
     const [singleProduct, setSingleProduct] = useState({})
     const [search, setSearch] = useState("");
     const [sortBy, setSortBy] = useState("");
-    const [sort, setSort] = useState("");
     const values = useMemo(() => ({
         loading,
         setLoading,
@@ -45,8 +44,6 @@ function GlobalProvider({ children }) {
         search,
         sortBy,
         setSortBy,
-        sort,
-        setSort
     }), [
         loading,
         techs,
@@ -59,7 +56,6 @@ function GlobalProvider({ children }) {
         singleProduct,
         search,
         sortBy,
-        sort
     ]);
 
     useEffect(() => {
