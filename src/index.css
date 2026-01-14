@@ -945,16 +945,13 @@ a {
 
 .cart-title {
   color: white;
-  font-family: sans-serif;
   margin-bottom: 20px;
 }
 
 .cart-card {
   background-color: var(--color-purple);
   border-radius: 20px;
-  box-shadow: inset 10px var(--color-fuchsia);
   box-shadow: 0 0 10px 5px rgba(184, 11, 167, 1);
-  border-radius: 20px;
   padding: 30px;
 }
 
@@ -963,7 +960,8 @@ a {
   align-items: center;
   justify-content: space-between;
   color: white;
-  font-size: 0.9rem;
+  font-size: 14.4px;
+  /* 0.9rem */
   padding: 0 20px;
   margin-bottom: 10px;
 }
@@ -978,7 +976,6 @@ a {
   border-radius: 12px;
   margin-bottom: 15px;
 }
-
 
 .col-name {
   width: 50%;
@@ -1047,7 +1044,84 @@ a {
   cursor: pointer;
 }
 
+/* card totale */
+.summary-card {
+  background-color: var(--color-purple);
+  border-radius: 20px;
+  box-shadow: 0 0 10px 5px rgba(184, 11, 167, 1);
+  padding: 25px;
+  width: 100%;
+  max-width: 600px;
+  margin: 40px 0;
+}
 
+.cart-summary-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  color: black;
+}
+
+.subtotale,
+.shipment {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.shipment-text {
+  color: var(--color-aqqa);
+  font-size: 13.6px;
+  /* 0.85rem */
+  margin-bottom: 30px;
+}
+
+.total-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.total-title {
+  font-size: 22.4px;
+  /* 1.4rem */
+  font-weight: 900;
+}
+
+.final-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.total-price {
+  font-size: 40px;
+  /* 2.5rem */
+}
+
+.order-button {
+  background-color: var(--color-fuchsia);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(240, 50, 230, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.order-button:hover {
+  background-color: rgba(184, 11, 167, 1) !important;
+  border-radius: 50px !important;
+  /* Mantiene la forma a pillola */
+  box-shadow: 0 6px 20px rgba(240, 50, 230, 0.6);
+  color: white !important;
+}
 
 
 
