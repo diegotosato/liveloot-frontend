@@ -906,6 +906,8 @@ a {
 .category {
 
   .img-container {
+    background-color: white !important;
+
     img {
       width: 100% !important;
       object-fit: contain !important;
