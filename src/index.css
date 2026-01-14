@@ -961,7 +961,6 @@ a {
   justify-content: space-between;
   color: white;
   font-size: 14.4px;
-  /* 0.9rem */
   padding: 0 20px;
   margin-bottom: 10px;
 }
@@ -1073,7 +1072,6 @@ a {
 .shipment-text {
   color: var(--color-aqqa);
   font-size: 13.6px;
-  /* 0.85rem */
   margin-bottom: 30px;
 }
 
@@ -1087,7 +1085,6 @@ a {
 
 .total-title {
   font-size: 22.4px;
-  /* 1.4rem */
   font-weight: 900;
 }
 
@@ -1100,7 +1097,6 @@ a {
 
 .total-price {
   font-size: 40px;
-  /* 2.5rem */
 }
 
 .order-button {
@@ -1118,7 +1114,6 @@ a {
 .order-button:hover {
   background-color: rgba(184, 11, 167, 1) !important;
   border-radius: 50px !important;
-  /* Mantiene la forma a pillola */
   box-shadow: 0 6px 20px rgba(240, 50, 230, 0.6);
   color: white !important;
 }
