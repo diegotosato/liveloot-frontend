@@ -1,12 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useState, useEffect } from "react"
+
 import {
     EffectCoverflow,
     Navigation,
     Mousewheel,
     Autoplay
 } from 'swiper/modules';
-import axios from 'axios';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
@@ -17,19 +16,8 @@ import {
 } from "@phosphor-icons/react";
 
 export default function SwiperComponent() {
-    const { setLoading, techs, setTechs } = useGlobalContext()
+    const { techs } = useGlobalContext()
 
-    useEffect(() => {
-        setLoading(true);
-        axios.get('http://localhost:3000/techs/all')
-            .then(res => {
-                setTechs(res.data)
-            }).catch(err => {
-                console.log(err)
-            }).finally(() => {
-                setLoading(false);
-            })
-    }, [])
 
 
 

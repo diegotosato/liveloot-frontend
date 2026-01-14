@@ -50,6 +50,19 @@ function GlobalProvider({ children }) {
         singleProduct
     ]);
 
+    useEffect(() => {
+        setLoading(true);
+        axios.get('http://localhost:3000/techs/all')
+            .then(res => {
+                setTechs(res.data)
+            }).catch(err => {
+                console.log(err)
+            }).finally(() => {
+                setLoading(false);
+            })
+    }, [])
+
+
     async function translateText(prompt) {
         const translator = await pipeline('translation', 'Xenova/opus-mt-en-it', {
             dtype: 'fp32'

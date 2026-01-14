@@ -1,4 +1,4 @@
-import { NavLink, Link, useParams } from "react-router-dom";
+import { NavLink, Link, useParams, useLocation } from "react-router-dom";
 import {
     Keyboard,
     GridNine,
@@ -32,6 +32,8 @@ export default function Header() {
                 console.log(err)
             })
     }, []);
+
+    const location = useLocation();
 
 
     const icone = {
@@ -115,13 +117,15 @@ export default function Header() {
 
 
                     {/* SearchBar */}
-                    <input
+                    {location.pathname === "/AllProdotti" ? <input
                         id="search-bar"
                         name="search-bar"
                         className="rounded-pill"
                         type="search"
                         placeholder="Cerca..."
-                        aria-label="Search" />
+                        aria-label="Search" /> : null}
+
+                    <Link to="/AllProdotti"><button className="btn btn-outline-primary rounded-pill">Tutti i prodotti</button></Link>
 
                     {/* Carrello */}
                     <button className="cart ms-2" type="submit">

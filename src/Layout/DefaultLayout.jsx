@@ -13,7 +13,7 @@ export default function DefaultLayout() {
             {loading && <Loader />}
             <main>
                 <Outlet />
-                {/*  <Chat /> */}
+                <Chat />
             </main>
             <Footer />
         </>
