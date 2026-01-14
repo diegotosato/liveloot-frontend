@@ -18,6 +18,9 @@ function GlobalProvider({ children }) {
     const [categoriesProd, setCategoriesProd] = useState([]);
     const [loading, setLoading] = useState(false);
     const [singleProduct, setSingleProduct] = useState({})
+    const [search, setSearch] = useState("");
+    const [sortBy, setSortBy] = useState("");
+    const [sort, setSort] = useState("");
     const values = useMemo(() => ({
         loading,
         setLoading,
@@ -37,7 +40,13 @@ function GlobalProvider({ children }) {
         categoriesProd,
         setCategoriesProd,
         singleProduct,
-        setSingleProduct
+        setSingleProduct,
+        setSearch,
+        search,
+        sortBy,
+        setSortBy,
+        sort,
+        setSort
     }), [
         loading,
         techs,
@@ -47,7 +56,10 @@ function GlobalProvider({ children }) {
         chatResponse,
         prodotto,
         categoriesProd,
-        singleProduct
+        singleProduct,
+        search,
+        sortBy,
+        sort
     ]);
 
     useEffect(() => {

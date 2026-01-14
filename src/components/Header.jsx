@@ -20,9 +20,10 @@ import { useEffect, useState } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 
 export default function Header() {
-    const { slug } = useParams()
 
-    const { categoriesProd, setCategoriesProd } = useGlobalContext();
+
+    const { categoriesProd, setCategoriesProd, search, setSearch, setSortBy, setSort } = useGlobalContext();
+    /*  const [search, setSearch] = useState(""); */
 
     useEffect(() => {
         axios.get(`http://localhost:3000/techs/`)
@@ -122,8 +123,20 @@ export default function Header() {
                         name="search-bar"
                         className="rounded-pill"
                         type="search"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
                         placeholder="Cerca..."
                         aria-label="Search" /> : null}
+
+                    {location.pathname === "/AllProdotti" ? <select className="form-select mb-3 rounded-pill" aria-label="Default select example" onChange={(e) => setSortBy(e.target.value)}>
+                        <option className="catChat">Ordina per</option>
+                        <option className="catChat" value="title">Nome</option>
+                        <option className="catChat" value="price">Prezzo</option>
+                        <option className="catChat" value="created_at">Più recenti</option>
+                    </select> : null}
+
+                    {location.pathname === "/AllProdotti" ? <button className="cart ms-2" value='desc' onClick={(e) => setSort(e.target.value)}>CAMBIA ORDINE</button> : null}
+
 
                     <Link to="/AllProdotti"><button className="btn btn-outline-primary rounded-pill">Tutti i prodotti</button></Link>
 

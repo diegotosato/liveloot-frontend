@@ -46,27 +46,7 @@ export default function Footer() {
                     text: 'Cookie Policy'
                 }
             ]
-        },
-        {
-            id: 10,
-            title: 'LIVELOOT',
-            links: [
-                {
-                    id: 11,
-                    text: 'Via di Ambrogio, 42, 20124 Milano(MI)-Italia '
-                },
-                {
-                    id: 12,
-                    text: '+39 02 1234 5678'
-                },
-                {
-                    id: 13,
-                    text: 'info@liveloot.it'
-                }
-            ]
         }
-
-
     ]
     return (
         <>
@@ -88,6 +68,20 @@ export default function Footer() {
                                 }
                             </div>
                         ))}
+                        <div className="col-sm-3">
+                            <h3 className='titoli-footer'><strong>LIVELOOT</strong></h3>
+                            <a>
+                                <li>
+                                    Via di Ambrogio, 42, 20124 Milano(MI)-Italia
+                                </li>
+                                <li>
+                                    +39 02 1234 5678
+                                </li>
+                                <li>
+                                    info@liveloot.it
+                                </li>
+                            </a>
+                        </div>
                     </ul>
                 </div>
                 <div className="container">
