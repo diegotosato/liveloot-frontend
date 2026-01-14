@@ -147,15 +147,15 @@ export default function FocusProdotto() {
 
                                 <section className="prod-buttons">
                                     <button
-                                        className="btn-back rounded-pill"
-                                        onClick={() => navigate(- 1)}>
-                                        TORNA INDIETRO
-                                    </button>
-                                    <button
                                         className="btn-add-to-cart rounded-pill">
                                         AGGIUNGI AL CARRELLO
                                     </button>
                                     <button
+                                        className="btn-back rounded-pill"
+                                        onClick={() => navigate(-1)}>
+                                        TORNA INDIETRO
+                                    </button>
+                                    {/* <button
                                         className="btn-avanti-indietro rounded-pill"
                                         onClick={() => handlePrev(slug, slug_product)}>
                                         PRODOTTO PRECEDENTE
@@ -164,7 +164,7 @@ export default function FocusProdotto() {
                                         className="btn-avanti-indietro rounded-pill"
                                         onClick={() => handleNext(slug, slug_product)}>
                                         PRODOTTO SUCCESSIVO
-                                    </button>
+                                    </button> */}
                                 </section>
 
                             </div>

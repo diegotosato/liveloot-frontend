@@ -856,7 +856,7 @@ a {
   gap: 1rem;
 
   button {
-    width: calc(50% - 0.5rem);
+    width: 50%;
     padding: 0.8rem 1rem;
     font-size: 0.8rem;
   }
