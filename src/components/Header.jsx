@@ -1,4 +1,4 @@
-import { NavLink, Link, useParams, useLocation } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
     Keyboard, GridNine, MouseSimple, Monitor, VideoCamera, OfficeChair,
     Headphones, DeviceTablet, DesktopTower, Laptop, ShoppingCart, CaretDown
@@ -6,14 +6,13 @@ import {
 import Logo from '../assets/img/logo.svg'
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 
 export default function Header() {
 
 
     const { categoriesProd, setCategoriesProd, cart } = useGlobalContext();
-    /*  const [search, setSearch] = useState(""); */
 
     useEffect(() => {
         axios.get(`http://localhost:3000/techs/`)
@@ -24,7 +23,6 @@ export default function Header() {
             })
     }, []);
 
-    const location = useLocation();
 
 
     const icone = {
