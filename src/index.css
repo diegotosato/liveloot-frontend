@@ -1902,6 +1902,39 @@ a {
   .number-quantity {
     width: 40px;
   }
+
+  /* Payment Section */
+  .payment-container {
+    padding: 20px;
+  }
+
+  .payment-card {
+    padding: 20px;
+  }
+
+  .card-form {
+    padding: 20px;
+  }
+
+  .row .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .row .col-4,
+  .row .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .payment-button,
+  .confirm-button {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 15px;
+  }
 }
 
 
@@ -2003,5 +2036,47 @@ a {
 
   .order-button {
     width: 100% !important;
+  }
+
+  /* Payment Section */
+  .payment-container {
+    padding: 15px 10px;
+  }
+
+  .payment-card {
+    padding: 15px;
+  }
+
+  .card-form {
+    padding: 15px;
+  }
+
+  .title-address {
+    font-size: 18px;
+  }
+
+  .row .col,
+  .row .col-4,
+  .row .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .payment-button,
+  .confirm-button {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-top: 12px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .custom-input-base {
+    font-size: 14px;
   }
 }
