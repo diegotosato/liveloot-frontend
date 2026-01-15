@@ -59,7 +59,7 @@ export default function SwiperComponent() {
                             <SwiperSlide key={tech.id}>
                                 <img src={`http://localhost:3000/${tech.image}`} />
                                 <h5 className='text-center'>{tech.title}</h5>
-                                <Link to={`/categories/${tech.slug}/${tech.slug_product}`}>
+                                <Link to={`/categorie/${tech.slug}/${tech.slug_product}`}>
                                     <button className='btn-view-product rounded-pill'>
                                         Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
                                     </button>

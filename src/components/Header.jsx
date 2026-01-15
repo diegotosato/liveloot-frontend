@@ -69,7 +69,7 @@ export default function Header() {
                                         {
                                             categoriesProd?.map(cat => (
                                                 <li key={cat.slug}>
-                                                    <Link className="category-recap" to={`/categories/${cat.slug}`}>
+                                                    <Link className="category-recap" to={`/categorie/${cat.slug}`}>
                                                         <div className="category-visual me-3">
                                                             <div className="category-icon">
                                                                 {icone[cat.slug]}
@@ -89,7 +89,7 @@ export default function Header() {
                                         }
                                         <li>
                                             <h5>
-                                                <Link to={'/categories'} className="categories-view-all">Vedi tutte<CaretDown className="down-arrow" style={{ rotate: '-90deg' }} /></Link>
+                                                <Link to={'/categorie'} className="categories-view-all">Vedi tutte<CaretDown className="down-arrow" style={{ rotate: '-90deg' }} /></Link>
                                             </h5>
                                         </li>
                                     </ul>
@@ -103,7 +103,7 @@ export default function Header() {
                         </ul>
                     </div>
 
-                    <Link to="/AllProdotti">
+                    <Link to="/prodotti">
                         <button className="product-button rounded-pill">Tutti i prodotti</button>
                     </Link>
 

@@ -20,10 +20,10 @@ function App() {
           <Routes>
             <Route element={<DefaultLayout />} >
               <Route path="/" element={<HomePage />} />
-              <Route path="/categories" element={<Categorie />} />
-              <Route path="/categories/:slug" element={<CategorieProdotti />} />
-              <Route path="/categories/:slug/:slug_product" element={<FocusProdotto />} />
-              <Route path="/AllProdotti" element={<AllProdotti />} />
+              <Route path="/categorie" element={<Categorie />} />
+              <Route path="/categorie/:slug" element={<CategorieProdotti />} />
+              <Route path="/categorie/:slug/:slug_product" element={<FocusProdotto />} />
+              <Route path="/prodotti" element={<AllProdotti />} />
               <Route path="/carrello" element={<Cart />} />
               <Route path="/carrello/pagamento" element={<PaymentSection />} />
             </Route>
