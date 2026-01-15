@@ -1389,9 +1389,13 @@ a {
   color: white !important;
 }
 
+/* #endregion */
+
+/* #endregion */
+
 /* pagina pagamento */
 .payment-container {
-  background-color: #4740bb;
+  position: relative;
   padding: 40px;
   min-height: 100vh;
 }

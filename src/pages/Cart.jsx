@@ -156,7 +156,7 @@ export default function Cart() {
 
                                 <div className="final-price">
                                     <span className="total-price">€ {calculateTotal().toFixed(2)}</span>
-                                    <button className="order-button rounded-pill">PROCEDI ALL'ORDINE</button>
+                                    <button className="order-button rounded-pill" onClick={() => navigate('/carrello/pagamento')}>PROCEDI ALL'ORDINE</button>
                                 </div>
                             </div>
 

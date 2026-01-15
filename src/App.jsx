@@ -8,7 +8,7 @@ import AllProdotti from "./pages/AllProdotti"
 import { GlobalProvider } from "./context/GlobalContext"
 import ScrollToTop from "./components/ScrollToTop"
 import Cart from "./pages/Cart"
-
+import PaymentSection from './pages/PaymentSection'
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
               <Route path="/categories/:slug/:slug_product" element={<FocusProdotto />} />
               <Route path="/AllProdotti" element={<AllProdotti />} />
               <Route path="/carrello" element={<Cart />} />
+              <Route path="/carrello/pagamento" element={<PaymentSection />} />
             </Route>
           </Routes>
         </BrowserRouter>
