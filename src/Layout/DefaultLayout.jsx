@@ -4,6 +4,10 @@ import Footer from "../components/Footer";
 import { useGlobalContext } from "../context/GlobalContext";
 import Loader from "../components/Loader";
 import ChatBotReal from "../components/ChatBotReal";
+import RefactorChatWindow from "../components/RefactorChatWindow";
+
+
+
 export default function DefaultLayout() {
     const { loading } = useGlobalContext();
 
@@ -13,6 +17,7 @@ export default function DefaultLayout() {
             {loading && <Loader />}
             <main>
                 <Outlet />
+                {/* <RefactorChatWindow /> */}
                 <ChatBotReal />
             </main>
             <Footer />

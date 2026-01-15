@@ -69,24 +69,25 @@ export default function ChatBotReal({ products }) {
     return (
         <>
             <div className="fixed-bottom chat-container z-3">
-                <div className="card chat-card-spacing z-3 d-none mt-4" id="chat-window" style={{ width: '18rem', minHeight: '500px' }}>
-                    <div className="card-header">
-                        Chat Window
+
+                <div className="card chat-card-spacing z-3 d-none mt-4 p-0" id="chat-window">
+                    <div className="card-header chat-name">
+                        Parla con Ambrogio,<br /> il tuo assistente personale
                     </div>
                     <div className="card-body d-flex flex-column justify-content-between">
-                        <select className="form-select mb-3 rounded-pill" aria-label="Default select example" onChange={(e) => setContext(e.target.value)}>
+                        <select className="form-select mb-3 rounded-pill chat-select" aria-label="Default select example" onChange={(e) => setContext(e.target.value)}>
                             <option className="catChat">Seleziona una categoria</option>
                             <option className="catChat" value="current product">current product</option>
                             <option className="catChat" value="product comparison">product comparison</option>
                         </select>
-                        <div id="chat-messages" style={{ height: '300px', overflowY: 'auto', border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
+                        <div id="chat-messages">
                             {messages.map((msg, idx) => (
                                 <div key={idx} className={`chat-bubble ${msg.author === 'user' ? 'user' : 'ai'}`}>
                                     <div className="chat-meta">
                                         <span className={`chat-author ${msg.author === 'user' ? 'user' : 'ai'}`}>{msg.author === 'user' ? 'Tu' : 'AMBROGIO'}</span>
                                         <span className="chat-timestamp">{msg.time}</span>
                                     </div>
-                                    <div className="chat-text">{msg.text}</div>
+                                    <div className="chat-texts">{msg.text}</div>
                                 </div>
                             ))}
                             <div ref={messagesEndRef} />
@@ -95,18 +96,20 @@ export default function ChatBotReal({ products }) {
 
 
 
-                        <div>
-                            <form type="submit" className="d-flex" onSubmit={handleChatSubmit}>
-                                <input className="form-control rounded-pill" type="text" placeholder="Chat" value={message} onChange={(e) => { setMessage(e.target.value) }} />
+                        <div className="d-flex justify-content-between mt-3">
+                            <form type="submit" className="chat-form d-flex" onSubmit={handleChatSubmit}>
+                                <input className="form-control rounded-pill chat-select" type="text" placeholder="Chat" value={message} onChange={(e) => { setMessage(e.target.value) }} />
                             </form>
-                            <button className="btn btn-dark mt-3" onClick={() => handleChatOpen()}>Close Chat</button>
+                            <button className="btn-close-chat rounded-pill" onClick={() => handleChatOpen()}>Close Chat</button>
                         </div>
                     </div>
-                </div >
-                <div className="fixed-bottom chat-button-spacing z-3">
-                    <button type="button" style={{ width: '80px', height: '80px' }} className="btn btn-dark rounded-circle" onClick={() => handleChatOpen()}>
-                        <i className="bi bi-robot"></i></button>
-                </div >
+                </div>
+
+                <div className="chat-button-spacing z-3">
+                    <button type="button" style={{ width: '80px', height: '80px' }} className="btn-open-chat rounded-circle " onClick={() => handleChatOpen()}>
+                        <i className="bi bi-robot"></i>
+                    </button>
+                </div>
             </div >
         </>
     );

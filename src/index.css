@@ -546,7 +546,7 @@ nav {
   border-color: var(--color-fuchsia) !important;
 }
 
-form {
+.chat-form {
   display: flex;
 }
 
@@ -840,11 +840,19 @@ form {
 
 /* container tweaks for mobile-like appearance */
 #chat-messages {
+  height: 400px !important;
   display: flex;
   flex-direction: column;
   gap: 6px;
   background: rgba(0, 0, 0, 0.03);
+  overflow-y: auto;
+  border: 2px solid var(--color-fuchsia);
+  padding: 10px;
+  border-radius: 15px;
+  scrollbar-color: var(--color-fuchsia) var(--color-purple);
+  scrollbar-width: none;
 }
+
 
 /* Author and timestamp styles */
 .chat-meta {
@@ -883,20 +891,55 @@ form {
 }
 
 .chat-container {
+  width: 400px !important;
   margin: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .chat-card-spacing {
-  margin: 3rem;
+  width: 100% !important;
+  margin: 1rem 3rem;
+}
+
+.chat-name {
+  color: var(--color-lightblue);
+  text-shadow: 0 0 10px var(--color-lightblue);
+  text-transform: uppercase;
+}
+
+.chat-select {
+  border: 2px solid var(--color-fuchsia)
 }
 
 .chat-button-spacing {
-  margin: 3rem;
+  margin: 0 0 3rem 3rem;
+  width: 80px;
+  height: 80px;
 }
 
+.btn-close-chat {
+  color: white;
+  background-color: var(--color-fuchsia);
+  border: 1px solid var(--color-fuchsia);
+  box-shadow: 0 0 10px var(--color-fuchsia);
+  transition: all 0.3s linear;
+  padding: 0 1rem;
+}
 
+.btn-open-chat {
+  /* border: 2px solid var(--color-purple); */
+  border: none;
+  background-color: var(--color-purple);
+  box-shadow: 0 0 10px var(--color-fuchsia);
+  transition: all 0.3s linear;
+
+  i {
+    color: white;
+  }
+}
+
+.btn-open-chat:hover {
+  background-color: var(--color-fuchsia);
+}
 
 /* #endregion */
 
@@ -904,7 +947,7 @@ form {
 .color_footer {
   background-color: var(--color-purple);
   position: relative;
-  z-index: 9999;
+  z-index: 2;
 }
 
 .footer_logo {
@@ -1214,7 +1257,7 @@ a {
   height: 30px;
 }
 
-/* line product */
+/* #region line product */
 
 .img-category {
   width: 60px;
@@ -1268,7 +1311,9 @@ a {
   cursor: pointer;
 }
 
-/* card totale */
+/* #endregion */
+
+/* #region card totale */
 .summary-card {
   background-color: var(--color-purple);
   border-radius: 20px;
@@ -1344,7 +1389,9 @@ a {
   color: white !important;
 }
 
+/* #endregion */
 
+/* #endregion */
 
 
 
