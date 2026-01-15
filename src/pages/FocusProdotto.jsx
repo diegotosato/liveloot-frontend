@@ -10,7 +10,7 @@ export default function FocusProdotto() {
 
 
 
-    const { singleProduct, setSingleProduct } = useGlobalContext()
+    const { singleProduct, setSingleProduct, addToCart, cart } = useGlobalContext()
     useEffect(() => {
         if (!slug || !slug_product) return;
 
@@ -27,43 +27,6 @@ export default function FocusProdotto() {
 
         fetchSingle();
     }, [slug, slug_product]);
-
-
-
-
-    const [prodID, setProdID] = useState([])
-    useEffect(() => {
-        axios.get(`http://localhost:3000/techs/${slug}`)
-            .then(res => {
-                res.data.tag.map((item) => setProdID(prev => [...prev, item.slug]))
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }, [])
-
-
-    function handlePrev(slug, slug_product) {
-        if (!prodID.includes(slug_product) || slug_product === prodID[0]) {
-            return
-        } else {
-            const position = prodID.indexOf(slug_product) - 1;
-            navigate(`/categories/${slug}/${prodID[position]}`)
-        }
-    }
-
-    function handleNext(slug, slug_product) {
-        if (!prodID.includes(slug_product) || slug_product === prodID[prodID.length - 1]) {
-            return
-        } else {
-            const position = prodID.indexOf(slug_product) + 1;
-            navigate(`/categories/${slug}/${prodID[position]}`)
-        }
-    }
-
-
-
-
 
 
     const [quantity, setQuantity] = useState(1)
@@ -105,6 +68,16 @@ export default function FocusProdotto() {
 
 
 
+
+
+    function handleAddToCart() {
+        addToCart(singleProduct, Number(quantity))
+    }
+
+    useEffect(() => {
+        console.log("CARRELLO:", cart);
+    }, [cart]);
+
     return (
         <>
             <div className="back-gradient">
@@ -140,14 +113,15 @@ export default function FocusProdotto() {
                                             type="number"
                                             className="number-quantity"
                                             value={quantity}
-                                            onChange={(e) => setQuantity(e.target.value)} />
+                                            onChange={(e) => setQuantity(Number(e.target.value))} />
                                     </form>
                                     <button className="aggiunta-rimozione" onClick={handleAdd}>+</button>
                                 </section>
 
                                 <section className="prod-buttons">
                                     <button
-                                        className="btn-add-to-cart rounded-pill">
+                                        className="btn-add-to-cart rounded-pill"
+                                        onClick={handleAddToCart}>
                                         AGGIUNGI AL CARRELLO
                                     </button>
                                     <button
