@@ -32,7 +32,7 @@ export default function Categorie() {
                 <div className="all-categories-section">
                     {
                         categoriesProd.map(categorie => (
-                            <Link className="all-categories-card" to={`/categories/${categorie.slug}`} key={categorie.id} slug={categorie.slug}>
+                            <Link className="all-categories-card" to={`/categorie/${categorie.slug}`} key={categorie.id} slug={categorie.slug}>
                                 <div className="all-image">
                                     <img src={`http://localhost:3000/${categorie.image}`} alt="" />
                                 </div>

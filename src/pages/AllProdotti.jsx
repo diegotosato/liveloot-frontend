@@ -86,7 +86,7 @@ export default function AllProdotti() {
                     <div className="all-prod-section">
                         {
                             all.map(item => (
-                                <div className="all-prod-card" to={`/categories/${item.slug}/${item.slug_product}`} key={item.id}>
+                                <div className="all-prod-card" key={item.id}>
 
                                     <div className="all-image">
                                         <img src={`http://localhost:3000/${item.image}`} alt="" />
@@ -98,7 +98,7 @@ export default function AllProdotti() {
                                         <p>Prezzo: <strong className="all-price">€ {item.price}</strong></p>
                                     </div>
 
-                                    <Link to={`/categories/${item.slug}/${item.slug_product}`}>
+                                    <Link to={`/categorie/${item.slug}/${item.slug_product}`}>
                                         <button className='btn-view-product rounded-pill'>
                                             Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
                                         </button>

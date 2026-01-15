@@ -112,7 +112,7 @@ export default function HomePage() {
                                                 <img src={`http://localhost:3000/${arrivals[1]?.image}`} />
                                             </div>
                                             <h5 className='text-center'>{arrivals[1]?.title}</h5>
-                                            <Link to={`/categories/${arrivals[1]?.slug}/${arrivals[1]?.slug_product}`}>
+                                            <Link to={`/categorie/${arrivals[1]?.slug}/${arrivals[1]?.slug_product}`}>
                                                 <button className='btn-view-product rounded-pill'>
                                                     Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
                                                 </button>
@@ -128,7 +128,7 @@ export default function HomePage() {
                                                 <img src={`http://localhost:3000/${arrivals[2]?.image}`} />
                                             </div>
                                             <h5 className='text-center'>{arrivals[2]?.title}</h5>
-                                            <Link to={`/categories/${arrivals[2]?.slug}/${arrivals[2]?.slug_product}`}>
+                                            <Link to={`/categorie/${arrivals[2]?.slug}/${arrivals[2]?.slug_product}`}>
                                                 <button className='btn-view-product rounded-pill'>
                                                     Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
                                                 </button>
@@ -144,7 +144,7 @@ export default function HomePage() {
                                                 <img src={`http://localhost:3000/${arrivals[0]?.image}`} />
                                             </div>
                                             <h5 className='text-center'>{arrivals[0]?.title}</h5>
-                                            <Link to={`/categories/${arrivals[0]?.slug}/${arrivals[0]?.slug_product}`}>
+                                            <Link to={`/categorie/${arrivals[0]?.slug}/${arrivals[0]?.slug_product}`}>
                                                 <button className='btn-view-product rounded-pill'>
                                                     Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
                                                 </button>

@@ -31,7 +31,7 @@ export default function CategorieProdotti() {
                 <div className="container">
                     <div className="all-categories-section">
                         {prodotto.map(item => (
-                            <Link className="all-categories-card" to={`/categories/${slug}/${item.slug}`} key={item.id}>
+                            <Link className="all-categories-card" to={`/categorie/${slug}/${item.slug}`} key={item.id}>
                                 <div className="all-image">
                                     <img src={`http://localhost:3000/${item.image}`} alt="" />
                                 </div>
