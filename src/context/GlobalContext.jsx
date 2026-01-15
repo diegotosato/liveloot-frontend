@@ -20,6 +20,23 @@ function GlobalProvider({ children }) {
     const [singleProduct, setSingleProduct] = useState({})
     const [search, setSearch] = useState("");
     const [sortBy, setSortBy] = useState("");
+    const [cart, setCart] = useState([])
+    const addToCart = (product, quantity) => {
+        setCart(prev => {
+            const existing = prev.find(cartProd => cartProd.id === product.id);
+
+            if (existing) {
+                return prev.map(cartProd =>
+                    cartProd.id === product.id
+                        ? { ...cartProd, quantity: quantity }
+                        : cartProd
+                );
+            }
+
+            return [...cart, { ...product, quantity }];
+        });
+    };
+
     const values = useMemo(() => ({
         loading,
         setLoading,
@@ -44,6 +61,9 @@ function GlobalProvider({ children }) {
         search,
         sortBy,
         setSortBy,
+        cart,
+        setCart,
+        addToCart
     }), [
         loading,
         techs,
@@ -56,6 +76,8 @@ function GlobalProvider({ children }) {
         singleProduct,
         search,
         sortBy,
+        cart,
+        addToCart
     ]);
 
     useEffect(() => {
