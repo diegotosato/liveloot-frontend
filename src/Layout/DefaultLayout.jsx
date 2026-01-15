@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import { useGlobalContext } from "../context/GlobalContext";
 import Loader from "../components/Loader";
 import Chat from "../components/Chat";
-import Cart from "../components/Cart";
 export default function DefaultLayout() {
     const { loading } = useGlobalContext();
 
@@ -18,7 +17,6 @@ export default function DefaultLayout() {
                 {/* <Chat /> */}
 
 
-                <Cart />
 
             </main>
             <Footer />
