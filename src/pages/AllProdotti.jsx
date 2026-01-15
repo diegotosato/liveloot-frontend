@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import { useGlobalContext } from "../context/GlobalContext"
 import { Link } from "react-router-dom"
 import axios from "axios";
@@ -9,6 +9,7 @@ import { CaretDown, SortAscending, SortDescending } from "@phosphor-icons/react"
 export default function AllProdotti() {
     const [all, setAll,] = useState([]);
     const { search, sortBy, setSearch, setSortBy } = useGlobalContext();
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const [sort, setSort] = useState('asc')
 
@@ -21,13 +22,25 @@ export default function AllProdotti() {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/techs/products?q=${search || ''}&sortBy=${sortBy || ''}&sort=${sort || ''}`)
+        if (search || sortBy) {
+            setSearchParams({
+                search: search,
+                sortBy: sortBy,
+                sort: sort
+            });
+        } else {
+            setSearchParams({});
+        }
+    }, [search, sortBy, sort, setSearchParams]);
+
+    useEffect(() => {
+        axios.get(`http://localhost:3000/techs/products?search=${search || ''}&sortBy=${sortBy || ''}&sort=${sort || ''}`, { params: { searchParams } })
             .then(res => {
                 setAll(res.data.data)
             }).catch(err => {
                 console.log(err)
             })
-    }, [search, sortBy, sort]);
+    }, [searchParams]);
 
     return (
         <>
@@ -64,7 +77,7 @@ export default function AllProdotti() {
                             aria-label="Search" />
 
                         <select className="sort-select form-select rounded-pill" aria-label="Default select example" onChange={(e) => setSortBy(e.target.value)}>
-                            <option className="catChat">Ordina per</option>
+                            <option className="catChat" value="">Ordina per</option>
                             <option className="catChat" value="title">Nome</option>
                             <option className="catChat" value="price">Prezzo</option>
                             <option className="catChat" value="created_at">Più recenti</option>

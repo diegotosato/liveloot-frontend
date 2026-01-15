@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
 
-    const { cart, setCart, cartProducts, setCartProducts, cartTotalPrice, setCartTotalPrice } = useGlobalContext()
+    const { cart, setCart, setCartProducts, setCartTotalPrice } = useGlobalContext()
     const navigate = useNavigate()
 
     function totalPrice(price, quantity) {

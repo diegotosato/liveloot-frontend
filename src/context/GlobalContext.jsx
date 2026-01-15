@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, use } from "react";
 import { useContext, useState, useEffect } from "react";
 import { useMemo } from "react";
 import axios from "axios";
@@ -16,7 +16,10 @@ function GlobalProvider({ children }) {
     const [singleProduct, setSingleProduct] = useState({})
     const [search, setSearch] = useState("");
     const [sortBy, setSortBy] = useState("");
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem("cart");
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
     const [cartProducts, setCartProducts] = useState([])
     const [cartTotalPrice, setCartTotalPrice] = useState(0)
     const addToCart = (product, quantity) => {
@@ -82,6 +85,10 @@ function GlobalProvider({ children }) {
                 setLoading(false);
             })
     }, [])
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
 
 
 
