@@ -30,7 +30,6 @@ export default function FocusProdotto() {
 
 
     const [quantity, setQuantity] = useState(1)
-    console.log(quantity);
 
     useEffect(() => {
         if (quantity > 5) {

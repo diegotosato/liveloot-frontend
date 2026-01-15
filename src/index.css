@@ -301,9 +301,23 @@ nav {
   justify-content: center;
   align-items: center;
   transition: all 0.3s linear;
+  position: relative;
 
   .cart-icon {
     font-size: 20px;
+  }
+
+  span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
+    position: absolute;
+    top: -20%;
+    right: -20%;
   }
 }
 

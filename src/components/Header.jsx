@@ -12,7 +12,7 @@ import { useGlobalContext } from "../context/GlobalContext";
 export default function Header() {
 
 
-    const { categoriesProd, setCategoriesProd, } = useGlobalContext();
+    const { categoriesProd, setCategoriesProd, cart } = useGlobalContext();
     /*  const [search, setSearch] = useState(""); */
 
     useEffect(() => {
@@ -112,6 +112,10 @@ export default function Header() {
                     {/* Carrello */}
                     <button className="cart ms-2" type="submit">
                         <ShoppingCart className="cart-icon" />
+                        {
+                            cart.length > 0 ? <span className="cart-quantity">{cart.length}</span> : ''
+                        }
+
                     </button>
                 </div>
             </nav>
