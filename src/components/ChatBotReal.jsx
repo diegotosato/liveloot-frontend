@@ -77,8 +77,8 @@ export default function ChatBotReal({ products }) {
                     <div className="card-body d-flex flex-column justify-content-between">
                         <select className="form-select mb-3 rounded-pill chat-select" aria-label="Default select example" onChange={(e) => setContext(e.target.value)}>
                             <option className="catChat">Seleziona una categoria</option>
-                            <option className="catChat" value="current product">current product</option>
-                            <option className="catChat" value="product comparison">product comparison</option>
+                            <option className="catChat" value="current product">Prodotto corrente</option>
+                            <option className="catChat" value="product comparison">Confronto tra prodotti</option>
                         </select>
                         <div id="chat-messages">
                             {messages.map((msg, idx) => (
