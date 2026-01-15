@@ -1389,9 +1389,98 @@ a {
   color: white !important;
 }
 
-/* #endregion */
+/* pagina pagamento */
+.payment-container {
+  background-color: #4740bb;
+  padding: 40px;
+  min-height: 100vh;
+}
 
-/* #endregion */
+.title-section {
+  display: flex;
+  text-align: center;
+}
+
+.payment-title {
+  font-size: 20px;
+  color: white;
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+.payment-card {
+  background-color: var(--color-purple);
+  border-radius: 20px;
+  box-shadow: 0 0 10px 5px rgba(184, 11, 167, 1);
+  padding: 30px;
+  margin-top: 20px;
+}
+
+.title-address {
+  color: white;
+}
+
+
+.card-form {
+  background-color: white;
+  border-radius: 15px;
+  padding: 35px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.pagamento {
+  display: block;
+}
+
+.line-2 {
+  margin-top: 20px;
+}
+
+.line-3 {
+  margin-top: 20px;
+}
+
+.line-4 {
+  margin-top: 20px;
+}
+
+.payment-button {
+  background-color: var(--color-fuchsia);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(240, 50, 230, 0.4);
+  margin-top: 30px;
+}
+
+.payment-button:hover {
+  background-color: rgba(184, 11, 167, 1) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 6px 20px rgba(240, 50, 230, 0.6);
+  color: white !important;
+}
+
+.confirm-button {
+  background-color: black;
+  color: var(--color-lightblue);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(87, 217, 236, 0.4);
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.confirm-button:hover {
+  background-color: rgba(87, 217, 236, 1) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 6px 20px rgba(87, 217, 236, 0.6);
+  color: white !important;
+}
 
 
 
