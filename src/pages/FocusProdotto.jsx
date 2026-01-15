@@ -71,12 +71,13 @@ export default function FocusProdotto() {
 
 
     function handleAddToCart() {
-        addToCart(singleProduct, Number(quantity))
+        const productWithSlugs = {
+            ...singleProduct,
+            category_slug: slug,
+            slug: slug_product
+        };
+        addToCart(productWithSlugs, Number(quantity))
     }
-
-    useEffect(() => {
-        console.log("CARRELLO:", cart);
-    }, [cart]);
 
     return (
         <>

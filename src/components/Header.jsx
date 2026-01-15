@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import {
     Keyboard, GridNine, MouseSimple, Monitor, VideoCamera, OfficeChair,
     Headphones, DeviceTablet, DesktopTower, Laptop, ShoppingCart, CaretDown
@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 
 export default function Header() {
-
+    const navigate = useNavigate()
 
     const { categoriesProd, setCategoriesProd, cart } = useGlobalContext();
 
@@ -108,7 +108,7 @@ export default function Header() {
                     </Link>
 
                     {/* Carrello */}
-                    <button className="cart ms-2" type="submit">
+                    <button className="cart ms-2" type="submit" onClick={() => navigate('/carrello')}>
                         <ShoppingCart className="cart-icon" />
                         {
                             cart.length > 0 ? <span className="cart-quantity">{cart.length}</span> : ''

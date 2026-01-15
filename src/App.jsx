@@ -7,7 +7,7 @@ import FocusProdotto from "./pages/FocusProdotto"
 import AllProdotti from "./pages/AllProdotti"
 import { GlobalProvider } from "./context/GlobalContext"
 import ScrollToTop from "./components/ScrollToTop"
-
+import Cart from "./pages/Cart"
 
 
 
@@ -24,6 +24,7 @@ function App() {
               <Route path="/categories/:slug" element={<CategorieProdotti />} />
               <Route path="/categories/:slug/:slug_product" element={<FocusProdotto />} />
               <Route path="/AllProdotti" element={<AllProdotti />} />
+              <Route path="/carrello" element={<Cart />} />
             </Route>
           </Routes>
         </BrowserRouter>
