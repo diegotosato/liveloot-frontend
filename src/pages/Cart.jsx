@@ -5,13 +5,11 @@ export default function Cart() {
 
     const { cart, setCart } = useGlobalContext()
     const navigate = useNavigate()
-    console.log(cart);
 
     function totalPrice(price, quantity) {
         return (price * quantity).toFixed(2)
     }
 
-    // Calcola il subtotale di tutti i prodotti nel carrello
     function calculateSubtotal() {
         if (!cart || cart.length === 0) return 0;
         return cart.reduce((total, product) => {
@@ -19,26 +17,22 @@ export default function Cart() {
         }, 0);
     }
 
-    // Calcola la spedizione (gratuita sopra 150€, altrimenti 4.99€)
     function calculateShipping() {
         const subtotal = calculateSubtotal();
         return subtotal >= 150 ? 0 : 4.99;
     }
 
-    // Verifica se la spedizione è gratuita
     function isFreeShipping() {
         return calculateSubtotal() >= 150;
     }
 
-    // Calcola il totale finale
     function calculateTotal() {
         return calculateSubtotal() + calculateShipping();
     }
 
-    // Aggiorna la quantità di un prodotto nel carrello
     function handleUpdateQuantity(productId, newQuantity) {
-        if (newQuantity < 1) return; // Non permette quantità minore di 1
-        if (newQuantity > 5) return; // Non permette quantità maggiore di 5
+        if (newQuantity < 1) return;
+        if (newQuantity > 5) return;
 
         setCart(cart.map(product =>
             product.id === productId
@@ -47,13 +41,10 @@ export default function Cart() {
         ));
     }
 
-    // Naviga alla pagina del prodotto
+
     function handleNavigateToProduct(product) {
-        console.log('Navigating to product:', product);
         if (product.category_slug && product.slug) {
             navigate(`/categories/${product.category_slug}/${product.slug}`);
-        } else {
-            console.warn('Missing category_slug or slug:', product);
         }
     }
 
@@ -107,26 +98,20 @@ export default function Cart() {
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 handleUpdateQuantity(addProd?.id, addProd?.quantity - 1);
-                                            }}
-                                        >
+                                            }}>
                                             −
                                         </button>
                                         <input
                                             type="number"
                                             className="number-quantity"
                                             value={addProd?.quantity}
-                                            onChange={(e) => handleUpdateQuantity(addProd?.id, Number(e.target.value))}
-                                            onClick={(e) => e.stopPropagation()}
-                                            min="1"
-                                            max="5"
-                                        />
+                                            onChange={(e) => handleUpdateQuantity(addProd?.id, Number(e.target.value))} />
                                         <button
                                             className="aggiunta-rimozione"
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 handleUpdateQuantity(addProd?.id, addProd?.quantity + 1);
-                                            }}
-                                        >
+                                            }}>
                                             +
                                         </button>
                                     </div>
@@ -171,7 +156,7 @@ export default function Cart() {
 
                                 <div className="final-price">
                                     <span className="total-price">€ {calculateTotal().toFixed(2)}</span>
-                                    <button className="order-button">PROCEDI ALL'ORDINE</button>
+                                    <button className="order-button rounded-pill">PROCEDI ALL'ORDINE</button>
                                 </div>
                             </div>
 

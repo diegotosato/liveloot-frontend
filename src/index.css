@@ -1146,7 +1146,7 @@ a {
   }
 }
 
-/* cart */
+/* #region carrello */
 
 .cart-container {
   position: relative;
@@ -1325,15 +1325,16 @@ a {
 }
 
 .order-button {
-  background-color: var(--color-fuchsia);
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 50px;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(240, 50, 230, 0.4);
-  transition: all 0.3s ease;
-  cursor: pointer;
+  height: 40px;
+  color: var(--color-fuchsia);
+  border: 2px solid var(--color-fuchsia);
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s linear;
+  padding: 0 1rem;
 }
 
 .order-button:hover {
