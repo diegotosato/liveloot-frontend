@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
 
-    const { cart, setCart } = useGlobalContext()
+    const { cart, setCart, cartProducts, setCartProducts, cartTotalPrice, setCartTotalPrice } = useGlobalContext()
     const navigate = useNavigate()
 
     function totalPrice(price, quantity) {
@@ -55,6 +55,12 @@ export default function Cart() {
         } else {
             setCart(filtered)
         }
+    }
+
+    function handleProceed() {
+        setCartProducts(cart)
+        setCartTotalPrice(calculateTotal())
+        navigate('/carrello/pagamento')
     }
 
     return (
@@ -156,7 +162,7 @@ export default function Cart() {
 
                                 <div className="final-price">
                                     <span className="total-price">€ {calculateTotal().toFixed(2)}</span>
-                                    <button className="order-button rounded-pill" onClick={() => navigate('/carrello/pagamento')}>PROCEDI ALL'ORDINE</button>
+                                    <button className="order-button rounded-pill" onClick={handleProceed}>PROCEDI ALL'ORDINE</button>
                                 </div>
                             </div>
 
@@ -164,6 +170,6 @@ export default function Cart() {
                     </div>
                 </section>
             </div>
-        </div >
+        </div>
     );
 }

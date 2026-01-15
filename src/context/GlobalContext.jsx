@@ -17,6 +17,8 @@ function GlobalProvider({ children }) {
     const [search, setSearch] = useState("");
     const [sortBy, setSortBy] = useState("");
     const [cart, setCart] = useState([])
+    const [cartProducts, setCartProducts] = useState([])
+    const [cartTotalPrice, setCartTotalPrice] = useState(0)
     const addToCart = (product, quantity) => {
         setCart(prev => {
             const existing = prev.find(cartProd => cartProd.id === product.id);
@@ -38,7 +40,6 @@ function GlobalProvider({ children }) {
         setLoading,
         techs,
         setTechs,
-
         prodotto,
         setProdotto,
         categoriesProd,
@@ -51,7 +52,11 @@ function GlobalProvider({ children }) {
         setSortBy,
         cart,
         setCart,
-        addToCart
+        addToCart,
+        cartProducts,
+        setCartProducts,
+        cartTotalPrice,
+        setCartTotalPrice
     }), [
         loading,
         techs,
@@ -61,7 +66,9 @@ function GlobalProvider({ children }) {
         search,
         sortBy,
         cart,
-        addToCart
+        addToCart,
+        cartProducts,
+        cartTotalPrice
     ]);
 
     useEffect(() => {

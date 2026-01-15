@@ -1,8 +1,35 @@
 import {
     ShoppingCart
 } from "@phosphor-icons/react";
+import { useGlobalContext } from "../context/GlobalContext";
+import { useState } from "react";
 
 export default function PaymentSection() {
+
+    const { cartProducts, cartTotalPrice } = useGlobalContext()
+
+
+    const buyer = {
+        name: '',
+        lastname: '',
+        email: '',
+        number: '',
+        address: '',
+        country: '',
+        city: '',
+        province: '',
+        postalCode: '',
+        notes: '',
+        total_price: cartTotalPrice
+    }
+    const [formBuyer, setFormBuyer] = useState(buyer)
+
+    function handleSumbit(e) {
+        e.preventDefault();
+        console.log(formBuyer);
+        console.log(cartProducts);
+    }
+
     return (
         <div className="back-gradient">
 
@@ -22,7 +49,7 @@ export default function PaymentSection() {
                     <div className="payment-card">
                         <h3 className="title-address">Indirizzo di spedizione</h3>
                         <div className="card-form">
-                            <form className="pagamento">
+                            <form className="pagamento" onSubmit={handleSumbit}>
                                 {/* riga 1 */}
                                 <div className="row">
                                     <div className="col">
@@ -32,6 +59,8 @@ export default function PaymentSection() {
                                             id="nome"
                                             className="form-control custom-input-base"
                                             placeholder="Inserisci nome"
+                                            value={formBuyer.name}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, name: e.target.value })}
                                         />
                                     </div>
 
@@ -42,22 +71,38 @@ export default function PaymentSection() {
                                             id="cognome"
                                             className="form-control custom-input-base"
                                             placeholder="Inserisci cognome"
+                                            value={formBuyer.lastname}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, lastname: e.target.value })}
                                         />
                                     </div>
 
 
                                     <div className="col">
-                                        <label for="tel">Telefono</label>
+                                        <label for="tel">Email</label>
                                         <input
-                                            type="number"
-                                            id="telefono"
+                                            type="email"
+                                            id="email"
                                             className="form-control custom-input-base"
                                             placeholder="Inserisci telefono"
+                                            value={formBuyer.email}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, email: e.target.value })}
                                         />
                                     </div>
                                 </div>
                                 {/* riga 2 */}
                                 <div className="row line-2">
+                                    <div className="col">
+                                        <label for="telefono">Telefono</label>
+                                        <input
+                                            type="text"
+                                            id="telefono"
+                                            className="form-control custom-input-base"
+                                            placeholder="Inserisci Indirizzo"
+                                            value={formBuyer.number}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, number: e.target.value })}
+                                        />
+                                    </div>
+
                                     <div className="col">
                                         <label for="address">Indirizzo</label>
                                         <input
@@ -65,6 +110,8 @@ export default function PaymentSection() {
                                             id="address"
                                             className="form-control custom-input-base"
                                             placeholder="Inserisci Indirizzo"
+                                            value={formBuyer.address}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, address: e.target.value })}
                                         />
                                     </div>
 
@@ -75,6 +122,8 @@ export default function PaymentSection() {
                                             id="state"
                                             className="form-control custom-input-base"
                                             placeholder="Inserisci Stato"
+                                            value={formBuyer.country}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, country: e.target.value })}
                                         />
                                     </div>
                                 </div>
@@ -87,6 +136,8 @@ export default function PaymentSection() {
                                             id="city"
                                             className="form-control custom-input-base"
                                             placeholder="Inserisci Città"
+                                            value={formBuyer.city}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, city: e.target.value })}
                                         />
                                     </div>
 
@@ -97,6 +148,8 @@ export default function PaymentSection() {
                                             id="Province"
                                             className="form-control custom-input-base"
                                             placeholder="Inserisci Provincia"
+                                            value={formBuyer.province}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, province: e.target.value })}
                                         />
                                     </div>
 
@@ -107,7 +160,9 @@ export default function PaymentSection() {
                                             type="number"
                                             id="PostalCode"
                                             className="form-control custom-input-base"
-                                            placeholder="Inserisci Codice postale "
+                                            placeholder="Inserisci Codice postale"
+                                            value={formBuyer.postalCode}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, postalCode: e.target.value })}
                                         />
                                     </div>
                                 </div>
@@ -119,10 +174,13 @@ export default function PaymentSection() {
                                             type="text"
                                             id="notes"
                                             className="form-control custom-input-base"
-                                            placeholder="Inserisci Note "
+                                            placeholder="Inserisci Note"
+                                            value={formBuyer.notes}
+                                            onChange={(e) => setFormBuyer({ ...formBuyer, notes: e.target.value })}
                                         />
                                     </div>
                                 </div>
+                                <button type="submit">Invia</button>
                             </form>
                         </div>
                         {/* inizio sezione 2 pagamento */}
