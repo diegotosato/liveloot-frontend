@@ -12,7 +12,7 @@ export default function AllProdotti() {
 
     const [sort, setSort] = useState('asc')
 
-    function handleClick(e) {
+    function handleClick() {
         if (sort === 'asc') {
             setSort('desc')
         } else {
@@ -72,7 +72,7 @@ export default function AllProdotti() {
 
 
 
-                        <button className="order-button rounded-pill" value={sort} onClick={e => handleClick(e)}>
+                        <button className="order-button rounded-pill" value={sort} onClick={handleClick}>
                             {sort === 'desc' ? <SortDescending size={32} /> : <SortAscending size={32} />}
                         </button>
 
