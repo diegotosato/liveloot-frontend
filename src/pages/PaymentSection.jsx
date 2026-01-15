@@ -2,11 +2,13 @@ import {
     ShoppingCart
 } from "@phosphor-icons/react";
 import { useGlobalContext } from "../context/GlobalContext";
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function PaymentSection() {
 
     const { cartProducts, cartTotalPrice } = useGlobalContext()
+    console.log(cartProducts);
 
 
     const buyer = {
@@ -20,14 +22,25 @@ export default function PaymentSection() {
         province: '',
         postalCode: '',
         notes: '',
-        total_price: cartTotalPrice
+        total_price: cartTotalPrice,
+        products: cartProducts
     }
     const [formBuyer, setFormBuyer] = useState(buyer)
 
+
     function handleSumbit(e) {
         e.preventDefault();
-        console.log(formBuyer);
-        console.log(cartProducts);
+
+        axios.post('http://localhost:3000/techs/carrello/pagamento', formBuyer)
+            .then(res => {
+                if (res.status === 200) {
+                    console.log('success');
+                    console.log(res.data);
+                    console.log(formBuyer);
+                }
+            }).catch(err => {
+                console.log(err.message);
+            })
     }
 
     return (
@@ -53,7 +66,7 @@ export default function PaymentSection() {
                                 {/* riga 1 */}
                                 <div className="row">
                                     <div className="col">
-                                        <label for="Name">Nome</label>
+                                        <label htmlFor="Name">Nome</label>
                                         <input
                                             type="text"
                                             id="nome"
@@ -65,7 +78,7 @@ export default function PaymentSection() {
                                     </div>
 
                                     <div className="col">
-                                        <label for="Surname">Cognome</label>
+                                        <label htmlFor="Surname">Cognome</label>
                                         <input
                                             type="text"
                                             id="cognome"
@@ -78,7 +91,7 @@ export default function PaymentSection() {
 
 
                                     <div className="col">
-                                        <label for="tel">Email</label>
+                                        <label htmlFor="tel">Email</label>
                                         <input
                                             type="email"
                                             id="email"
@@ -92,7 +105,7 @@ export default function PaymentSection() {
                                 {/* riga 2 */}
                                 <div className="row line-2">
                                     <div className="col">
-                                        <label for="telefono">Telefono</label>
+                                        <label htmlFor="telefono">Telefono</label>
                                         <input
                                             type="text"
                                             id="telefono"
@@ -104,7 +117,7 @@ export default function PaymentSection() {
                                     </div>
 
                                     <div className="col">
-                                        <label for="address">Indirizzo</label>
+                                        <label htmlFor="address">Indirizzo</label>
                                         <input
                                             type="text"
                                             id="address"
@@ -116,7 +129,7 @@ export default function PaymentSection() {
                                     </div>
 
                                     <div className="col-4">
-                                        <label for="state">Stato</label>
+                                        <label htmlFor="state">Stato</label>
                                         <input
                                             type="text"
                                             id="state"
@@ -130,7 +143,7 @@ export default function PaymentSection() {
                                 {/* riga 3 */}
                                 <div className="row line-3">
                                     <div className="col">
-                                        <label for="city">Città</label>
+                                        <label htmlFor="city">Città</label>
                                         <input
                                             type="text"
                                             id="city"
@@ -142,7 +155,7 @@ export default function PaymentSection() {
                                     </div>
 
                                     <div className="col">
-                                        <label for="Province">Provincia</label>
+                                        <label htmlFor="Province">Provincia</label>
                                         <input
                                             type="text"
                                             id="Province"
@@ -155,7 +168,7 @@ export default function PaymentSection() {
 
 
                                     <div className="col">
-                                        <label for="PostalCode">Codice postale</label>
+                                        <label htmlFor="PostalCode">Codice postale</label>
                                         <input
                                             type="number"
                                             id="PostalCode"
@@ -169,7 +182,7 @@ export default function PaymentSection() {
                                 {/* riga 4 */}
                                 <div className="row line-4">
                                     <div className="col">
-                                        <label for="notes">Note</label>
+                                        <label htmlFor="notes">Note</label>
                                         <input
                                             type="text"
                                             id="notes"
@@ -190,7 +203,7 @@ export default function PaymentSection() {
                                 {/* riga 1 */}
                                 <div className="row line-2">
                                     <div className="col">
-                                        <label for="name">Nome</label>
+                                        <label htmlFor="name">Nome</label>
                                         <input
                                             type="text"
                                             id="name"
@@ -200,7 +213,7 @@ export default function PaymentSection() {
                                     </div>
 
                                     <div className="col">
-                                        <label for="surname">Cognome</label>
+                                        <label htmlFor="surname">Cognome</label>
                                         <input
                                             type="text"
                                             id="surname"
@@ -212,7 +225,7 @@ export default function PaymentSection() {
                                 {/* riga 2 */}
                                 <div className="row line-2">
                                     <div className="col-6">
-                                        <label for="cardNumber">Numero della carta</label>
+                                        <label htmlFor="cardNumber">Numero della carta</label>
                                         <input
                                             type="text"
                                             id="cardNumber"
@@ -222,7 +235,7 @@ export default function PaymentSection() {
                                     </div>
 
                                     <div className="col">
-                                        <label for="expirationDate">Data di scadenza</label>
+                                        <label htmlFor="expirationDate">Data di scadenza</label>
                                         <input
                                             type="text"
                                             id="expirationDate"
@@ -233,7 +246,7 @@ export default function PaymentSection() {
 
 
                                     <div className="col">
-                                        <label for="cvv">CVV</label>
+                                        <label htmlFor="cvv">CVV</label>
                                         <input
                                             type="number"
                                             id="cvv"
