@@ -1483,6 +1483,12 @@ a {
   color: white !important;
 }
 
+.notFound {
+  text-transform: uppercase;
+  color: var(--color-lightblue);
+  text-shadow: 0 0 10px var(--color-lightblue);
+}
+
 
 
 
