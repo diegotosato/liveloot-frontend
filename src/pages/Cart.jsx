@@ -1,9 +1,12 @@
 import { useGlobalContext } from "../context/GlobalContext";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Cart() {
 
     const { cart, setCart, setCartProducts, setCartTotalPrice } = useGlobalContext()
+    const [message, setMessage] = useState("")
+    const [emptyCartAlert, setEmptyCartAlert] = useState("")
     const navigate = useNavigate()
 
     function totalPrice(price, quantity) {
@@ -58,6 +61,13 @@ export default function Cart() {
     }
 
     function handleProceed() {
+        if (!cart || cart.length === 0) {
+            setEmptyCartAlert("Il carrello è vuoto! Aggiungi alcuni prodotti prima di procedere all'ordine.")
+            setTimeout(() => {
+                setEmptyCartAlert("")
+            }, 4000);
+            return;
+        }
         setCartProducts(cart)
         setCartTotalPrice(calculateTotal())
         navigate('/carrello/pagamento')
@@ -74,6 +84,15 @@ export default function Cart() {
 
             <div className="container">
 
+                {emptyCartAlert && (
+                    <div className="cart-empty-alert-container">
+                        <p className="cart-empty-alert">{emptyCartAlert}</p>
+                    </div>
+                )}
+
+                <div className="message-container text-center d-flex justify-content-center align-items-center">
+                    {message.length > 0 ? <p className="success-message rounded-pill">{message}</p> : ''}
+                </div>
 
                 <section className="cart-container">
                     <h3 className="cart-title">Carrello</h3>
@@ -142,14 +161,14 @@ export default function Cart() {
                         <div className="cart-summary-card">
                             <div className="subtotale">
                                 <span className="title-subtotale">Subtotale</span>
-                                <span className="price-subtotale">€ {calculateSubtotal().toFixed(2)}</span>
+                                <span className="price-subtotale">€ {!cart || cart.length === 0 ? '0.00' : calculateSubtotal().toFixed(2)}</span>
                             </div>
                             <div className="shipment">
                                 <span className="title-shipment">Spedizione</span>
-                                <span className="price-shipment">€ {calculateShipping().toFixed(2)}</span>
+                                <span className="price-shipment">€ {!cart || cart.length === 0 ? '0.00' : calculateShipping().toFixed(2)}</span>
                             </div>
-                            <p className={`shipment-text ${isFreeShipping() ? 'shipment-free' : 'shipment-paid'}`}>
-                                {isFreeShipping()
+                            <p className={`shipment-text ${calculateTotal() >= 150 ? 'shipment-free' : 'shipment-paid'}`}>
+                                {calculateTotal() >= 150
                                     ? 'Spedizione gratuita!'
                                     : `Spedizione gratuita per ordini superiori a €150`
                                 }
@@ -158,7 +177,7 @@ export default function Cart() {
                                 <span className="total-title">Totale</span>
 
                                 <div className="final-price">
-                                    <span className="total-price">€ {calculateTotal().toFixed(2)}</span>
+                                    <span className="total-price">€ {!cart || cart.length === 0 ? '0.00' : calculateTotal().toFixed(2)}</span>
                                     <button className="order-button rounded-pill" onClick={handleProceed}>PROCEDI ALL'ORDINE</button>
                                 </div>
                             </div>
