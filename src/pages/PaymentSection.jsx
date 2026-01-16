@@ -2,13 +2,15 @@ import {
     ShoppingCart
 } from "@phosphor-icons/react";
 import { useGlobalContext } from "../context/GlobalContext";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function PaymentSection() {
 
-    const { cartProducts, cartTotalPrice } = useGlobalContext()
-    console.log(cartProducts);
+    const { cartProducts, cartTotalPrice, cart } = useGlobalContext()
+    const [checkForm, setCheckForm] = useState(false);
+
 
 
     const buyer = {
@@ -25,11 +27,17 @@ export default function PaymentSection() {
         total_price: cartTotalPrice,
         products: cartProducts
     }
+
     const [formBuyer, setFormBuyer] = useState(buyer)
 
 
     function handleSumbit(e) {
         e.preventDefault();
+
+        if (buyer.name.length === 0 || buyer.lastname.length === 0 || buyer.email.length === 0 || buyer.number.length === 0 || buyer.address.length === 0 || buyer.country.length === 0 || buyer.city.length === 0 || buyer.province.length === 0 || buyer.postalCode.length === 0) {
+            setCheckForm(true);
+            return;
+        }
 
         axios.post('http://localhost:3000/techs/carrello/pagamento', formBuyer)
             .then(res => {
@@ -41,6 +49,26 @@ export default function PaymentSection() {
             }).catch(err => {
                 console.log(err.message);
             })
+    }
+
+    function totalPrice(price, quantity) {
+        return (price * quantity).toFixed(2)
+    }
+
+    function calculateSubtotal() {
+        if (!cart || cart.length === 0) return 0;
+        return cart.reduce((total, product) => {
+            return total + (product.price * product.quantity);
+        }, 0);
+    }
+
+    function calculateShipping() {
+        const subtotal = calculateSubtotal();
+        return subtotal >= 150 ? 0 : 4.99;
+    }
+
+    function calculateTotal() {
+        return calculateSubtotal() + calculateShipping();
     }
 
     return (
@@ -55,13 +83,57 @@ export default function PaymentSection() {
             <div className="container">
 
                 <section className="payment-container">
+
                     <form onSubmit={e => handleSumbit(e)}>
+
                         <div className="title-section">
                             <h3 className="cart-title">Pagamento</h3>
                         </div>
 
                         <div className="payment-card">
-                            <h3 className="title-address">Indirizzo di spedizione</h3>
+
+                            <div className="title-section">
+                                <h3 className="cart-title">Riepilogo ordine</h3>
+                            </div>
+
+                            {(cart.length > 0 || !cart) ?
+                                <>
+                                    {
+                                        cart?.map(addProd => (
+                                            <div className="product-row">
+                                                <div className="pay-col-name" key={addProd.id}>
+                                                    <div className="img-category">
+                                                        <img src={`http://localhost:3000/${addProd?.image}`} alt={addProd?.title} />
+                                                    </div>
+                                                    <div className="title-prod">
+                                                        {addProd?.title}
+                                                    </div>
+                                                    <span className="prod-price">
+                                                        € {addProd?.price}
+                                                    </span>
+                                                    <input
+                                                        type="number"
+                                                        className="number-quantity"
+                                                        value={addProd?.quantity}
+                                                        onChange={(e) => handleUpdateQuantity(addProd?.id, Number(e.target.value))} />
+                                                </div>
+                                            </div>
+                                        ))
+
+                                    }
+                                </>
+
+
+                                : ''}
+                            <div className="d-flex align-items-center justify-content-between mt-4 mb-5">
+                                <h3 className="title-address">Totale ordine: € {calculateTotal().toFixed(2)}</h3>
+                                <Link to={'/carrello'}>
+                                    <button type="button" className="payment-button rounded-pill">TORNA AL CARRELLO</button>
+                                </Link>
+                            </div>
+
+                            <h3 className="title-address cart-title ">Indirizzo di spedizione</h3>
+
                             <div className="card-form">
                                 <div className="pagamento">
                                     {/* riga 1 */}
@@ -76,6 +148,12 @@ export default function PaymentSection() {
                                                 value={formBuyer.name}
                                                 onChange={(e) => setFormBuyer({ ...formBuyer, name: e.target.value })}
                                             />
+                                            {
+                                                checkForm && formBuyer.name.length === 0
+                                                    ? <small className="text-danger"><i className="bi bi-exclamation-lg"></i>Questo campo è obbligatorio</small>
+                                                    : ''
+                                            }
+
                                         </div>
 
                                         <div className="col">
@@ -88,6 +166,11 @@ export default function PaymentSection() {
                                                 value={formBuyer.lastname}
                                                 onChange={(e) => setFormBuyer({ ...formBuyer, lastname: e.target.value })}
                                             />
+                                            {
+                                                checkForm && formBuyer.lastname.length === 0
+                                                    ? <small className="text-danger"><i className="bi bi-exclamation-lg"></i>Questo campo è obbligatorio</small>
+                                                    : ''
+                                            }
                                         </div>
 
 
@@ -101,6 +184,11 @@ export default function PaymentSection() {
                                                 value={formBuyer.email}
                                                 onChange={(e) => setFormBuyer({ ...formBuyer, email: e.target.value })}
                                             />
+                                            {
+                                                checkForm && formBuyer.email.length === 0
+                                                    ? <small className="text-danger"><i className="bi bi-exclamation-lg"></i>Questo campo è obbligatorio</small>
+                                                    : ''
+                                            }
                                         </div>
                                     </div>
                                     {/* riga 2 */}
@@ -115,6 +203,11 @@ export default function PaymentSection() {
                                                 value={formBuyer.number}
                                                 onChange={(e) => setFormBuyer({ ...formBuyer, number: e.target.value })}
                                             />
+                                            {
+                                                checkForm && formBuyer.number.length === 0
+                                                    ? <small className="text-danger"><i className="bi bi-exclamation-lg"></i>Questo campo è obbligatorio</small>
+                                                    : ''
+                                            }
                                         </div>
 
                                         <div className="col">
@@ -127,6 +220,11 @@ export default function PaymentSection() {
                                                 value={formBuyer.address}
                                                 onChange={(e) => setFormBuyer({ ...formBuyer, address: e.target.value })}
                                             />
+                                            {
+                                                checkForm && formBuyer.address.length === 0
+                                                    ? <small className="text-danger"><i className="bi bi-exclamation-lg"></i>Questo campo è obbligatorio</small>
+                                                    : ''
+                                            }
                                         </div>
 
                                         <div className="col-4">
@@ -139,6 +237,11 @@ export default function PaymentSection() {
                                                 value={formBuyer.country}
                                                 onChange={(e) => setFormBuyer({ ...formBuyer, country: e.target.value })}
                                             />
+                                            {
+                                                checkForm && formBuyer.country.length === 0
+                                                    ? <small className="text-danger"><i className="bi bi-exclamation-lg"></i>Questo campo è obbligatorio</small>
+                                                    : ''
+                                            }
                                         </div>
                                     </div>
                                     {/* riga 3 */}
@@ -153,6 +256,11 @@ export default function PaymentSection() {
                                                 value={formBuyer.city}
                                                 onChange={(e) => setFormBuyer({ ...formBuyer, city: e.target.value })}
                                             />
+                                            {
+                                                checkForm && formBuyer.city.length === 0
+                                                    ? <small className="text-danger"><i className="bi bi-exclamation-lg"></i>Questo campo è obbligatorio</small>
+                                                    : ''
+                                            }
                                         </div>
 
                                         <div className="col">
@@ -165,6 +273,11 @@ export default function PaymentSection() {
                                                 value={formBuyer.province}
                                                 onChange={(e) => setFormBuyer({ ...formBuyer, province: e.target.value })}
                                             />
+                                            {
+                                                checkForm && formBuyer.province.length === 0
+                                                    ? <small className="text-danger"><i className="bi bi-exclamation-lg"></i>Questo campo è obbligatorio</small>
+                                                    : ''
+                                            }
                                         </div>
 
 
@@ -178,6 +291,11 @@ export default function PaymentSection() {
                                                 value={formBuyer.postalCode}
                                                 onChange={(e) => setFormBuyer({ ...formBuyer, postalCode: e.target.value })}
                                             />
+                                            {
+                                                checkForm && formBuyer.postalCode.length === 0
+                                                    ? <small className="text-danger"><i className="bi bi-exclamation-lg"></i>Questo campo è obbligatorio</small>
+                                                    : ''
+                                            }
                                         </div>
                                     </div>
                                     {/* riga 4 */}
@@ -194,79 +312,20 @@ export default function PaymentSection() {
                                             />
                                         </div>
                                     </div>
+                                    <div className="pay-recap">
+                                        <button type="submit" className="payment-button">PROCEDI ALL'ORDINE</button>
+                                        {/* <button className="confirm-button">CONFERMA PAGAMENTO</button> */}
+                                    </div>
                                 </div>
                             </div>
 
                             {/* inizio sezione 2 pagamento */}
-                            <h3 className="title-address">Metodo di pagamento</h3>
-                            <div className="card-form">
-                                <div className="pagamento">
-                                    {/* riga 1 */}
-                                    <div className="row line-2">
-                                        <div className="col">
-                                            <label htmlFor="name">Nome</label>
-                                            <input
-                                                type="text"
-                                                id="name"
-                                                className="form-control custom-input-base"
-                                                placeholder="Inserisci Nome"
-                                            />
-                                        </div>
 
-                                        <div className="col">
-                                            <label htmlFor="surname">Cognome</label>
-                                            <input
-                                                type="text"
-                                                id="surname"
-                                                className="form-control custom-input-base"
-                                                placeholder="Inserisci Cognome"
-                                            />
-                                        </div>
-                                    </div>
-                                    {/* riga 2 */}
-                                    <div className="row line-2">
-                                        <div className="col-6">
-                                            <label htmlFor="cardNumber">Numero della carta</label>
-                                            <input
-                                                type="text"
-                                                id="cardNumber"
-                                                className="form-control custom-input-base"
-                                                placeholder="Inserisci numero della carta"
-                                            />
-                                        </div>
-
-                                        <div className="col">
-                                            <label htmlFor="expirationDate">Data di scadenza</label>
-                                            <input
-                                                type="text"
-                                                id="expirationDate"
-                                                className="form-control custom-input-base"
-                                                placeholder="Inserisci data di scadenza"
-                                            />
-                                        </div>
-
-
-                                        <div className="col">
-                                            <label htmlFor="cvv">CVV</label>
-                                            <input
-                                                type="number"
-                                                id="cvv"
-                                                className="form-control custom-input-base"
-                                                placeholder="Inserisci CVV"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <button type="submit" className="payment-button">PROCEDI ALL'ORDINE</button>
-                                        <button className="confirm-button">CONFERMA PAGAMENTO</button>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
                     </form>
                 </section>
             </div>
-        </div>
+        </div >
     );
 }
