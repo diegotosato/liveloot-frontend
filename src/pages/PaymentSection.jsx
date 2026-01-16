@@ -34,10 +34,7 @@ export default function PaymentSection() {
     function handleSumbit(e) {
         e.preventDefault();
 
-        if (buyer.name.length === 0 || buyer.lastname.length === 0 || buyer.email.length === 0 || buyer.number.length === 0 || buyer.address.length === 0 || buyer.country.length === 0 || buyer.city.length === 0 || buyer.province.length === 0 || buyer.postalCode.length === 0) {
-            setCheckForm(true);
-            return;
-        }
+
 
         axios.post('http://localhost:3000/techs/carrello/pagamento', formBuyer)
             .then(res => {
@@ -70,6 +67,12 @@ export default function PaymentSection() {
     function calculateTotal() {
         return calculateSubtotal() + calculateShipping();
     }
+
+    useEffect(() => {
+        if (buyer.name.length === 0 || buyer.lastname.length === 0 || buyer.email.length === 0 || buyer.number.length === 0 || buyer.address.length === 0 || buyer.country.length === 0 || buyer.city.length === 0 || buyer.province.length === 0 || buyer.postalCode.length === 0) {
+            setCheckForm(true);
+        }
+    }, [buyer.name, buyer.lastname, buyer.email, buyer.number, buyer.address, buyer.country, buyer.city, buyer.province, buyer.postalCode]);
 
     return (
         <div className="back-gradient">

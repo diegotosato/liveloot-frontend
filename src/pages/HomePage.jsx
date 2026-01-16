@@ -1,7 +1,7 @@
 import SwiperComponent from "../components/SwiperComponent"
 import video from "../assets/img/video-stanza.gif"
 import scritta from "../assets/img/scritta-logo.png"
-
+import Activity from "../components/Activity";
 
 import axios from 'axios';
 import { useState, useEffect } from "react"
@@ -116,7 +116,7 @@ export default function HomePage() {
                                             <h5 className='text-center'>{arrivals[1]?.title}</h5>
                                             <Link to={`/categorie/${arrivals[1]?.slug}/${arrivals[1]?.slug_product}`}>
                                                 <button className='btn-view-product rounded-pill'>
-                                                    Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
+                                                    Vedi prodotto <CaretDown className="icon-rotate-neg-90" />
                                                 </button>
                                             </Link>
                                         </>
@@ -132,7 +132,7 @@ export default function HomePage() {
                                             <h5 className='text-center'>{arrivals[2]?.title}</h5>
                                             <Link to={`/categorie/${arrivals[2]?.slug}/${arrivals[2]?.slug_product}`}>
                                                 <button className='btn-view-product rounded-pill'>
-                                                    Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
+                                                    Vedi prodotto <CaretDown className="icon-rotate-neg-90" />
                                                 </button>
                                             </Link>
                                         </>
@@ -148,7 +148,7 @@ export default function HomePage() {
                                             <h5 className='text-center'>{arrivals[0]?.title}</h5>
                                             <Link to={`/categorie/${arrivals[0]?.slug}/${arrivals[0]?.slug_product}`}>
                                                 <button className='btn-view-product rounded-pill'>
-                                                    Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
+                                                    Vedi prodotto <CaretDown className="icon-rotate-neg-90" />
                                                 </button>
                                             </Link>
                                         </>

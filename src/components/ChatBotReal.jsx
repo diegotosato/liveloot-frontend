@@ -106,7 +106,7 @@ export default function ChatBotReal({ products }) {
                 </div>
 
                 <div className="chat-button-spacing z-3">
-                    <button type="button" style={{ width: '80px', height: '80px' }} className="btn-open-chat rounded-circle " onClick={() => handleChatOpen()}>
+                    <button type="button" className="btn-open-chat rounded-circle chat-button-size" onClick={() => handleChatOpen()}>
                         <i className="bi bi-robot"></i>
                     </button>
                 </div>
