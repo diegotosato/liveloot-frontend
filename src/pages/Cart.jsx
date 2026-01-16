@@ -91,13 +91,13 @@ export default function Cart() {
                         {
                             cart?.map(addProd => (
                                 <div className="product-row" key={addProd?.id}>
-                                    <div className="col-name" onClick={() => handleNavigateToProduct(addProd)} style={{ cursor: 'pointer' }}>
+                                    <div className="col-name clickable" onClick={() => handleNavigateToProduct(addProd)}>
                                         <div className="img-category">
                                             <img src={`http://localhost:3000/${addProd?.image}`} alt={addProd?.title} />
                                         </div>
                                         <div className="title-category">{addProd?.title}</div>
                                     </div>
-                                    <div className="line-prezzo" onClick={() => handleNavigateToProduct(addProd)} style={{ cursor: 'pointer' }}>€ {addProd?.price}</div>
+                                    <div className="line-prezzo clickable" onClick={() => handleNavigateToProduct(addProd)}>€ {addProd?.price}</div>
                                     <div className="line-quantity">
                                         <button
                                             className="aggiunta-rimozione"
@@ -121,7 +121,7 @@ export default function Cart() {
                                             +
                                         </button>
                                     </div>
-                                    <div className="line-total" onClick={() => handleNavigateToProduct(addProd)} style={{ cursor: 'pointer' }}><strong>€ {totalPrice(addProd?.price, addProd?.quantity)}</strong></div>
+                                    <div className="line-total clickable" onClick={() => handleNavigateToProduct(addProd)}><strong>€ {totalPrice(addProd?.price, addProd?.quantity)}</strong></div>
                                     <div className="delete">
                                         <button className="remove-btn" onClick={(e) => {
                                             e.stopPropagation();
@@ -148,10 +148,7 @@ export default function Cart() {
                                 <span className="title-shipment">Spedizione</span>
                                 <span className="price-shipment">€ {calculateShipping().toFixed(2)}</span>
                             </div>
-                            <p className="shipment-text" style={{
-                                color: isFreeShipping() ? '#30e5ad' : '#fc2037',
-                                fontWeight: '500'
-                            }}>
+                            <p className={`shipment-text ${isFreeShipping() ? 'shipment-free' : 'shipment-paid'}`}>
                                 {isFreeShipping()
                                     ? 'Spedizione gratuita!'
                                     : `Spedizione gratuita per ordini superiori a €150`
