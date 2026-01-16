@@ -1489,6 +1489,24 @@ a {
   text-shadow: 0 0 10px var(--color-lightblue);
 }
 
+.success-message {
+  border: 2px solid var(--color-lightblue);
+  box-shadow: var(--color-lightblue) 0px 0px 10px;
+  color: var(--color-lightblue);
+  text-shadow: 0 0 10px var(--color-lightblue);
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 1rem 2rem !important;
+}
+
+.message-container {
+  margin: 0 auto;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
 
 
 

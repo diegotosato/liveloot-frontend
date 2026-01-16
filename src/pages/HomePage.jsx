@@ -16,13 +16,14 @@ export default function HomePage() {
 
     const [arrivals, setArrivals] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/techs/all')
+        axios.get('http://localhost:3000/techs/recent')
             .then(res => {
                 const product = []
                 for (let i = 0; i < 3; i++) {
                     product.push(res.data[i])
                 }
                 setArrivals(product)
+
             }).catch(err => {
                 console.log(err)
             })

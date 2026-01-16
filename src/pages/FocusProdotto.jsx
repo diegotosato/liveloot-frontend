@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import { useNavigate, useParams } from "react-router-dom"
-import axios from "axios"
+import axios, { all } from "axios"
 
 export default function FocusProdotto() {
 
@@ -66,7 +66,7 @@ export default function FocusProdotto() {
         }
     }
 
-
+    const [message, setMessage] = useState('')
 
 
 
@@ -77,6 +77,10 @@ export default function FocusProdotto() {
             slug: slug_product
         };
         addToCart(productWithSlugs, Number(quantity))
+        setMessage('Prodotto aggiunto al carrello con successo!')
+        setTimeout(() => {
+            setMessage('')
+        }, 3000);
     }
 
     return (
@@ -91,6 +95,10 @@ export default function FocusProdotto() {
                     <div className="sphere sphere-red sphere-smaller "></div>
 
                     <div className="container">
+
+                        <div className="message-container text-center d-flex justify-content-center align-items-center">
+                            {message.length > 0 ? <p className="success-message rounded-pill">{message}</p> : ''}
+                        </div>
 
                         <div className="prod-card">
 
@@ -130,6 +138,7 @@ export default function FocusProdotto() {
                                         onClick={() => navigate(-1)}>
                                         TORNA INDIETRO
                                     </button>
+
                                     {/* <button
                                         className="btn-avanti-indietro rounded-pill"
                                         onClick={() => handlePrev(slug, slug_product)}>
