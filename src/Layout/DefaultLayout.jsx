@@ -19,6 +19,7 @@ export default function DefaultLayout() {
                 <Outlet />
                 {/* <RefactorChatWindow /> */}
                 <ChatBotReal />
+
             </main>
             <Footer />
         </>
