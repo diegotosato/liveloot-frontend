@@ -2,6 +2,7 @@ import SwiperComponent from "../components/SwiperComponent"
 import video from "../assets/img/video-stanza.gif"
 import scritta from "../assets/img/scritta-logo.png"
 
+
 import axios from 'axios';
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
