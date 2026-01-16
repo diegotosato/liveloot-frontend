@@ -52,7 +52,7 @@ export default function AllProdotti() {
                 <div className="all-prod all-prod-fixed sphere sphere-blue sphere-smaller"></div>
                 <div className="all-prod all-prod-fixed sphere sphere-red sphere-smaller "></div>
 
-                <div className="wave" style={{ zIndex: '0' }}>
+                <div className="wave wave-z-index-0">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -113,7 +113,7 @@ export default function AllProdotti() {
 
                                     <Link to={`/categorie/${item.slug}/${item.slug_product}`}>
                                         <button className='btn-view-product rounded-pill'>
-                                            Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
+                                            Vedi prodotto <CaretDown className="icon-rotate-neg-90" />
                                         </button>
                                     </Link>
 

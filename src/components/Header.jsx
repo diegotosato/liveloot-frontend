@@ -33,7 +33,7 @@ export default function Header() {
         'webcam': <VideoCamera />,
         'sedie-gaming': <OfficeChair />,
         'cuffie': <Headphones />,
-        'tappetini-da-gaming': <DeviceTablet style={{ transform: "rotate(90deg)" }} />,
+        'tappetini-da-gaming': <DeviceTablet className="icon-rotate-90" />,
         'computer-fisso-gaming': <DesktopTower />,
         'computer-portatile-gaming': <Laptop />
     }
@@ -89,7 +89,7 @@ export default function Header() {
                                         }
                                         <li>
                                             <h5>
-                                                <Link to={'/categorie'} className="categories-view-all">Vedi tutte<CaretDown className="down-arrow" style={{ rotate: '-90deg' }} /></Link>
+                                                <Link to={'/categorie'} className="categories-view-all">Vedi tutte<CaretDown className="down-arrow icon-rotate-neg-90" /></Link>
                                             </h5>
                                         </li>
                                     </ul>

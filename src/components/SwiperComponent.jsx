@@ -61,7 +61,7 @@ export default function SwiperComponent() {
                                 <h5 className='text-center'>{tech.title}</h5>
                                 <Link to={`/categorie/${tech.slug}/${tech.slug_product}`}>
                                     <button className='btn-view-product rounded-pill'>
-                                        Vedi prodotto <CaretDown style={{ rotate: '-90deg' }} />
+                                        Vedi prodotto <CaretDown className="icon-rotate-neg-90" />
                                     </button>
                                 </Link>
                             </SwiperSlide>
@@ -72,10 +72,10 @@ export default function SwiperComponent() {
 
                 {/* Frecce custom */}
                 <div className="custom-prev">
-                    <CaretDown style={{ rotate: '90deg' }} />
+                    <CaretDown className="icon-rotate-90" />
                 </div>
                 <div className="custom-next">
-                    <CaretDown style={{ rotate: '-90deg' }} />
+                    <CaretDown className="icon-rotate-neg-90" />
                 </div>
 
             </div>
