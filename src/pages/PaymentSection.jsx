@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 
 export default function PaymentSection() {
 
-    const { cartProducts, cartTotalPrice, cart } = useGlobalContext()
+    const { cart } = useGlobalContext()
     const [checkForm, setCheckForm] = useState(false);
+    console.log(cart);
 
 
 
@@ -24,8 +25,8 @@ export default function PaymentSection() {
         province: '',
         postalCode: '',
         notes: '',
-        total_price: cartTotalPrice,
-        products: cartProducts
+        // total_price: cartTotalPrice,
+        products: cart
     }
 
     const [formBuyer, setFormBuyer] = useState(buyer)
@@ -34,7 +35,9 @@ export default function PaymentSection() {
     function handleSumbit(e) {
         e.preventDefault();
 
-
+        if (buyer.name.length === 0 || buyer.lastname.length === 0 || buyer.email.length === 0 || buyer.number.length === 0 || buyer.address.length === 0 || buyer.country.length === 0 || buyer.city.length === 0 || buyer.province.length === 0 || buyer.postalCode.length === 0) {
+            setCheckForm(true);
+        }
 
         axios.post('http://localhost:3000/techs/carrello/pagamento', formBuyer)
             .then(res => {
@@ -68,11 +71,11 @@ export default function PaymentSection() {
         return calculateSubtotal() + calculateShipping();
     }
 
-    useEffect(() => {
-        if (buyer.name.length === 0 || buyer.lastname.length === 0 || buyer.email.length === 0 || buyer.number.length === 0 || buyer.address.length === 0 || buyer.country.length === 0 || buyer.city.length === 0 || buyer.province.length === 0 || buyer.postalCode.length === 0) {
-            setCheckForm(true);
-        }
-    }, [buyer.name, buyer.lastname, buyer.email, buyer.number, buyer.address, buyer.country, buyer.city, buyer.province, buyer.postalCode]);
+    // useEffect(() => {
+    //     if (buyer.name.length === 0 || buyer.lastname.length === 0 || buyer.email.length === 0 || buyer.number.length === 0 || buyer.address.length === 0 || buyer.country.length === 0 || buyer.city.length === 0 || buyer.province.length === 0 || buyer.postalCode.length === 0) {
+    //         setCheckForm(true);
+    //     }
+    // }, [buyer.name, buyer.lastname, buyer.email, buyer.number, buyer.address, buyer.country, buyer.city, buyer.province, buyer.postalCode]);
 
     return (
         <div className="back-gradient">
@@ -103,8 +106,8 @@ export default function PaymentSection() {
                                 <>
                                     {
                                         cart?.map(addProd => (
-                                            <div className="product-row">
-                                                <div className="pay-col-name" key={addProd.id}>
+                                            <div className="product-row" key={addProd?.id}>
+                                                <div className="pay-col-name">
                                                     <div className="img-category">
                                                         <img src={`http://localhost:3000/${addProd?.image}`} alt={addProd?.title} />
                                                     </div>
