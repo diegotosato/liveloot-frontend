@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useParams } from "react-router-dom";
+import Loader from "./Loader";
 
 export default function ChatBotReal({ products }) {
     const [context, setContext] = useState("");
@@ -8,6 +9,7 @@ export default function ChatBotReal({ products }) {
     const { singleProduct } = useGlobalContext();
     const { slug_product } = useParams();
     const [messages, setMessages] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef(null);
 
     useEffect(() => {
@@ -16,6 +18,7 @@ export default function ChatBotReal({ products }) {
 
     async function getResponse() {
         try {
+            setIsLoading(true);
             const payload = { message: message, prodotti: context };
             // include slug when asking about current product
             if (context === 'current product') {
@@ -26,6 +29,7 @@ export default function ChatBotReal({ products }) {
                     // prevent sending request without a slug for current product
                     console.error('Cannot request current product: slug not available');
                     alert('Seleziona un prodotto o visita la pagina del prodotto per usare questa opzione.');
+                    setIsLoading(false);
                     return;
                 }
             }
@@ -41,6 +45,7 @@ export default function ChatBotReal({ products }) {
             const text = await response.text();
             if (!response.ok) {
                 console.error('Chat request failed with status', response.status);
+                setIsLoading(false);
                 return;
             }
             const data = JSON.parse(text || '{}');
@@ -49,6 +54,8 @@ export default function ChatBotReal({ products }) {
             setMessage('');
         } catch (err) {
             console.error('Chat request error:', err);
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -91,6 +98,11 @@ export default function ChatBotReal({ products }) {
                                     <div className="chat-texts">{msg.text}</div>
                                 </div>
                             ))}
+                            {isLoading && (
+                                <div className="d-flex justify-content-center my-2">
+                                    <Loader />
+                                </div>
+                            )}
                             <div ref={messagesEndRef} />
                         </div>
 

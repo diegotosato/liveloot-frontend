@@ -146,7 +146,7 @@ export default function Cart() {
                                             e.stopPropagation();
                                             handleRemoveFromCart(addProd?.id);
                                         }}>
-                                            ×
+                                            X
                                         </button>
                                     </div>
                                 </div>
