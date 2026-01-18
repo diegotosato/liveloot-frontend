@@ -55,6 +55,7 @@ export default function ChatBotReal({ products }) {
     function handleChatSubmit(e) {
         e.preventDefault();
         getResponse();
+        setMessage('');
     }
 
     function handleChatOpen() {
@@ -78,7 +79,7 @@ export default function ChatBotReal({ products }) {
                         <select className="form-select mb-3 rounded-pill chat-select" aria-label="Default select example" onChange={(e) => setContext(e.target.value)}>
                             <option className="catChat">Seleziona una categoria</option>
                             <option className="catChat" value="current product">Prodotto corrente</option>
-                            <option className="catChat" value="product comparison">Confronto tra prodotti</option>
+                            <option className="catChat" value="product comparison">Chiedimi qualcosa</option>
                         </select>
                         <div id="chat-messages">
                             {messages.map((msg, idx) => (
