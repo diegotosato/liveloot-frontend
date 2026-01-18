@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useParams } from "react-router-dom";
 import Loader from "./Loader";
+import ReactMarkdown from "react-markdown";
 
 export default function ChatBotReal({ products }) {
     const [context, setContext] = useState("");
@@ -95,7 +96,7 @@ export default function ChatBotReal({ products }) {
                                         <span className={`chat-author ${msg.author === 'user' ? 'user' : 'ai'}`}>{msg.author === 'user' ? 'Tu' : 'AMBROGIO'}</span>
                                         <span className="chat-timestamp">{msg.time}</span>
                                     </div>
-                                    <div className="chat-texts">{msg.text}</div>
+                                    <div className="chat-texts"><ReactMarkdown skipHtml>{msg.text}</ReactMarkdown></div>
                                 </div>
                             ))}
                             {isLoading && (
@@ -110,7 +111,7 @@ export default function ChatBotReal({ products }) {
 
 
                         <div className="d-flex justify-content-between mt-3">
-                            <form type="submit" className="chat-form d-flex" onSubmit={handleChatSubmit}>
+                            <form className="chat-form d-flex" onSubmit={handleChatSubmit}>
                                 <input className="form-control rounded-pill chat-select" type="text" placeholder="Chat" value={message} onChange={(e) => { setMessage(e.target.value) }} />
                             </form>
                             <button className="btn-close-chat rounded-pill" onClick={() => handleChatOpen()}>Close Chat</button>

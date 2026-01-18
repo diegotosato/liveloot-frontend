@@ -929,6 +929,58 @@ nav {
   color: rgba(15, 20, 52, 0.6);
 }
 
+/* Stili per i contenuti markdown nella chat AI (nero) */
+.chat-bubble.ai .chat-texts {
+  color: black;
+}
+
+.chat-bubble.ai .chat-texts p {
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+.chat-bubble.ai .chat-texts ul,
+.chat-bubble.ai .chat-texts ol {
+  margin: 0;
+  padding-left: 0;
+  list-style-position: inside;
+  color: black;
+}
+
+.chat-bubble.ai .chat-texts li {
+  color: black !important;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  transition: none;
+}
+
+.chat-bubble.ai .chat-texts li:hover {
+  color: black !important;
+}
+
+.chat-bubble.ai .chat-texts strong {
+  color: black;
+  font-weight: 700;
+}
+
+.chat-bubble.ai .chat-texts em {
+  color: black;
+}
+
+/* Stili per i contenuti markdown nella chat utente (bianco) */
+.chat-bubble.user .chat-texts {
+  color: white;
+}
+
+.chat-bubble.user .chat-texts p,
+.chat-bubble.user .chat-texts li,
+.chat-bubble.user .chat-texts strong,
+.chat-bubble.user .chat-texts em {
+  color: white;
+}
+
 .bi-robot::before {
   font-size: 35px !important;
 }
