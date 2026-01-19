@@ -6,7 +6,6 @@ import CategorieProdotti from "./pages/CategorieProdotti"
 import FocusProdotto from "./pages/FocusProdotto"
 import AllProdotti from "./pages/AllProdotti"
 import { GlobalProvider } from "./context/GlobalContext"
-import { CartProvider } from "./context/CartContext"
 import ScrollToTop from "./components/ScrollToTop"
 import Cart from "./pages/Cart"
 import PaymentSection from './pages/PaymentSection'
@@ -20,26 +19,24 @@ function App() {
   return (
     <>
       <GlobalProvider>
-        <CartProvider>
-          <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-              <Route element={<DefaultLayout />} >
-                <Route path="/" element={<HomePage />} />
-                <Route path="/categorie" element={<Categorie />} />
-                <Route path="/categorie/:slug" element={<CategorieProdotti />} />
-                <Route path="/categorie/:slug/:slug_product" element={<FocusProdotto />} />
-                <Route path="/prodotti" element={<AllProdotti />} />
-                <Route path="/carrello" element={<Cart />} />
-                <Route element={<PaymentLayout />} >
-                  <Route path="/carrello/pagamento" element={<PaymentSection />} />
-                  <Route path="/PagamentoCompletato" element={<CompletePage />}></Route>
-                </Route>
-                <Route path="*" element={<NotFound />} />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route element={<DefaultLayout />} >
+              <Route path="/" element={<HomePage />} />
+              <Route path="/categorie" element={<Categorie />} />
+              <Route path="/categorie/:slug" element={<CategorieProdotti />} />
+              <Route path="/categorie/:slug/:slug_product" element={<FocusProdotto />} />
+              <Route path="/prodotti" element={<AllProdotti />} />
+              <Route path="/carrello" element={<Cart />} />
+              <Route element={<PaymentLayout />} >
+                <Route path="/carrello/pagamento" element={<PaymentSection />} />
+                <Route path="/PagamentoCompletato" element={<CompletePage />}></Route>
               </Route>
-            </Routes>
-          </BrowserRouter>
-        </CartProvider>
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </GlobalProvider>
     </>
   );

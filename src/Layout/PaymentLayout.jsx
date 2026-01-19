@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState, useEffect } from "react";
-import { useCartContext } from "../context/CartContext";
+import { useGlobalContext } from "../context/GlobalContext";
 
 
 const stripeKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
@@ -11,7 +11,7 @@ const stripePromise = loadStripe(stripeKey);
 
 export default function PaymentLayout() {
 
-    const { cart } = useCartContext()
+    const { cart } = useGlobalContext()
 
     const [clientSecret, setClientSecret] = useState(null);
 

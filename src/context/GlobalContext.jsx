@@ -1,6 +1,6 @@
 import { createContext, use } from "react";
 import { useContext, useState, useEffect } from "react";
-import { useMemo } from "react";
+
 import axios from "axios";
 
 
@@ -38,7 +38,7 @@ function GlobalProvider({ children }) {
         });
     };
 
-    const values = useMemo(() => ({
+    const values = {
         loading,
         setLoading,
         techs,
@@ -60,19 +60,7 @@ function GlobalProvider({ children }) {
         setCartProducts,
         cartTotalPrice,
         setCartTotalPrice
-    }), [
-        loading,
-        techs,
-        prodotto,
-        categoriesProd,
-        singleProduct,
-        search,
-        sortBy,
-        cart,
-        addToCart,
-        cartProducts,
-        cartTotalPrice
-    ]);
+    };
 
     useEffect(() => {
         setLoading(true);
