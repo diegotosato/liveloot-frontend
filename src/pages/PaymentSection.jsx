@@ -5,6 +5,7 @@ import { useGlobalContext } from "../context/GlobalContext";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import CheckoutForm from "../components/CheckoutForm";
 
 export default function PaymentSection() {
 
@@ -48,6 +49,11 @@ export default function PaymentSection() {
             }).catch(err => {
                 console.log(err.message);
             })
+    }
+
+    function handleClick() {
+        const checkoutEL = document.getElementById("checkout");
+        checkoutEL.classList.toggle("d-none");
     }
 
     function totalPrice(price, quantity) {
@@ -319,7 +325,7 @@ export default function PaymentSection() {
                                     </div>
                                     <div className="pay-recap">
                                         <span style={{ color: 'white' }}>* Campi obbligatori</span>
-                                        <button type="submit" className="payment-button">PROCEDI ALL'ORDINE</button>
+                                        <button type="submit" className="payment-button" onClick={handleClick}>PROCEDI ALL'ORDINE</button>
                                         {/* <button className="confirm-button">CONFERMA PAGAMENTO</button> */}
                                     </div>
                                 </div>
@@ -330,6 +336,9 @@ export default function PaymentSection() {
 
                         </div>
                     </form>
+                    <div id="checkout" className="d-none">
+                        <CheckoutForm />
+                    </div>
                 </section>
             </div>
         </div >

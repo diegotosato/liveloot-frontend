@@ -10,6 +10,9 @@ import ScrollToTop from "./components/ScrollToTop"
 import Cart from "./pages/Cart"
 import PaymentSection from './pages/PaymentSection'
 import NotFound from "./pages/NotFound"
+import PaymentLayout from "./Layout/PaymentLayout"
+import CompletePage from "./pages/CompletePage"
+
 
 
 function App() {
@@ -26,7 +29,10 @@ function App() {
               <Route path="/categorie/:slug/:slug_product" element={<FocusProdotto />} />
               <Route path="/prodotti" element={<AllProdotti />} />
               <Route path="/carrello" element={<Cart />} />
-              <Route path="/carrello/pagamento" element={<PaymentSection />} />
+              <Route element={<PaymentLayout />} >
+                <Route path="/carrello/pagamento" element={<PaymentSection />} />
+                <Route path="/complete" element={<CompletePage />}></Route>
+              </Route>
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
