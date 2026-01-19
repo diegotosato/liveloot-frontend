@@ -96,7 +96,7 @@ export default function Header() {
                                 </div>
                             </li>
                             <li className="nav-item about-us">
-                                <NavLink className="nav-link fs-5" to="/" aria-current="page">
+                                <NavLink className="nav-link fs-5" to="/contatti" aria-current="page">
                                     Chi Siamo
                                 </NavLink>
                             </li>

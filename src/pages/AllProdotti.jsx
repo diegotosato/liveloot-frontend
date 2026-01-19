@@ -8,10 +8,12 @@ import { CaretDown, SortAscending, SortDescending } from "@phosphor-icons/react"
 
 export default function AllProdotti() {
     const [all, setAll,] = useState([]);
-    const { search, sortBy, setSearch, setSortBy } = useGlobalContext();
+    /* const { search, sortBy, setSearch, setSortBy } = useGlobalContext(); */
     const [searchParams, setSearchParams] = useSearchParams();
+    const [search, setSearch] = useState(searchParams.get("search") || '');
+    const [sortBy, setSortBy] = useState(searchParams.get("sortBy") || '');
 
-    const [sort, setSort] = useState('asc')
+    const [sort, setSort] = useState(searchParams.get("sort") || 'asc');
 
     function handleClick() {
         if (sort === 'asc') {
@@ -22,25 +24,27 @@ export default function AllProdotti() {
     }
 
     useEffect(() => {
-        if (search || sortBy) {
-            setSearchParams({
-                search: search,
-                sortBy: sortBy,
-                sort: sort
-            });
-        } else {
+        setSearchParams({
+            search: search,
+            sortBy: sortBy,
+            sort: sort
+        });
+        /* if (search || sortBy) {
+        }  else {
             setSearchParams({});
-        }
+        }  */
     }, [search, sortBy, sort, setSearchParams]);
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/techs/products?search=${search || ''}&sortBy=${sortBy || ''}&sort=${sort || ''}`, { params: { searchParams } })
+        axios.get(`http://localhost:3000/techs/products`, { params: Object.fromEntries(searchParams) })
             .then(res => {
                 setAll(res.data.data)
             }).catch(err => {
                 console.log(err)
             })
-    }, [searchParams]);
+    }, [search, sortBy, sort, searchParams]);
+
+
 
     return (
         <>
