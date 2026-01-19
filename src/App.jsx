@@ -5,6 +5,7 @@ import DefaultLayout from "./Layout/DefaultLayout"
 import CategorieProdotti from "./pages/CategorieProdotti"
 import FocusProdotto from "./pages/FocusProdotto"
 import AllProdotti from "./pages/AllProdotti"
+import Contatti from "./pages/contatti"
 import { GlobalProvider } from "./context/GlobalContext"
 import ScrollToTop from "./components/ScrollToTop"
 import Cart from "./pages/Cart"
@@ -26,6 +27,7 @@ function App() {
               <Route path="/categorie/:slug/:slug_product" element={<FocusProdotto />} />
               <Route path="/prodotti" element={<AllProdotti />} />
               <Route path="/carrello" element={<Cart />} />
+              <Route path="/contatti" element={<Contatti />} />
               <Route path="/carrello/pagamento" element={<PaymentSection />} />
               <Route path="*" element={<NotFound />} />
             </Route>

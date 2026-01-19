@@ -14,8 +14,7 @@ function GlobalProvider({ children }) {
     const [categoriesProd, setCategoriesProd] = useState([]);
     const [loading, setLoading] = useState(false);
     const [singleProduct, setSingleProduct] = useState({})
-    const [search, setSearch] = useState("");
-    const [sortBy, setSortBy] = useState("");
+
     const [cart, setCart] = useState(() => {
         const savedCart = localStorage.getItem("cart");
         return savedCart ? JSON.parse(savedCart) : [];
@@ -49,10 +48,6 @@ function GlobalProvider({ children }) {
         setCategoriesProd,
         singleProduct,
         setSingleProduct,
-        setSearch,
-        search,
-        sortBy,
-        setSortBy,
         cart,
         setCart,
         addToCart,
@@ -66,8 +61,6 @@ function GlobalProvider({ children }) {
         prodotto,
         categoriesProd,
         singleProduct,
-        search,
-        sortBy,
         cart,
         addToCart,
         cartProducts,
