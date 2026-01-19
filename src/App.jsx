@@ -9,6 +9,7 @@ import { GlobalProvider } from "./context/GlobalContext"
 import ScrollToTop from "./components/ScrollToTop"
 import Cart from "./pages/Cart"
 import PaymentSection from './pages/PaymentSection'
+import PaymentSuccess from "./components/PaymentSuccess"
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Route path="/prodotti" element={<AllProdotti />} />
               <Route path="/carrello" element={<Cart />} />
               <Route path="/carrello/pagamento" element={<PaymentSection />} />
+              <Route path="/success" element={<PaymentSuccess />} />
             </Route>
           </Routes>
         </BrowserRouter>

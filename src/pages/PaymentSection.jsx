@@ -4,6 +4,7 @@ import {
 import { useGlobalContext } from "../context/GlobalContext";
 import React, { useState } from "react";
 import axios from "axios";
+import Checkout from "../components/Checkout";
 
 export default function PaymentSection() {
 
@@ -224,38 +225,7 @@ export default function PaymentSection() {
                                         </div>
                                     </div>
                                     {/* riga 2 */}
-                                    <div className="row line-2">
-                                        <div className="col-6">
-                                            <label htmlFor="cardNumber">Numero della carta</label>
-                                            <input
-                                                type="text"
-                                                id="cardNumber"
-                                                className="form-control custom-input-base"
-                                                placeholder="Inserisci numero della carta"
-                                            />
-                                        </div>
-
-                                        <div className="col">
-                                            <label htmlFor="expirationDate">Data di scadenza</label>
-                                            <input
-                                                type="text"
-                                                id="expirationDate"
-                                                className="form-control custom-input-base"
-                                                placeholder="Inserisci data di scadenza"
-                                            />
-                                        </div>
-
-
-                                        <div className="col">
-                                            <label htmlFor="cvv">CVV</label>
-                                            <input
-                                                type="number"
-                                                id="cvv"
-                                                className="form-control custom-input-base"
-                                                placeholder="Inserisci CVV"
-                                            />
-                                        </div>
-                                    </div>
+                                    <Checkout />
                                     <div>
                                         <button type="submit" className="payment-button">PROCEDI ALL'ORDINE</button>
                                         <button className="confirm-button">CONFERMA PAGAMENTO</button>
