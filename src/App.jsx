@@ -31,7 +31,7 @@ function App() {
               <Route path="/carrello" element={<Cart />} />
               <Route element={<PaymentLayout />} >
                 <Route path="/carrello/pagamento" element={<PaymentSection />} />
-                <Route path="/PagamentoCompletato" element={<CompletePage />}></Route>
+                <Route path="/complete" element={<CompletePage />}></Route>
               </Route>
               <Route path="*" element={<NotFound />} />
             </Route>
