@@ -11,7 +11,8 @@ const stripePromise = loadStripe(stripeKey);
 
 export default function PaymentLayout() {
 
-    const { cart } = useGlobalContext()
+    const { cart, setLoading } = useGlobalContext()
+
 
     const [clientSecret, setClientSecret] = useState(null);
 

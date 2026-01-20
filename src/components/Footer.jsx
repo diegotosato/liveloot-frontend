@@ -13,19 +13,23 @@ export default function Footer() {
             links: [
                 {
                     id: 2,
-                    text: 'FAQ'
+                    text: 'FAQ',
+                    to: '/contatti'
                 },
                 {
                     id: 3,
-                    text: 'Spedizioni & Resi'
+                    text: 'Spedizioni & Resi',
+                    to: '/contatti'
                 },
                 {
                     id: 4,
-                    text: 'Contattaci'
+                    text: 'Contattaci',
+                    to: '/contatti'
                 },
                 {
                     id: 5,
-                    text: 'Assistenza'
+                    text: 'Assistenza',
+                    to: '/contatti'
                 }
             ]
         },
@@ -35,15 +39,18 @@ export default function Footer() {
             links: [
                 {
                     id: 7,
-                    text: 'Privacy Policy'
+                    text: 'Privacy Policy',
+                    to: '/'
                 },
                 {
                     id: 8,
-                    text: 'Termini e Condizioni'
+                    text: 'Termini e Condizioni',
+                    to: '/'
                 },
                 {
                     id: 9,
-                    text: 'Cookie Policy'
+                    text: 'Cookie Policy',
+                    to: '/'
                 }
             ]
         }
@@ -63,7 +70,7 @@ export default function Footer() {
                                 <h3 className='titoli-footer'><strong>{items.title}</strong></h3>
                                 {
                                     items.links.map((link) => (
-                                        <NavLink key={link.id}><li>{link.text}</li></NavLink>
+                                        <NavLink key={link.id} to={link.to} ><li>{link.text}</li></NavLink>
                                     ))
                                 }
                             </div>
