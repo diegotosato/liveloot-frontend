@@ -1,8 +1,5 @@
-import {
-    ShoppingCart
-} from "@phosphor-icons/react";
 import { useGlobalContext } from "../context/GlobalContext";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import CheckoutForm from "../components/CheckoutForm";
@@ -25,7 +22,6 @@ export default function PaymentSection() {
         province: '',
         postalCode: '',
         notes: '',
-        // total_price: cartTotalPrice,
         products: cart
     }
 
@@ -76,11 +72,7 @@ export default function PaymentSection() {
         return calculateSubtotal() + calculateShipping();
     }
 
-    // useEffect(() => {
-    //     if (buyer.name.length === 0 || buyer.lastname.length === 0 || buyer.email.length === 0 || buyer.number.length === 0 || buyer.address.length === 0 || buyer.country.length === 0 || buyer.city.length === 0 || buyer.province.length === 0 || buyer.postalCode.length === 0) {
-    //         setCheckForm(true);
-    //     }
-    // }, [buyer.name, buyer.lastname, buyer.email, buyer.number, buyer.address, buyer.country, buyer.city, buyer.province, buyer.postalCode]);
+
 
     return (
         <div className="back-gradient">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import { useNavigate, useParams } from "react-router-dom"
-import axios, { all } from "axios"
+import axios from "axios"
 
 export default function FocusProdotto() {
 
@@ -138,17 +138,6 @@ export default function FocusProdotto() {
                                         onClick={() => navigate(-1)}>
                                         TORNA INDIETRO
                                     </button>
-
-                                    {/* <button
-                                        className="btn-avanti-indietro rounded-pill"
-                                        onClick={() => handlePrev(slug, slug_product)}>
-                                        PRODOTTO PRECEDENTE
-                                    </button>
-                                    <button
-                                        className="btn-avanti-indietro rounded-pill"
-                                        onClick={() => handleNext(slug, slug_product)}>
-                                        PRODOTTO SUCCESSIVO
-                                    </button> */}
                                 </section>
 
                             </div>

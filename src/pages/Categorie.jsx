@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { Link } from "react-router-dom";
 

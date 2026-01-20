@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react"
-import { useParams, useSearchParams } from "react-router-dom"
-import { useGlobalContext } from "../context/GlobalContext"
+import { useSearchParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import axios from "axios";
 
 import { CaretDown, SortAscending, SortDescending } from "@phosphor-icons/react";
 
 export default function AllProdotti() {
-    const [all, setAll,] = useState([]);
-    /* const { search, sortBy, setSearch, setSortBy } = useGlobalContext(); */
+    const [all, setAll] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const [search, setSearch] = useState(searchParams.get("search") || '');
     const [sortBy, setSortBy] = useState(searchParams.get("sortBy") || '');

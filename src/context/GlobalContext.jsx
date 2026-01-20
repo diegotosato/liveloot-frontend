@@ -1,20 +1,16 @@
-import { createContext, use } from "react";
+import { createContext } from "react";
 import { useContext, useState, useEffect } from "react";
-
 import axios from "axios";
-
 
 const GlobalContext = createContext();
 
 function GlobalProvider({ children }) {
-
 
     const [techs, setTechs] = useState([])
     const [prodotto, setProdotto] = useState([]);
     const [categoriesProd, setCategoriesProd] = useState([]);
     const [loading, setLoading] = useState(false);
     const [singleProduct, setSingleProduct] = useState({})
-
     const [cart, setCart] = useState(() => {
         const savedCart = localStorage.getItem("cart");
         return savedCart ? JSON.parse(savedCart) : [];
@@ -72,8 +68,6 @@ function GlobalProvider({ children }) {
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
-
-
 
 
     return (

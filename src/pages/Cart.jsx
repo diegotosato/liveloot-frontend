@@ -5,7 +5,6 @@ import { useState } from "react";
 export default function Cart() {
 
     const { cart, setCart, setCartProducts, setCartTotalPrice } = useGlobalContext()
-    const [message, setMessage] = useState("")
     const [emptyCartAlert, setEmptyCartAlert] = useState("")
     const navigate = useNavigate()
 
@@ -23,10 +22,6 @@ export default function Cart() {
     function calculateShipping() {
         const subtotal = calculateSubtotal();
         return subtotal >= 150 ? 0 : 4.99;
-    }
-
-    function isFreeShipping() {
-        return calculateSubtotal() >= 150;
     }
 
     function calculateTotal() {
@@ -89,10 +84,6 @@ export default function Cart() {
                         <p className="cart-empty-alert">{emptyCartAlert}</p>
                     </div>
                 )}
-
-                <div className="message-container text-center d-flex justify-content-center align-items-center">
-                    {message.length > 0 ? <p className="success-message rounded-pill">{message}</p> : ''}
-                </div>
 
                 <section className="cart-container">
                     <h3 className="cart-title">Carrello</h3>
