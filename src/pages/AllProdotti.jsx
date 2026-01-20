@@ -24,15 +24,15 @@ export default function AllProdotti() {
     }
 
     useEffect(() => {
-        setSearchParams({
-            search: search,
-            sortBy: sortBy,
-            sort: sort
-        });
-        /* if (search || sortBy) {
-        }  else {
+        if (search || sortBy) {
+            setSearchParams({
+                search: search,
+                sortBy: sortBy,
+                sort: sort
+            });
+        } else {
             setSearchParams({});
-        }  */
+        }
     }, [search, sortBy, sort, setSearchParams]);
 
     useEffect(() => {
