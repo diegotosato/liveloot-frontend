@@ -32,7 +32,7 @@ export default function Contatti() {
     ]
 
     return (
-        <div className="back-gradient">
+        <div className="back-gradient chiSiamo">
             <div className="all-prod all-prod-fixed sphere sphere-purple sphere-bigger"></div>
             <div className="all-prod all-prod-fixed sphere sphere-red sphere-medium"></div>
             <div className="all-prod all-prod-fixed sphere sphere-blue sphere-smaller"></div>

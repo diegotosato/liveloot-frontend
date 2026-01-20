@@ -30,6 +30,7 @@ function App() {
               <Route path="/categorie/:slug/:slug_product" element={<FocusProdotto />} />
               <Route path="/prodotti" element={<AllProdotti />} />
               <Route path="/carrello" element={<Cart />} />
+              <Route path="/contatti" element={<Contatti />} />
               <Route element={<PaymentLayout />} >
                 <Route path="/carrello/pagamento" element={<PaymentSection />} />
                 <Route path="/complete" element={<CompletePage />}></Route>
