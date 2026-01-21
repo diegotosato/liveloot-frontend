@@ -31,10 +31,13 @@ export default function PaymentSection() {
     function handleSumbit(e) {
         e.preventDefault();
 
-        if (buyer.name.length === 0 || buyer.lastname.length === 0 || buyer.email.length === 0 || buyer.number.length === 0 || buyer.address.length === 0 || buyer.country.length === 0 || buyer.city.length === 0 || buyer.province.length === 0 || buyer.postalCode.length === 0) {
+        if (formBuyer.name.length === 0 || formBuyer.lastname.length === 0 || formBuyer.email.length === 0 || formBuyer.number.length === 0 || formBuyer.address.length === 0 || formBuyer.country.length === 0 || formBuyer.city.length === 0 || formBuyer.province.length === 0 || formBuyer.postalCode.length === 0) {
             setCheckForm(true);
-        }
+            return;
 
+        }
+        const checkoutEL = document.getElementById("checkout");
+        checkoutEL.classList.toggle("d-none");
         axios.post('http://localhost:3000/techs/carrello/pagamento', formBuyer)
             .then(res => {
                 if (res.status === 200) {
@@ -47,10 +50,7 @@ export default function PaymentSection() {
             })
     }
 
-    function handleClick() {
-        const checkoutEL = document.getElementById("checkout");
-        checkoutEL.classList.toggle("d-none");
-    }
+
 
     function totalPrice(price, quantity) {
         return (price * quantity).toFixed(2)
@@ -315,9 +315,17 @@ export default function PaymentSection() {
                                             />
                                         </div>
                                     </div>
+                                    <p className="terms ps-0 pt-3 m-0">Termini e condizioni *</p>
+                                    <div className="form-check">
+
+                                        <input className="form-check-input" type="checkbox" value="" id="checkDefault" required />
+                                        <label className="form-check-label" htmlFor="checkDefault">
+                                            Accetta per continuare
+                                        </label>
+                                    </div>
                                     <div className="pay-recap">
                                         <span style={{ color: 'white' }}>* Campi obbligatori</span>
-                                        <button type="submit" className="payment-button" onClick={handleClick}>PROCEDI ALL'ORDINE</button>
+                                        <button type="submit" className="payment-button">PROCEDI ALL'ORDINE</button>
                                         {/* <button className="confirm-button">CONFERMA PAGAMENTO</button> */}
                                     </div>
                                 </div>

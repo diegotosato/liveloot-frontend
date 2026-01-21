@@ -1811,6 +1811,10 @@ a {
   justify-content: center;
 }
 
+.terms {
+  color: var(--color-fuchsia);
+}
+
 .main-wrapper {
   display: flex;
   justify-content: center;
