@@ -8,7 +8,7 @@ export default function PaymentSection() {
 
     const { cart } = useGlobalContext()
     const [checkForm, setCheckForm] = useState(false);
-
+    const [terms, setTerms] = useState(false);
 
 
     const buyer = {
@@ -31,7 +31,7 @@ export default function PaymentSection() {
     function handleSumbit(e) {
         e.preventDefault();
 
-        if (formBuyer.name.length === 0 || formBuyer.lastname.length === 0 || formBuyer.email.length === 0 || formBuyer.number.length === 0 || formBuyer.address.length === 0 || formBuyer.country.length === 0 || formBuyer.city.length === 0 || formBuyer.province.length === 0 || formBuyer.postalCode.length === 0) {
+        if (formBuyer.name.length === 0 || formBuyer.lastname.length === 0 || formBuyer.email.length === 0 || formBuyer.number.length === 0 || formBuyer.address.length === 0 || formBuyer.country.length === 0 || formBuyer.city.length === 0 || formBuyer.province.length === 0 || formBuyer.postalCode.length === 0 || !terms) {
             setCheckForm(true);
             return;
 
@@ -317,12 +317,23 @@ export default function PaymentSection() {
                                     </div>
                                     <p className="terms ps-0 pt-3 m-0">Termini e condizioni *</p>
                                     <div className="form-check">
-
-                                        <input className="form-check-input" type="checkbox" value="" id="checkDefault" required />
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            value={terms}
+                                            id="checkDefault"
+                                            onChange={(e) => setTerms(e.target.checked)} />
                                         <label className="form-check-label" htmlFor="checkDefault">
                                             Accetta per continuare
                                         </label>
                                     </div>
+                                    {
+                                        checkForm && !terms
+                                            ? <p className="text-danger p-0"><i className="bi bi-exclamation-lg">
+                                            </i>Accetta i termini per proseguire
+                                            </p>
+                                            : ''
+                                    }
                                     <div className="pay-recap">
                                         <span style={{ color: 'white' }}>* Campi obbligatori</span>
                                         <button type="submit" className="payment-button">PROCEDI ALL'ORDINE</button>
