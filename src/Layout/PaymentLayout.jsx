@@ -8,7 +8,7 @@ import Loader from "../components/Loader";
 
 const stripeKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
 
-const stripePromise = loadStripe(stripeKey);
+const stripePromise = loadStripe(stripeKey, { developerTools: { assistant: { enabled: false } } });
 
 export default function PaymentLayout() {
 
