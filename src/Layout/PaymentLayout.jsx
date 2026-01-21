@@ -3,6 +3,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState, useEffect } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
+import Loader from "../components/Loader";
 
 
 const stripeKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
@@ -11,8 +12,7 @@ const stripePromise = loadStripe(stripeKey);
 
 export default function PaymentLayout() {
 
-    const { cart, setLoading } = useGlobalContext()
-
+    const { cart } = useGlobalContext()
 
     const [clientSecret, setClientSecret] = useState(null);
 
@@ -42,9 +42,13 @@ export default function PaymentLayout() {
     const loader = 'auto';
 
     if (!clientSecret) {
-        return <div className="loader_div">
-            <h1>in caricamento</h1>
-        </div>
+        return <div className="back-gradient vh-100 d-flex align-items-center justify-content-center">
+            <div className="sphere sphere-purple sphere-bigger"></div>
+            <div className="sphere sphere-red sphere-medium"></div>
+            <div className="sphere sphere-blue sphere-smaller"></div>
+            <div className="sphere sphere-red sphere-smaller "></div>
+            <Loader />
+        </div>;
     }
 
 

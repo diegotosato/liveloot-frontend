@@ -4,6 +4,7 @@ import {
 } from "@stripe/react-stripe-js";
 import "../App.css";
 import { NavLink } from "react-router-dom";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const SuccessIcon =
   <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,9 +47,10 @@ const STATUS_CONTENT_MAP = {
 };
 
 export default function CompletePage() {
+  const { status, setStatus, clearCart } = useGlobalContext();
   const stripe = useStripe();
 
-  const [status, setStatus] = useState("default");
+
   const [intentId, setIntentId] = useState(null);
 
   useEffect(() => {
@@ -71,8 +73,14 @@ export default function CompletePage() {
 
       setStatus(paymentIntent.status);
       setIntentId(paymentIntent.id);
+
+      if (paymentIntent.status === "succeeded") {
+        clearCart();
+      }
+
     });
   }, [stripe]);
+
 
   return (
     <>

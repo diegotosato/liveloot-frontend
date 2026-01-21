@@ -17,6 +17,7 @@ function GlobalProvider({ children }) {
     });
     const [cartProducts, setCartProducts] = useState([])
     const [cartTotalPrice, setCartTotalPrice] = useState(0)
+    const [status, setStatus] = useState("default");
     const addToCart = (product, quantity) => {
         setCart(prev => {
             const existing = prev.find(cartProd => cartProd.id === product.id);
@@ -26,11 +27,15 @@ function GlobalProvider({ children }) {
                     cartProd.id === product.id
                         ? { ...cartProd, quantity: quantity }
                         : cartProd
-                );
+                )
             }
-
             return [...cart, { ...product, quantity }];
         });
+    };
+
+    const clearCart = () => {
+        setCart([]);
+        localStorage.removeItem("cart");
     };
 
     const values = {
@@ -50,7 +55,10 @@ function GlobalProvider({ children }) {
         cartProducts,
         setCartProducts,
         cartTotalPrice,
-        setCartTotalPrice
+        setCartTotalPrice,
+        status,
+        setStatus,
+        clearCart
     };
 
     useEffect(() => {

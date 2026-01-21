@@ -31,7 +31,6 @@
   margin-bottom: auto;
 }
 
-
 #payment-message {
   color: rgb(105, 115, 134);
   font-size: 16px;
@@ -63,7 +62,7 @@
   &:hover {
     filter: contrast(115%);
   }
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: default;
@@ -157,7 +156,7 @@
 #status-text {
   margin: 0;
   color: white !important;
-  text-shadow: 0 0 10px var(--color-fuchsia) ;
+  text-shadow: 0 0 10px var(--color-fuchsia);
   text-align: center;
 }
 
@@ -167,10 +166,11 @@
   font-weight: 600;
   font-family: Arial, sans-serif;
   display: block;
- &:hover {
+
+  &:hover {
     filter: contrast(120%);
   }
- }
+}
 
 #details-table {
   overflow-x: auto;
@@ -182,17 +182,22 @@ table {
   font-size: 14px;
   border-collapse: collapse;
 }
+
 table tbody tr:first-child td {
-  border-top: 1px solid #E6E6E6; /* Top border */
+  border-top: 1px solid #E6E6E6;
+  /* Top border */
   padding-top: 10px;
 }
+
 table tbody tr:last-child td {
-  border-bottom: 1px solid #E6E6E6; /* Bottom border */
+  border-bottom: 1px solid #E6E6E6;
+  /* Bottom border */
 }
+
 td {
   padding-bottom: 10px;
   color: white !important;
-  text-shadow: 0 0 10px var(--color-fuchsia) ;
+  text-shadow: 0 0 10px var(--color-fuchsia);
 }
 
 .TableContent {
@@ -217,13 +222,13 @@ td {
   transition: all 0.3s linear;
 
   padding: 10px;
- 
+
 
   &:hover {
-  color: var(--color-blue);
-  background-color: var(--color-lightblue);
-  border: 1px solid var(--color-blue);
-}
+    color: var(--color-blue);
+    background-color: var(--color-lightblue);
+    border: 1px solid var(--color-blue);
+  }
 }
 
 
@@ -232,19 +237,23 @@ td {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
+
 @keyframes fadeInAnimation {
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  form, #payment-status {
+
+  form,
+  #payment-status {
     width: 80vw;
     min-width: initial;
   }
