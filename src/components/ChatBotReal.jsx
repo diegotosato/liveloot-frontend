@@ -80,8 +80,12 @@ export default function ChatBotReal({ products }) {
             <div className="fixed-bottom chat-container z-3">
 
                 <div className="card chat-card-spacing z-3 d-none mt-4 p-0" id="chat-window">
-                    <div className="card-header chat-name">
-                        Parla con Ambrogio,<br /> il tuo assistente personale
+                    <div className="card-header chat-name d-flex justify-content-between">
+                        <p>
+                            Parla con Ambrogio,<br /> il tuo assistente personale
+
+                        </p>
+                        <button className="btn-close-chat rounded-pill" onClick={() => handleChatOpen()}>Chiudi Chat</button>
                     </div>
                     <div className="card-body d-flex flex-column justify-content-between">
                         <select className="form-select mb-3 rounded-pill chat-select" aria-label="Default select example" onChange={(e) => setContext(e.target.value)}>
@@ -114,7 +118,7 @@ export default function ChatBotReal({ products }) {
                             <form className="chat-form d-flex" onSubmit={handleChatSubmit}>
                                 <input className="form-control rounded-pill chat-select" type="text" placeholder="Chat" value={message} onChange={(e) => { setMessage(e.target.value) }} />
                             </form>
-                            <button className="btn-close-chat rounded-pill" onClick={() => handleChatOpen()}>Close Chat</button>
+
                         </div>
                     </div>
                 </div>
