@@ -29,6 +29,32 @@
   padding: 40px;
   margin-top: auto;
   margin-bottom: auto;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  #payment-form {
+    width: 90%;
+    min-width: auto;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  #payment-form {
+    width: 95%;
+    min-width: auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  #payment-form {
+    width: 100%;
+    min-width: auto;
+    padding: 15px;
+    margin: 0;
+  }
 }
 
 #payment-message {

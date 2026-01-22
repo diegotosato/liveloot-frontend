@@ -85,11 +85,13 @@ export default function CompletePage() {
   return (
     <>
       <div className="back-gradient vh-100 d-flex align-items-center">
+
         <div className="sphere sphere-purple sphere-bigger"></div>
         <div className="sphere sphere-red sphere-medium"></div>
         <div className="sphere sphere-blue sphere-smaller"></div>
         <div className="sphere sphere-red sphere-smaller "></div>
-        <div id="payment-status" className="container">
+
+        <div id="payment-status" className="container card">
           <div id="status-icon" style={{ backgroundColor: STATUS_CONTENT_MAP[status].iconColor }}>
             {STATUS_CONTENT_MAP[status].icon}
           </div>

@@ -50,12 +50,12 @@ export default function CheckoutForm() {
   }
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit} className="container">
+    <form id="payment-form" onSubmit={handleSubmit} className="container card mt-5 pt-5">
 
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+          {isLoading ? <div className="spinner" id="spinner"></div> : "Paga ora"}
         </span>
       </button>
       {/* Show any error or success messages */}

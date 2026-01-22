@@ -347,7 +347,7 @@ export default function PaymentSection() {
 
                         </div>
                     </form>
-                    <div id="checkout" className="d-none">
+                    <div id="checkout" className="d-none mt-4 pt-4">
                         <CheckoutForm />
                     </div>
                 </section>
